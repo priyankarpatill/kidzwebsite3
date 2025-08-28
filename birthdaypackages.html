@@ -1,0 +1,3298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Kidz - Birthday Packages</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    
+    <style>
+        /* Birthday Packages Custom Styles */
+        .package-card {
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        .package-card.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .package-header {
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .silver .package-header {
+            background: linear-gradient(135deg, #bdc3c7 0%, #2c3e50 100%);
+        }
+        
+        .gold .package-header {
+            background: linear-gradient(135deg, #D4AF37 0%, #BF953F 100%);
+        }
+        
+        .platinum .package-header {
+            background: linear-gradient(135deg, #e5e4e2 0%, #5D6D7E 100%);
+        }
+        
+        .package-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .silver .package-icon {
+            animation-delay: 0.5s;
+            color: #C0C0C0;
+        }
+        
+        .gold .package-icon {
+            animation-delay: 1s;
+            color: #FFD700;
+        }
+        
+        .platinum .package-icon {
+            animation-delay: 1.5s;
+            color: #E5E4E2;
+        }
+        
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .package-features {
+            padding: 20px;
+            margin: 0;
+        }
+        
+        .package-features ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        
+        .package-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f1f1;
+            display: flex;
+            align-items: center;
+        }
+        
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .package-features li i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .silver .package-features li i {
+            color: #2c3e50;
+        }
+        
+        .gold .package-features li i {
+            color: #D4AF37;
+        }
+        
+        .platinum .package-features li i {
+            color: #5D6D7E;
+        }
+        
+        .book-now-btn {
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            margin: 20px;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .silver .book-now-btn {
+            background: linear-gradient(135deg, #bdc3c7 0%, #2c3e50 100%);
+            color: white;
+        }
+        
+        .gold .book-now-btn {
+            background: linear-gradient(135deg, #D4AF37 0%, #BF953F 100%);
+            color: white;
+        }
+        
+        .platinum .book-now-btn {
+            background: linear-gradient(135deg, #e5e4e2 0%, #5D6D7E 100%);
+            color: #2c3e50;
+        }
+        
+        .book-now-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+        
+        .package-highlight {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #ff5252;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transform: rotate(10deg);
+            animation: pulse 2s infinite;
+        }
+        
+        h5 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #ff5252;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+            }
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            opacity: 0;
+            z-index: 1000;
+            animation: confettiFall 5s linear forwards;
+        }
+        
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .page-header {
+            background: linear-gradient(rgba(25, 35, 45, 0.8), rgba(25, 35, 45, 0.8)), url('img/birthday-header.jpg') center center no-repeat;
+            background-size: cover;
+        }
+        
+        .equal-height {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .equal-height .col-md-4 {
+            display: flex;
+        }
+        
+        .h-100 {
+            height: 100%;
+        }
+        
+        /* Decoration Options Styles */
+        .decoration-section {
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+        
+        .decoration-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            text-align: center;
+        }
+        
+        .decoration-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .decoration-content {
+            padding: 25px;
+        }
+        
+        .decoration-content h4 {
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .decoration-content ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        
+        .decoration-content li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f1f1f1;
+        }
+        
+        .decoration-content li:last-child {
+            border-bottom: none;
+        }
+        
+        .price-tag {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff5252;
+            margin: 0;
+        }
+        
+        /* Registration Form Styles */
+        .registration-form {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 60px 0;
+            border-radius: 15px;
+            margin: 60px 0;
+        }
+        
+        .form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        .form-control {
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #eee;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .form-check-input:checked {
+            background-color: #667eea;
+            border-color: #667eea;
+        }
+        
+        /* Countdown Timer */
+        .countdown {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        
+        .countdown-text {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        
+        .heading_container.heading_center {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .heading_container.heading_center h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .heading_container.heading_center p {
+            font-size: 1.2rem;
+            color: white;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+<style>
+    /* Reduced spacing for all sections */
+    .decoration-section,
+    .registration-form,
+    .rules-section,
+    .how-it-works,
+    .catering-section {
+        padding: 5px 0 !important;
+        margin: 5px 0 !important;
+    }
+
+    /* Reduce container padding */
+    .container-xxl.py-5 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    /* Reduce heading margins */
+    .heading_container.heading_center.mb-5 {
+        margin-bottom: 2rem !important;
+    }
+
+    /* Reduce card spacing */
+    .package-card,
+    .decoration-card,
+    .catering-card {
+        margin-bottom: 1.5rem;
+    }
+
+    /* Reduce form container padding */
+    .form-container {
+        padding: 5px !important;
+    }
+
+    /* Reduce additional info section padding */
+    .bg-light.rounded.p-5 {
+        padding: 2rem !important;
+    }
+
+    /* Reduce countdown margin */
+    .countdown {
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* Reduce step card padding */
+    .step-card {
+        padding: 10px 5px !important;
+    }
+
+    /* Reduce catering content padding */
+    .catering-content {
+        padding: 5px !important;
+    }
+</style>
+    
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
+            <a href="index.html" class="navbar-brand">
+                <img src="img/imges/Kidzzilla logo[1].png" alt="Kider Logo" style="height:90px;">
+            </a>
+
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About Us</a>
+                    <a href="./birthdaypackages.html" class="nav-item nav-link">Birthday Packages</a>
+                  <!-- <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
+                            <a href="facility.html" class="dropdown-item">School Facilities</a>
+                            <a href="team.html" class="dropdown-item">Popular Teachers</a>
+                            <a href="call-to-action.html" class="dropdown-item">Become A Teachers</a>
+                            <a href="appointment.html" class="dropdown-item">Make Appointment</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <a href="404.html" class="dropdown-item">404 Error</a>
+                        </div>
+                    </div> -->
+                    <a href="./packages.html" class="nav-item nav-link">Packages</a> 
+<a href="./daycare.html" class="nav-item nav-link active">Daycare</a>
+                    <a href="gallery.html" class="nav-item nav-link">Gallery</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                </div>
+                <a href="" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Offers<i class="fa fa-arrow-right ms-3"></i></a>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+
+        <!-- Page Header End -->
+        <div class="container-xxl py-5 page-header position-relative mb-5">
+            <div class="container py-5">
+                <h1 class="display-2 text-white animated slideInDown mb-4">Birthday Packages</h1>
+                <nav aria-label="breadcrumb animated slideInDown">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Birthday Packages</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!-- Page Header End -->
+
+        <!-- Birthday Packages Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">Amazing Birthday Packages</h1>
+                    <p>Make your child's special day unforgettable with our themed birthday packages designed for fun, laughter, and lasting memories!</p>
+                </div>
+                
+                <!-- Special Offer Countdown -->
+                <div class="row justify-content-center mb-5 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="col-md-8">
+                        <div class="countdown">
+                            <h3 class="text-white mb-3">Special Offer! Book Now and Get 15% Off</h3>
+                            <div class="d-flex justify-content-around">
+                                <div>
+                                    <div class="countdown-number" id="days">00</div>
+                                    <div class="countdown-text">Days</div>
+                                </div>
+                                <div>
+                                    <div class="countdown-number" id="hours">00</div>
+                                    <div class="countdown-text">Hours</div>
+                                </div>
+                                <div>
+                                    <div class="countdown-number" id="minutes">00</div>
+                                    <div class="countdown-text">Minutes</div>
+                                </div>
+                                <div>
+                                    <div class="countdown-number" id="seconds">00</div>
+                                    <div class="countdown-text">Seconds</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+          
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        
+        .packages-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .package-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .package-header {
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .package-highlight {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .package-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+        
+        .package-price {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        
+        .package-features {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .package-features ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+        
+        .package-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .package-features li i {
+            margin-right: 10px;
+        }
+        
+        .package-features h5 {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            color: #555;
+            font-weight: bold;
+        }
+        
+        .book-now-btn {
+            display: inline-block;
+            background: #fff;
+            color: #333;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .book-now-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Silver Package */
+        .silver .package-header {
+            background: linear-gradient(135deg, #c0c0c0, #8e8e8e);
+        }
+        
+        .silver .package-features li i.fa-check {
+            color: #8e8e8e;
+        }
+        
+        .silver .book-now-btn {
+            background: #8e8e8e;
+            color: white;
+        }
+        
+        /* Gold Package */
+        .gold .package-header {
+            background: linear-gradient(135deg, #ffd700, #daa520);
+        }
+        
+        .gold .package-features li i.fa-check {
+            color: #daa520;
+        }
+        
+        .gold .book-now-btn {
+            background: #daa520;
+            color: white;
+        }
+        
+        /* Platinum Package */
+        .platinum .package-header {
+            background: linear-gradient(135deg, #e5e4e2, #a9a8a6);
+        }
+        
+        .platinum .package-features li i.fa-check {
+            color: #a9a8a6;
+        }
+        
+        .platinum .book-now-btn {
+            background: #a9a8a6;
+            color: white;
+        }
+        
+        /* Make all cards the same height */
+        .equal-height {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .equal-height > .col-md-4 {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Ensure consistent button placement */
+        .package-button-container {
+            margin-top: auto;
+            padding: 0 25px 25px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title p {
+            font-size: 18px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+
+    <div class="packages-container">
+        <div class="section-title">
+            <h2>Make Your Child's Birthday Special</h2>
+            <p>All our birthday packages include set-up, clean-up, and dedicated party hosts to ensure your child has an amazing celebration while you relax and enjoy the special moments.</p>
+        </div>
+        
+        <div class="row equal-height">
+            <!-- Silver Package -->
+            <div class="col-md-4">
+                <div class="package-card silver h-100">
+                    <div class="package-header">
+                        <div class="package-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3 class="text-white mb-3">Silver Package</h3>
+                        <div class="package-price">₹5,999/-</div>
+                        <p class="text-white">Perfect for intimate celebrations</p>
+                    </div>
+                    <div class="package-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Party Hall</li>
+                            <li><i class="fas fa-check"></i> 5 Session's free voucher access for Birthday Baby</li>
+                            <li><i class="fas fa-check"></i> 10 Chairs & 1 Table can be provided</li>
+                            <li><i class="fas fa-check"></i> Tablet Set up for Cakes</li>
+                            <li><i class="fas fa-check"></i> Cleaning</li>
+                        </ul>
+                        <h5>Package Excludes</h5>
+                        <ul>
+                            <li><i class="fas fa-times"></i> Entry of the kids in play zone is chargeable</li>
+                            <li><i class="fas fa-times"></i> Tent house supplier item are chargeable</li>
+                            <li><i class="fas fa-times"></i> Snacks, Lunch & Dinner is Chargeable based on the requirement</li>
+                            <li><i class="fas fa-times"></i> Decoration can be discussed with the vendor directly</li>
+                            <li><i class="fas fa-times"></i> Full block of the venue will be charged accordingly</li>
+                        </ul>
+                    </div>
+                    <div class="package-button-container text-center">
+                        <a href="#registration" class="book-now-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gold Package -->
+            <div class="col-md-4">
+                <div class="package-card gold h-100">
+                    <div class="package-header">
+                        <span class="package-highlight">Popular</span>
+                        <div class="package-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3 class="text-white mb-3">Gold Package</h3>
+                        <div class="package-price">₹9,999/-</div>
+                        <p class="text-white">Great value for medium celebrations</p>
+                    </div>
+                    <div class="package-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Party Hall</li>
+                            <li><i class="fas fa-check"></i> Photographer 1 Hr</li>
+                            <li><i class="fas fa-check"></i> 10 Session free Voucher access for Play Birthday Baby</li>
+                            <li><i class="fas fa-check"></i> 10 Kids for free access in Play Zone for 3 Hrs.</li>
+                            <li><i class="fas fa-check"></i> Mic & Speaker</li>
+                            <li><i class="fas fa-check"></i> Softcopy of photos will be provided</li>
+                            <li><i class="fas fa-check"></i> 20 Chairs & 1 Table can be provided</li>
+                            <li><i class="fas fa-check"></i> Tablet Set up for Cakes</li>
+                            <li><i class="fas fa-check"></i> Cleaning</li>
+                        </ul>
+                        <h5>Package Excludes</h5>
+                        <ul>
+                            <li><i class="fas fa-times"></i> Extra Kids will be charged beyond 5 kids</li>
+                            <li><i class="fas fa-times"></i> Snacks, Lunch and Dinner is chargeable based on the requirement</li>
+                            <li><i class="fas fa-times"></i> Decoration can be discussed with the vendor directly</li>
+                            <li><i class="fas fa-times"></i> Full block of the venue will be charged accordingly</li>
+                        </ul>
+                    </div>
+                    <div class="package-button-container text-center">
+                        <a href="#registration" class="book-now-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Platinum Package -->
+            <div class="col-md-4">
+                <div class="package-card platinum h-100">
+                    <div class="package-header">
+                        <span class="package-highlight">Best Value</span>
+                        <div class="package-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="text-white mb-3">Platinum Package</h3>
+                        <div class="package-price">₹14,999/-</div>
+                        <p class="text-white">Premium package for unforgettable celebrations</p>
+                    </div>
+                    <div class="package-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Party Hall</li>
+                            <li><i class="fas fa-check"></i> Photographer 1 Hr</li>
+                            <li><i class="fas fa-check"></i> 1 Month free Voucher access for Play zone for Birthday Baby</li>
+                            <li><i class="fas fa-check"></i> 15 Kids for free access in Play Zone for 3hrs.</li>
+                            <li><i class="fas fa-check"></i> 30 Chairs & 3 Tables can be provided</li>
+                            <li><i class="fas fa-check"></i> Mic & Speaker</li>
+                            <li><i class="fas fa-check"></i> Softcopy of photos will be provided</li>
+                            <li><i class="fas fa-check"></i> Snacks for 15 Members</li>
+                            <li><i class="fas fa-check"></i> Tablet Set up for Cakes</li>
+                            <li><i class="fas fa-check"></i> Basic Decoration</li>
+                            <li><i class="fas fa-check"></i> Cleaning</li>
+                        </ul>
+                        <h5>Package Excludes</h5>
+                        <ul>
+                            <li><i class="fas fa-times"></i> Extra Kids will be charged beyond 15 kids</li>
+                            <li><i class="fas fa-times"></i> Lunch and Dinner is chargeable based on the requirement</li>
+                            <li><i class="fas fa-times"></i> Extra Snacks will be charged.</li>
+                            <li><i class="fas fa-times"></i> Customised Decoration will be charged extra.</li>
+                            <li><i class="fas fa-times"></i> Full block of the venue will be charged accordingly</li>
+                        </ul>
+                    </div>
+                    <div class="package-button-container text-center">
+                        <a href="#registration" class="book-now-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    
+
+ <!-- Registration Form Section -->
+        <section id="registration" class="registration-form">
+            <div class="container-xxl py-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="form-container wow fadeInUp" data-wow-delay="0.1s">
+                                <h2 class="form-title" style="color: black;">Book Your Birthday Party</h2>
+                                <p class="text-center mb-4">Fill out the form below and we'll get back to you within 24 hours to confirm your booking</p>
+                                
+                                <form id="birthdayBookingForm">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Your Name" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" placeholder="Your Email" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="tel" class="form-control" placeholder="Your Phone" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Child's Name" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="number" class="form-control" placeholder="Child's Age" min="1" max="12" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="number" class="form-control" placeholder="Number of Guests" min="5" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="date" class="form-control" placeholder="Preferred Date" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <select class="form-control" required>
+                                                    <option value="">Select a Package</option>
+                                                    <option value="silver">Silver Package (₹5,999)</option>
+                                                    <option value="gold">Gold Package (₹9,999)</option>
+                                                    <option value="platinum">Platinum Package (₹14,999)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <select class="form-control">
+                                            <option value="">Select a Decoration Option (Optional)</option>
+                                            <option value="basic">Basic Decoration (₹3,799)</option>
+                                            <option value="theme">Theme Decoration (₹6,999)</option>
+                                            <option value="premium">Premium Decoration (₹11,999)</option>
+                                            <option value="none">Coustom Decoration</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <textarea class="form-control" rows="4" placeholder="Special Requests or Additional Information"></textarea>
+                                    </div>
+                                    
+                                    <div class="form-check mb-4">
+                                        <input class="form-check-input" type="checkbox" id="termsCheck" required>
+                                        <label class="form-check-label" for="termsCheck">
+                                            I agree to the terms and conditions
+                                        </label>
+                                    </div>
+                                    
+                                    <button type="submit" class="submit-btn">Submit Booking Request</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                <!-- Additional Info Section -->
+                <div class="row mt-5">
+                    <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="bg-light rounded p-5">
+                            <h2 class="mb-4">Make Your Child's Birthday Special</h2>
+                            <p class="mb-4">All our birthday packages include set-up, clean-up, and dedicated party hosts to ensure your child has an amazing celebration while you relax and enjoy the special moments.</p>
+                            <div class="row g-4">
+                                <div class="col-sm-6">
+                                    <div class="d-flex align-items-center">
+                                        <div class="btn-lg-square bg-primary rounded-circle me-3">
+                                            <i class="fa fa-check text-white"></i>
+                                        </div>
+                                        <h5 class="mb-0">Safe and Supervised Environment</h5>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="d-flex align-items-center">
+                                        <div class="btn-lg-square bg-primary rounded-circle me-3">
+                                            <i class="fa fa-check text-white"></i>
+                                        </div>
+                                        <h5 class="mb-0">Age-Appropriate Activities</h5>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="d-flex align-items-center">
+                                        <div class="btn-lg-square bg-primary rounded-circle me-3">
+                                            <i class="fa fa-check text-white"></i>
+                                        </div>
+                                        <h5 class="mb-0">Customizable Options Available</h5>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="d-flex align-items-center">
+                                        <div class="btn-lg-square bg-primary rounded-circle me-3">
+                                            <i class="fa fa-check text-white"></i>
+                                        </div>
+                                        <h5 class="mb-0">Convenient Weekend Time Slots</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Birthday Packages End -->
+
+        <!-- Decoration Options Section -->
+        <section class="decoration-section py-5">
+            <div class="container">
+                <div class="heading_container heading_center mb-5">
+                    <h2 style="color: black;">🎉 Decoration Options</h2>
+                    <p style="color: black;">Choose from our beautiful decoration themes to make your event truly magical!</p>
+                </div>
+
+                <div class="row">
+                    <!-- Basic Decoration -->
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="decoration-card">
+                            <div class="decoration-content">
+                                <h4>Basic Decoration</h4>
+                                <ul>
+                                    <li>🎈 Balloon Arch</li>
+                                    <li>✨ Backdrop Stand</li>
+                                    <li>🌸 Simple Table Setup</li>
+                                </ul>
+                                <p class="price-tag">₹3,799/-</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Theme Decoration -->
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="decoration-card">
+                            <div class="decoration-content">
+                                <h4>Theme Decoration</h4>
+                                <ul>
+                                    <li>🎨 Customized Theme</li>
+                                    <li>🎈 Balloon Pillars & Arch</li>
+                                    <li>💡 LED Backdrop Lighting</li>
+                                </ul>
+                                <p class="price-tag">₹6,999/-</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Premium Decoration -->
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="decoration-card">
+                            <div class="decoration-content">
+                                <h4>Premium Decoration</h4>
+                                <ul>
+                                    <li>🎭 Customized Stage Setup</li>
+                                    <li>🌺 Flower & Balloon Combo</li>
+                                    <li>🎉 Premium Lighting & Props</li>
+                                </ul>
+                                <p class="price-tag">₹11,999/-</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-5">
+                    <a href="#registration" class="btn btn-light btn-lg rounded-pill px-5" style="background-color: lightcoral;">Add Decoration to Your Package</a>
+                </div>
+            </div>
+        </section>
+
+       
+
+        <!-- Rules & Regulations Section -->
+<section class="rules-section py-5">
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="heading_container heading_center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <h2 style="color: black;">📋 Rules & Regulations</h2>
+                <p style="color: black;">Please review our policies to ensure a smooth and enjoyable celebration for everyone</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="rules-accordion" id="rulesAccordion">
+                        <!-- Rule 1 -->
+                        <div class="rules-card wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="rules-header" id="ruleHeading1">
+                                <h3 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#ruleCollapse1" aria-expanded="true" aria-controls="ruleCollapse1">
+                                        <i class="fas fa-clock me-3"></i> Booking & Timing Policy
+                                        <i class="fas fa-chevron-down float-end"></i>
+                                    </button>
+                                </h3>
+                            </div>
+                            <div id="ruleCollapse1" class="collapse show" aria-labelledby="ruleHeading1" data-bs-parent="#rulesAccordion">
+                                <div class="rules-body">
+                                    <ul>
+                                        <li>Bookings must be made at least 7 days in advance</li>
+                                        <li>Parties are limited to 3-hour time slots</li>
+                                        <li>Additional time will be charged at ₹1,000 per hour</li>
+                                        <li>Setup and cleanup time is included in your booking</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Rule 2 -->
+                        <div class="rules-card wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="rules-header" id="ruleHeading2">
+                                <h3 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ruleCollapse2" aria-expanded="false" aria-controls="ruleCollapse2">
+                                        <i class="fas fa-users me-3"></i> Guest Policy
+                                        <i class="fas fa-chevron-down float-end"></i>
+                                    </button>
+                                </h3>
+                            </div>
+                            <div id="ruleCollapse2" class="collapse" aria-labelledby="ruleHeading2" data-bs-parent="#rulesAccordion">
+                                <div class="rules-body">
+                                    <ul>
+                                        <li>Maximum capacity is 50 guests including children</li>
+                                        <li>Additional guests beyond package limits will be charged ₹250 per person</li>
+                                        <li>At least one adult must remain present throughout the party</li>
+                                        <li>All children must be supervised by their parents/guardians</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Rule 3 -->
+                        <div class="rules-card wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="rules-header" id="ruleHeading3">
+                                <h3 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ruleCollapse3" aria-expanded="false" aria-controls="ruleCollapse3">
+                                        <i class="fas fa-utensils me-3"></i> Food & Beverage Policy
+                                        <i class="fas fa-chevron-down float-end"></i>
+                                    </button>
+                                </h3>
+                            </div>
+                            <div id="ruleCollapse3" class="collapse" aria-labelledby="ruleHeading3" data-bs-parent="#rulesAccordion">
+                                <div class="rules-body">
+                                    <ul>
+                                        <li>Outside food and beverages are not permitted</li>
+                                        <li>Special dietary requirements must be communicated 48 hours in advance</li>
+                                        <li>Alcohol is strictly prohibited on the premises</li>
+                                        <li>Cake cutting service is included in all packages</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Rule 4 -->
+                        <div class="rules-card wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="rules-header" id="ruleHeading4">
+                                <h3 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ruleCollapse4" aria-expanded="false" aria-controls="ruleCollapse4">
+                                        <i class="fas fa-gift me-3"></i> Decorations & Supplies
+                                        <i class="fas fa-chevron-down float-end"></i>
+                                    </button>
+                                </h3>
+                            </div>
+                            <div id="ruleCollapse4" class="collapse" aria-labelledby="ruleHeading4" data-bs-parent="#rulesAccordion">
+                                <div class="rules-body">
+                                    <ul>
+                                        <li>Confetti, glitter, and piñatas are not permitted</li>
+                                        <li>Decorations must not be attached to walls with tape or nails</li>
+                                        <li>All decorations must be removed at the end of the event</li>
+                                        <li>Any damage to property will incur repair/replacement charges</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Rule 5 -->
+                        <div class="rules-card wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="rules-header" id="ruleHeading5">
+                                <h3 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ruleCollapse5" aria-expanded="false" aria-controls="ruleCollapse5">
+                                        <i class="fas fa-credit-card me-3"></i> Payments & Cancellations
+                                        <i class="fas fa-chevron-down float-end"></i>
+                                    </button>
+                                </h3>
+                            </div>
+                            <div id="ruleCollapse5" class="collapse" aria-labelledby="ruleHeading5" data-bs-parent="#rulesAccordion">
+                                <div class="rules-body">
+                                    <ul>
+                                        <li>50% advance payment required to confirm booking</li>
+                                        <li>Full payment due 7 days before the event</li>
+                                        <li>Cancellations 14+ days in advance: full refund</li>
+                                        <li>Cancellations 7-13 days in advance: 50% refund</li>
+                                        <li>Cancellations less than 7 days in advance: no refund</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-5 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="rulesAgreement">
+                            <label class="form-check-label" for="rulesAgreement">
+                                I have read and agree to the rules and regulations
+                            </label>
+                        </div>
+                        <button id="proceedToBooking" class="btn btn-primary btn-lg rounded-pill px-5 mt-3" disabled>
+                            Proceed to Booking <i class="fas fa-arrow-right ms-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="how-it-works py-5">
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="heading_container heading_center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <h2 style="color: black;">How It Works</h2>
+                <p style="color: black;">Simple steps to plan your perfect party</p>
+            </div>
+
+            <div class="row">
+                <!-- Step 1 -->
+                <div class="col-md-3 col-sm-6 mb-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="step-card text-center">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h4>Choose Package</h4>
+                        <p>Select the perfect birthday package for your child</p>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="col-md-3 col-sm-6 mb-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="step-card text-center">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h4>Pick Theme</h4>
+                        <p>Choose from our exciting themed decorations</p>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="col-md-3 col-sm-6 mb-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="step-card text-center">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h4>Book Date</h4>
+                        <p>Schedule your party date and time slot</p>
+                    </div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="col-md-3 col-sm-6 mb-4 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="step-card text-center">
+                        <div class="step-number">4</div>
+                        <div class="step-icon">
+                            <i class="fas fa-birthday-cake"></i>
+                        </div>
+                        <h4>Enjoy Party</h4>
+                        <p>Relax while we handle everything for you</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5 wow fadeInUp" data-wow-delay="0.6s">
+                <a href="#registration" class="btn btn-primary btn-lg rounded-pill px-5">
+                    Start Planning Now <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    /* How It Works Section Styles */
+    .how-it-works {
+        background: #f9f9f9;
+        padding: 60px 0;
+        margin: 60px 0;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .step-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+        position: relative;
+        border: 1px solid #eaeaea;
+    }
+    
+    .step-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    }
+    
+    .step-number {
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.2rem;
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    }
+    
+    .step-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: #667eea;
+        display: inline-block;
+        animation: float 3s ease-in-out infinite;
+    }
+    
+    .step-card:nth-child(2) .step-icon {
+        color: #f093fb;
+        animation-delay: 0.5s;
+    }
+    
+    .step-card:nth-child(3) .step-icon {
+        color: #f5576c;
+        animation-delay: 1s;
+    }
+    
+    .step-card:nth-child(4) .step-icon {
+        color: #4facfe;
+        animation-delay: 1.5s;
+    }
+    
+    .step-card h4 {
+        margin-bottom: 15px;
+        color: #333;
+        font-weight: 600;
+    }
+    
+    .step-card p {
+        color: #666;
+        margin-bottom: 0;
+    }
+</style>
+
+
+
+
+<style>
+    /* Rules & Regulations Styles */
+.rules-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.rules-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.rules-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.rules-header {
+    padding: 20px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    cursor: pointer;
+}
+
+.rules-header .btn-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.rules-header .btn-link:not(.collapsed) i.fa-chevron-down {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+.rules-body {
+    padding: 20px;
+}
+
+.rules-body ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rules-body li {
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f1f1;
+    position: relative;
+    padding-left: 25px;
+}
+
+.rules-body li:before {
+    content: "•";
+    color: #f5576c;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 1.5rem;
+}
+
+.rules-body li:last-child {
+    border-bottom: none;
+}
+
+#proceedToBooking {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#proceedToBooking:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 1;
+    }
+    20% {
+        transform: scale(25, 25);
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(40, 40);
+    }
+}
+
+#proceedToBooking:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+}
+
+
+
+
+</style>
+<style>
+    /* Decoration Options Styles - UPDATED */
+    .decoration-section {
+        background: #f9f9f9; /* Light background instead of gradient */
+        padding: 60px 0;
+        margin: 60px 0;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .decoration-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+        text-align: center;
+        border: 1px solid #eaeaea;
+    }
+    
+    .decoration-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+    
+    /* Registration Form Styles - UPDATED */
+    .registration-form {
+        background: #f9f9f9; /* Light background instead of gradient */
+        padding: 60px 0;
+        margin: 60px 0;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .form-container {
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        border: 1px solid #eaeaea;
+    }
+    
+    /* Rules & Regulations Styles - UPDATED */
+    .rules-section {
+        background: #f9f9f9; /* Light background instead of gradient */
+        padding: 60px 0;
+        margin: 60px 0;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .rules-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+        border: 1px solid #eaeaea;
+    }
+    
+    .rules-header {
+        padding: 20px;
+        background: #f8f9fa; /* Light gray background */
+        color: #333; /* Dark text color */
+        cursor: pointer;
+        border-bottom: 1px solid #eaeaea;
+    }
+    
+    .rules-header .btn-link {
+        color: #333; /* Dark text color */
+        text-decoration: none;
+        font-weight: 600;
+        width: 100%;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+</style>
+
+
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFD166;
+            --light: #F7F7F7;
+            --dark: #2B2D42;
+        }
+        
+        body {
+            font-family: 'Comic Neue', cursive;
+            background-color: #f9f9f9;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .kids-catering-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .kids-catering-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%23FFD166" stroke-width="2" stroke-dasharray="5,5"/></svg>');
+            opacity: 0.1;
+        }
+        
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        
+        .floating-element {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.2;
+            animation: floatAround 15s infinite linear;
+        }
+        
+        @keyframes floatAround {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(20px, 40px) rotate(90deg);
+            }
+            50% {
+                transform: translate(40px, 0px) rotate(180deg);
+            }
+            75% {
+                transform: translate(20px, -40px) rotate(270deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+        
+        .section-title {
+            font-family: 'Chewy', cursive;
+            color: var(--dark);
+            text-shadow: 2px 2px 0px var(--accent);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transform-style: preserve-3d;
+            animation: titleBounce 2s ease infinite;
+        }
+        
+        @keyframes titleBounce {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(2deg);
+            }
+        }
+        
+        .section-subtitle {
+            color: var(--dark);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .menu-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            height: 100%;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transform: translateZ(0);
+        }
+        
+        .menu-card:hover {
+            transform: translateY(-10px) rotateY(5deg) scale(1.03);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .menu-card.featured {
+            transform: scale(1.05) translateZ(10px);
+            z-index: 1;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 209, 102, 0.5);
+            animation: featuredGlow 3s infinite alternate;
+        }
+        
+        @keyframes featuredGlow {
+            0% {
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 209, 102, 0.5);
+            }
+            100% {
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 40px rgba(255, 209, 102, 0.8);
+            }
+        }
+        
+        .menu-card.featured:hover {
+            transform: scale(1.05) translateY(-10px) rotateY(5deg) translateZ(15px);
+        }
+        
+        .menu-badge {
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 5px 30px;
+            font-weight: bold;
+            z-index: 2;
+            transform: rotate(45deg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            font-family: 'Chewy', cursive;
+            font-size: 0.9rem;
+        }
+        
+        .menu-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .menu-header::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(30deg);
+            animation: shimmer 3s infinite linear;
+        }
+        
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%) rotate(30deg);
+            }
+            100% {
+                transform: translateX(100%) rotate(30deg);
+            }
+        }
+        
+        .menu-title {
+            font-family: 'Chewy', cursive;
+            font-size: 1.8rem;
+            margin: 0;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+        }
+        
+        .menu-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .menu-content {
+            padding: 25px;
+        }
+        
+        .menu-items {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        
+        .menu-items li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #f1f1f1;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-items li:hover {
+            transform: translateX(5px);
+            color: var(--primary);
+        }
+        
+        .menu-items li:last-child {
+            border-bottom: none;
+        }
+        
+        .menu-items li i {
+            color: var(--secondary);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .menu-footer {
+            padding: 0 25px 25px;
+        }
+        
+        .menu-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: block;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Chewy', cursive;
+            letter-spacing: 1px;
+            transform: translateZ(0);
+        }
+        
+        .menu-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.4s ease;
+        }
+        
+        .menu-btn:hover:before {
+            left: 100%;
+        }
+        
+        .menu-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .addon-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateX(5deg);
+            transition: all 0.5s ease;
+        }
+        
+        .addon-section:hover {
+            transform: perspective(1000px) rotateX(0deg) translateY(-5px);
+        }
+        
+        .addon-title {
+            font-family: 'Chewy', cursive;
+            color: var(--dark);
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            transform: translateZ(10px);
+        }
+        
+        .addon-item {
+            text-align: center;
+            padding: 15px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            background: rgba(78, 205, 196, 0.1);
+            margin-bottom: 15px;
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+            transition: all 0.3s ease;
+        }
+        
+        .addon-item:hover {
+            transform: translateY(-5px) rotate(2deg) translateZ(5px);
+            background: rgba(78, 205, 196, 0.2);
+        }
+        
+        .addon-item h5 {
+            color: var(--dark);
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+        }
+        
+        .custom-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            font-family: 'Chewy', cursive;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateZ(0);
+        }
+        
+        .custom-btn:hover {
+            transform: translateY(-5px) scale(1.05) rotate(2deg);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+        
+        .food-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: inline-block;
+            animation: bounce 2s infinite;
+            transform-style: preserve-3d;
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(10deg);
+            }
+        }
+        
+        .water-note {
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+            color: var(--dark);
+            background: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+            transform: rotate(-1deg);
+        }
+        
+        /* 3D Customization Form */
+        .customization-form {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateX(5deg);
+            transition: all 0.5s ease;
+            display: none;
+        }
+        
+        .customization-form.show {
+            display: block;
+            animation: formAppear 0.5s ease forwards;
+        }
+        
+        @keyframes formAppear {
+            0% {
+                opacity: 0;
+                transform: perspective(1000px) rotateX(45deg) translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: perspective(1000px) rotateX(5deg) translateY(0);
+            }
+        }
+        
+        .form-title {
+            font-family: 'Chewy', cursive;
+            color: var(--dark);
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            transform: translateZ(5px);
+        }
+        
+        .form-label {
+            font-weight: bold;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 12px 15px;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 0.2rem rgba(78, 205, 196, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        .form-check-input:checked {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+        }
+        
+        .submit-form-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: block;
+            width: 100%;
+            font-family: 'Chewy', cursive;
+            letter-spacing: 1px;
+        }
+        
+        .submit-form-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: var(--primary);
+            opacity: 0;
+            z-index: 1000;
+            animation: confettiFall 5s linear forwards;
+        }
+        
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+
+
+    <!-- Kids Catering Section -->
+    <section class="kids-catering-section py-5">
+        <div class="floating-elements">
+            <div class="floating-element" style="top: 10%; left: 5%;"><i class="fas fa-pizza-slice"></i></div>
+            <div class="floating-element" style="top: 20%; right: 10%;"><i class="fas fa-ice-cream"></i></div>
+            <div class="floating-element" style="bottom: 30%; left: 15%;"><i class="fas fa-cookie"></i></div>
+            <div class="floating-element" style="bottom: 10%; right: 5%;"><i class="fas fa-cake"></i></div>
+            <div class="floating-element" style="top: 40%; left: 20%;"><i class="fas fa-candy-cane"></i></div>
+        </div>
+        
+        <div class="container-xxl">
+            <div class="container">
+                <div class="heading_container heading_center mb-4">
+                    <h2 class="section-title">🍕 Kids Party Menu Options</h2>
+                    <p class="section-subtitle">Delicious and fun food options for your little ones' special day!</p>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Option 1 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-card">
+                            <div class="menu-header">
+                                <h3 class="menu-title">Option 1</h3>
+                                <div class="menu-price">₹120/-</div>
+                            </div>
+                            <div class="menu-content">
+                                <ul class="menu-items">
+                                    <li><i class="fas fa-utensils"></i> SAMOSA</li>
+                                    <li><i class="fas fa-bread-slice"></i> FRUIT DANISH/RAISIN & CINNAMON ROLL</li>
+                                    <li><i class="fas fa-sandwich"></i> T/C/L SANDWICH</li>
+                                    <li><i class="fas fa-box-tissue"></i> TISSUE</li>
+                                    <li><i class="fas fa-archive"></i> TOMATO KETCHUP SACHET</li>
+                                </ul>
+                            </div>
+                            <div class="menu-footer">
+                                <button class="menu-btn">Select This Option</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Option 2 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-card featured">
+                            <div class="menu-badge">Popular</div>
+                            <div class="menu-header">
+                                <h3 class="menu-title">Option 2</h3>
+                                <div class="menu-price">₹140/-</div>
+                            </div>
+                            <div class="menu-content">
+                                <ul class="menu-items">
+                                    <li><i class="fas fa-utensils"></i> VEG CUTLET</li>
+                                    <li><i class="fas fa-muffin"></i> FRUIT/BLUEBERRY MUFFINS</li>
+                                    <li><i class="fas fa-sandwich"></i> CHEESE AND TOMATO SANDWICH</li>
+                                    <li><i class="fas fa-box-tissue"></i> TISSUE</li>
+                                    <li><i class="fas fa-archive"></i> TOMATO KETCHUP SACHET</li>
+                                </ul>
+                            </div>
+                            <div class="menu-footer">
+                                <button class="menu-btn">Select This Option</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Option 3 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-card">
+                            <div class="menu-header">
+                                <h3 class="menu-title">Option 3</h3>
+                                <div class="menu-price">₹120/-</div>
+                            </div>
+                            <div class="menu-content">
+                                <ul class="menu-items">
+                                    <li><i class="fas fa-utensils"></i> VEG CROQUETS</li>
+                                    <li><i class="fas fa-doughnut"></i> CHOCOLATE/SUGAR DOUGHNUT</li>
+                                    <li><i class="fas fa-sandwich"></i> JAM & BUTTER SANDWICH</li>
+                                    <li><i class="fas fa-box-tissue"></i> TISSUE</li>
+                                    <li><i class="fas fa-archive"></i> TOMATO KETCHUP SACHET</li>
+                                </ul>
+                            </div>
+                            <div class="menu-footer">
+                                <button class="menu-btn">Select This Option</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Option 4 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-card">
+                            <div class="menu-header">
+                                <h3 class="menu-title">Option 4</h3>
+                                <div class="menu-price">₹130/-</div>
+                            </div>
+                            <div class="menu-content">
+                                <ul class="menu-items">
+                                    <li><i class="fas fa-cookie"></i> SMILES (2Pcs)</li>
+                                    <li><i class="fas fa-cheese"></i> VEG & CHEESE TART</li>
+                                    <li><i class="fas fa-sandwich"></i> CORN AND SPINACH SANDWICH</li>
+                                    <li><i class="fas fa-box-tissue"></i> TISSUE</li>
+                                    <li><i class="fas fa-archive"></i> TOMATO KETCHUP SACHET</li>
+                                </ul>
+                            </div>
+                            <div class="menu-footer">
+                                <button class="menu-btn">Select This Option</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Option 5 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-card">
+                            <div class="menu-header">
+                                <h3 class="menu-title">Option 5</h3>
+                                <div class="menu-price">₹140/-</div>
+                            </div>
+                            <div class="menu-content">
+                                <ul class="menu-items">
+                                    <li><i class="fas fa-potato"></i> POTATO WEDGES</li>
+                                    <li><i class="fas fa-birthday-cake"></i> CARROT CHERRY/BANANA WALNUT CAKE</li>
+                                    <li><i class="fas fa-sandwich"></i> FRUIT SANDWICH</li>
+                                    <li><i class="fas fa-box-tissue"></i> TISSUE</li>
+                                    <li><i class="fas fa-archive"></i> TOMATO KETCHUP SACHET</li>
+                                </ul>
+                            </div>
+                            <div class="menu-footer">
+                                <button class="menu-btn">Select This Option</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Option 7 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-card">
+                            <div class="menu-header">
+                                <h3 class="menu-title">Option 7</h3>
+                                <div class="menu-price">₹130/-</div>
+                            </div>
+                            <div class="menu-content">
+                                <ul class="menu-items">
+                                    <li><i class="fas fa-eggroll"></i> VEG SPRING ROLL (1 Pc)</li>
+                                    <li><i class="fas fa-pizza-slice"></i> VEG CALZONE</li>
+                                    <li><i class="fas fa-sandwich"></i> PARKER SANDWICH</li>
+                                    <li><i class="fas fa-box-tissue"></i> TISSUE</li>
+                                    <li><i class="fas fa-archive"></i> TOMATO KETCHUP SACHET</li>
+                                </ul>
+                            </div>
+                            <div class="menu-footer">
+                                <button class="menu-btn">Select This Option</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+             
+
+                <!-- Customization Form -->
+                <div class="customization-form" id="customizationForm">
+                    <h3 class="form-title">Customize Your Package</h3>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">Your Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter your name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" placeholder="Enter your phone number">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Select Menu Option</label>
+                            <select class="form-control">
+                                <option>Option 1 - ₹120/-</option>
+                                <option>Option 2 - ₹140/-</option>
+                                <option>Option 3 - ₹120/-</option>
+                                <option>Option 4 - ₹130/-</option>
+                                <option>Option 5 - ₹140/-</option>
+                                <option>Option 7 - ₹130/-</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Add-ons</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="juiceCheck">
+                                        <label class="form-check-label" for="juiceCheck">
+                                            TETRA PACK JUICE
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="laysCheck">
+                                        <label class="form-check-label" for="laysCheck">
+                                            LAYS PACKET
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="kurkureCheck">
+                                        <label class="form-check-label" for="kurkureCheck">
+                                            KURKURE PACKET
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="namkeenCheck">
+                                        <label class="form-check-label" for="namkeenCheck">
+                                            NAMKEEN PACKETS
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Special Instructions</label>
+                            <textarea class="form-control" rows="3" placeholder="Any special requests or dietary restrictions"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-form-btn">Submit Order</button>
+                    </form>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button class="custom-btn" id="showFormBtn">
+                        Customize Your Package <i class="fas fa-magic ms-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Animation for menu cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuCards = document.querySelectorAll('.menu-card');
+            
+            menuCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-15px) rotateY(10deg) scale(1.03)';
+                    this.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.2)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('featured')) {
+                        this.style.transform = 'translateY(0) rotateY(0) scale(1)';
+                    } else {
+                        this.style.transform = 'scale(1.05) rotateY(0)';
+                    }
+                    this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.1)';
+                });
+            });
+            
+            // Add animation to addon items on scroll
+            const addonItems = document.querySelectorAll('.addon-item');
+            
+            function animateAddons() {
+                addonItems.forEach(item => {
+                    const position = item.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if(position < screenPosition) {
+                        item.style.opacity = 1;
+                        item.style.transform = 'translateY(0) translateZ(5px)';
+                    }
+                });
+            }
+            
+            // Set initial state
+            addonItems.forEach(item => {
+                item.style.opacity = 0;
+                item.style.transform = 'translateY(20px) translateZ(0)';
+                item.style.transition = 'all 0.5s ease';
+            });
+            
+            window.addEventListener('scroll', animateAddons);
+            // Initial check
+            animateAddons();
+            
+            // Add floating animation to food icons
+            const foodIcons = document.querySelectorAll('.food-icon');
+            foodIcons.forEach((icon, index) => {
+                icon.style.animationDelay = `${index * 0.2}s`;
+            });
+            
+            // Show customization form
+            const showFormBtn = document.getElementById('showFormBtn');
+            const customizationForm = document.getElementById('customizationForm');
+            
+            showFormBtn.addEventListener('click', function() {
+                customizationForm.classList.toggle('show');
+                
+                if (customizationForm.classList.contains('show')) {
+                    showFormBtn.innerHTML = 'Close Form <i class="fas fa-times ms-2"></i>';
+                    // Scroll to form
+                    customizationForm.scrollIntoView({behavior: 'smooth'});
+                } else {
+                    showFormBtn.innerHTML = 'Customize Your Package <i class="fas fa-magic ms-2"></i>';
+                }
+            });
+            
+            // Form submission
+            const form = customizationForm.querySelector('form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Create confetti effect
+                createConfetti();
+                
+                // Show success message
+                alert('Your order has been submitted successfully! We will contact you shortly.');
+                
+                // Reset form
+                form.reset();
+                
+                // Close form
+                customizationForm.classList.remove('show');
+                showFormBtn.innerHTML = 'Customize Your Package <i class="fas fa-magic ms-2"></i>';
+            });
+            
+            // Confetti effect
+            function createConfetti() {
+                const colors = ['#FF6B6B', '#4ECDC4', '#FFD166', '#2B2D42'];
+                const container = document.body;
+                
+                for(let i = 0; i < 50; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.width = (Math.random() * 10 + 5) + 'px';
+                    confetti.style.height = (Math.random() * 10 + 5) + 'px';
+                    confetti.style.animationDelay = (Math.random() * 5) + 's';
+                    container.appendChild(confetti);
+                    
+                    // Remove confetti after animation completes
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 5000);
+                }
+            }
+        });
+    </script>
+
+
+            <!-- Additional Catering Options -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="additional-options wow fadeInUp" data-wow-delay="0.8s">
+                        <h3 class="text-center mb-4">Customize Your Catering</h3>
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="option-item text-center">
+                                    <div class="option-icon">
+                                        <i class="fas fa-cookie-bite"></i>
+                                    </div>
+                                    <h5>Special Diet Options</h5>
+                                    <p>Gluten-free, vegan, and allergy-friendly choices</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="option-item text-center">
+                                    <div class="option-icon">
+                                        <i class="fas fa-birthday-cake"></i>
+                                    </div>
+                                    <h5>Custom Cakes</h5>
+                                    <p>Themed cakes designed to your specifications</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="option-item text-center">
+                                    <div class="option-icon">
+                                        <i class="fas fa-concierge-bell"></i>
+                                    </div>
+                                    <h5>Serving Staff</h5>
+                                    <p>Professional servers to assist during your event</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="option-item text-center">
+                                    <div class="option-icon">
+                                        <i class="fas fa-ice-cream"></i>
+                                    </div>
+                                    <h5>Dessert Add-ons</h5>
+                                    <p>Ice cream carts, candy buffets, and more</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="text-center mt-5 wow fadeInUp" data-wow-delay="1s">
+                <a href="#registration" class="btn btn-primary btn-lg rounded-pill px-5">
+                    Customize Your Catering <i class="fas fa-utensils ms-2"></i>
+                </a>
+            </div> -->
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Catering Services Section Styles */
+    .catering-section {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        padding: 80px 0;
+        margin: 80px 0;
+    }
+    
+    .catering-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+        position: relative;
+        height: 100%;
+    }
+    
+    .catering-card.featured {
+        transform: scale(1.05);
+        z-index: 1;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+    
+    .catering-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    }
+    
+    .catering-card.featured:hover {
+        transform: scale(1.05) translateY(-10px);
+    }
+    
+    .catering-badge {
+        position: absolute;
+        top: 15px;
+        right: -30px;
+        background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        color: white;
+        padding: 5px 30px;
+        font-weight: bold;
+        z-index: 2;
+        transform: rotate(45deg);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .catering-img {
+        height: 250px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .catering-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    
+    .catering-card:hover .catering-img img {
+        transform: scale(1.1);
+    }
+    
+    .catering-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .catering-card:hover .catering-overlay {
+        opacity: 1;
+    }
+    
+    .catering-icons {
+        display: flex;
+        gap: 15px;
+    }
+    
+    .catering-icon {
+        width: 50px;
+        height: 50px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ff9a9e;
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+    }
+    
+    .catering-icon:hover {
+        background: #ff9a9e;
+        color: white;
+        transform: scale(1.1);
+    }
+    
+    .catering-content {
+        padding: 25px;
+    }
+    
+    .catering-content h4 {
+        color: #333;
+        margin-bottom: 15px;
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    .catering-content ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    
+    .catering-content li {
+        padding: 8px 0;
+        border-bottom: 1px solid #f1f1f1;
+        display: flex;
+        align-items: center;
+    }
+    
+    .catering-content li:last-child {
+        border-bottom: none;
+    }
+    
+    .catering-content li i {
+        color: #ff9a9e;
+        margin-right: 10px;
+        font-size: 1.2rem;
+    }
+    
+    .catering-price {
+        text-align: center;
+        margin: 20px 0;
+    }
+    
+    .catering-price .price {
+        display: block;
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #ff9a9e;
+    }
+    
+    .catering-price .serves {
+        font-size: 0.9rem;
+        color: #666;
+    }
+    
+    .catering-footer {
+        padding: 0 25px 25px;
+    }
+    
+    .catering-btn {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s;
+        display: block;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .catering-btn:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: all 0.4s ease;
+    }
+    
+    .catering-btn:hover:before {
+        left: 100%;
+    }
+    
+    .catering-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(255, 154, 158, 0.4);
+    }
+    
+    /* Additional Options Styles */
+    .additional-options {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .option-item {
+        padding: 20px 15px;
+        border-radius: 15px;
+        transition: all 0.3s ease;
+    }
+    
+    .option-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .option-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 15px;
+        font-size: 1.8rem;
+        color: white;
+        transition: all 0.3s ease;
+    }
+    
+    .option-item:hover .option-icon {
+        transform: scale(1.1) rotate(5deg);
+    }
+    
+    .option-item h5 {
+        color: #333;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+    
+    .option-item p {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 0;
+    }
+    
+    /* Animation for the section */
+    @keyframes foodFloat {
+        0% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }
+    
+    .catering-section .heading_container h2 {
+        animation: foodFloat 4s ease-in-out infinite;
+    }
+</style>
+
+<script>
+    // Additional animation for catering cards
+    document.addEventListener('DOMContentLoaded', function() {
+        const cateringCards = document.querySelectorAll('.catering-card');
+        
+        cateringCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px)';
+                this.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.2)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                if (!this.classList.contains('featured')) {
+                    this.style.transform = 'translateY(0)';
+                } else {
+                    this.style.transform = 'scale(1.05)';
+                }
+                this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.1)';
+            });
+        });
+        
+        // Add animation to option items on scroll
+        const optionItems = document.querySelectorAll('.option-item');
+        
+        function animateOptions() {
+            optionItems.forEach(item => {
+                const position = item.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if(position < screenPosition) {
+                    item.style.opacity = 1;
+                    item.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Set initial state
+        optionItems.forEach(item => {
+            item.style.opacity = 0;
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'all 0.5s ease';
+        });
+        
+        window.addEventListener('scroll', animateOptions);
+        // Initial check
+        animateOptions();
+    });
+</script>
+
+
+    <style>
+       
+        .menu-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: #ff6b6b;
+            text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+            margin-bottom: 10px;
+            transform: translateZ(50px);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .menu-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .menu-section {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+
+        .menu-section:hover {
+            transform: translateY(-10px) rotateY(5deg);
+        }
+
+        .veg {
+            border-top: 5px solid #4caf50;
+        }
+
+        .non-veg {
+            border-top: 5px solid #f44336;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .veg h2 {
+            color: #4caf50;
+        }
+
+        .non-veg h2 {
+            color: #f44336;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: currentColor;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        .snacks-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .snacks-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #ddd;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .snacks-list li:last-child {
+            border-bottom: none;
+        }
+
+        .calculator {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 30px;
+            transform-style: preserve-3d;
+        }
+
+        .calculator h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            text-align: center;
+            max-width: 200px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #ff6b6b;
+            outline: none;
+        }
+
+        .total-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 15px;
+            padding: 15px;
+            background: #ff6b6b;
+            color: white;
+            border-radius: 8px;
+            display: inline-block;
+            min-width: 200px;
+            transform: translateZ(20px);
+        }
+
+        .note {
+            margin-top: 20px;
+            font-style: italic;
+            color: #666;
+            text-align: center;
+        }
+
+        .animation-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotateX(5deg) rotateY(5deg);
+            }
+            50% {
+                transform: translateY(-20px) rotateX(-5deg) rotateY(-5deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-content {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+
+    <div class="animation-container" id="animation-container"></div>
+    
+    <div class="container">
+        <div class="menu-card">
+            <header>
+                <h1>Delicious Snacks Menu</h1>
+                <p class="subtitle">Choose from our variety of vegetarian and non-vegetarian options</p>
+            </header>
+            
+            <div class="menu-content">
+                <div class="menu-section veg">
+                    <h2>Vegetarian</h2>
+                    <ul class="snacks-list">
+                        <li>Paneer Tikka <span>Fresh cheese with spices</span></li>
+                        <li>Veg Spring Rolls <span>Crispy and delicious</span></li>
+                        <li>Masala Papad <span>Spiced Indian appetizer</span></li>
+                        <li>Hara Bhara Kebab <span>Green vegetable kebabs</span></li>
+                        <li>French Fries <span>Golden and crispy</span></li>
+                    </ul>
+                    <div class="price">₹650 per person</div>
+                </div>
+                
+                <div class="menu-section non-veg">
+                    <h2>Non-Vegetarian</h2>
+                    <ul class="snacks-list">
+                        <li>Chicken Tikka <span>Grilled to perfection</span></li>
+                        <li>Fish Fingers <span>Crunchy and tender</span></li>
+                        <li>Mutton Kebabs <span>Rich and flavorful</span></li>
+                        <li>Chicken Wings <span>Spicy and tangy</span></li>
+                        <li>Prawn Fry <span>Succulent and juicy</span></li>
+                    </ul>
+                    <div class="price">₹750 per person</div>
+                </div>
+            </div>
+            
+            <div class="calculator">
+                <h3>Calculate Your Order</h3>
+                <div class="input-group">
+                    <label for="veg-count">Number of Vegetarian Persons:</label>
+                    <input type="number" id="veg-count" min="0" value="0">
+                </div>
+                <div class="input-group">
+                    <label for="nonveg-count">Number of Non-Vegetarian Persons:</label>
+                    <input type="number" id="nonveg-count" min="0" value="0">
+                </div>
+                <div class="total-price" id="total-price">
+                    Total: ₹0
+                </div>
+            </div>
+            
+            <p class="note">* Prices include all taxes. For orders above 30 persons, please contact for special rates.</p>
+        </div>
+    </div>
+
+    <script>
+        // Calculate total price
+        function calculateTotal() {
+            const vegCount = parseInt(document.getElementById('veg-count').value) || 0;
+            const nonvegCount = parseInt(document.getElementById('nonveg-count').value) || 0;
+            
+            // Apply discount for more than 30 persons
+            const totalPersons = vegCount + nonvegCount;
+            let vegPrice = 650;
+            let nonvegPrice = 750;
+            
+            if (totalPersons > 30) {
+                vegPrice = 600; // Discounted price
+                nonvegPrice = 700; // Discounted price
+            }
+            
+            const total = (vegCount * vegPrice) + (nonvegCount * nonvegPrice);
+            document.getElementById('total-price').textContent = `Total: ₹${total}`;
+        }
+        
+        // Add event listeners
+        document.getElementById('veg-count').addEventListener('input', calculateTotal);
+        document.getElementById('nonveg-count').addEventListener('input', calculateTotal);
+        
+        // Create 3D floating animations
+        const container = document.getElementById('animation-container');
+        const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#ffbe0b', '#fb5607'];
+        
+        for (let i = 0; i < 15; i++) {
+            const element = document.createElement('div');
+            element.style.position = 'absolute';
+            element.style.width = Math.random() * 30 + 10 + 'px';
+            element.style.height = Math.random() * 30 + 10 + 'px';
+            element.style.background = colors[Math.floor(Math.random() * colors.length)];
+            element.style.borderRadius = Math.random() > 0.5 ? '50%' : '5px';
+            element.style.opacity = '0.7';
+            element.style.left = Math.random() * 100 + 'vw';
+            element.style.top = Math.random() * 100 + 'vh';
+            
+            // 3D animation
+            const animationDuration = Math.random() * 10 + 10;
+            element.style.animation = `
+                float ${animationDuration}s infinite ease-in-out,
+                spin ${animationDuration * 2}s infinite linear
+            `;
+            
+            // Keyframes for floating
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes float {
+                    0%, 100% { transform: translateY(0) rotate(0deg) translateZ(0); }
+                    50% { transform: translateY(-50px) rotate(180deg) translateZ(50px); }
+                }
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            container.appendChild(element);
+        }
+        
+        // Initialize calculation
+        calculateTotal();
+    </script>
+
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Get In Touch</h3>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i> +91-7026364627</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>kidznkidzzilla@gmail.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Quick Links</h3>
+                        <a class="btn btn-link text-white-50" href="">About Us</a>
+                        <a class="btn btn-link text-white-50" href="">Contact Us</a>
+                        <a class="btn btn-link text-white-50" href="">Our Services</a>
+                        <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
+                        <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Scan Me For Feedback</h3>
+                        <div class="row g-2 pt-2">
+                             <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/imges/scan.jpg" alt="">
+                            </div>
+                            <!-- <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-2.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-3.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-4.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-5.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-6.jpg" alt="">
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Newsletter</h3>
+                        <p>Subscribe to our newsletter for updates on special offers.</p>
+                        <div class="position-relative mx-auto" style="max-width: 400px;">
+                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved. 
+                            
+                            <!--/*** This template is free as long as you keep the footer author's credit link/attribution link/backlink. If you'd like to use the template without the footer author's credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="">Home</a>
+                                <a href="">Cookies</a>
+                                <a href="">Help</a>
+                                <a href="">FQAs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    
+    <!-- Custom Birthday Packages Script -->
+    <script>
+        // Animation for package cards on scroll
+        function animatePackages() {
+            const packages = document.querySelectorAll('.package-card');
+            packages.forEach(package => {
+                const position = package.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if(position < screenPosition) {
+                    package.classList.add('animated');
+                }
+            });
+        }
+        
+        // Confetti effect for button clicks
+        function createConfetti() {
+            const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+            const container = document.body;
+            
+            for(let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = (Math.random() * 10 + 5) + 'px';
+                confetti.style.height = (Math.random() * 10 + 5) + 'px';
+                confetti.style.animationDelay = (Math.random() * 5) + 's';
+                container.appendChild(confetti);
+                
+                // Remove confetti after animation completes
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+        
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const targetDate = new Date();
+            targetDate.setDate(now.getDate() + 7); // 7 days from now
+            
+            const timeRemaining = targetDate - now;
+            
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // Form submission handling
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            createConfetti();
+            
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = "Processing...";
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                submitBtn.textContent = "Booking Successful!";
+                submitBtn.style.background = "linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%)";
+                
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.background = "";
+                    e.target.reset();
+                }, 2000);
+            }, 1500);
+        }
+        
+        // Initialize animations and event listeners
+        window.addEventListener('load', () => {
+            animatePackages();
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+            
+            // Add event listeners to package buttons
+            document.querySelectorAll('.book-now-btn').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    createConfetti();
+                    
+                    // Button animation
+                    const originalText = this.textContent;
+                    this.textContent = "Booking!";
+                    this.style.opacity = '0.8';
+                    
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.style.opacity = '1';
+                        
+                        // Scroll to registration form
+                        document.querySelector('#registration').scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }, 1500);
+                });
+            });
+            
+            // Form submission
+            document.getElementById('birthdayBookingForm').addEventListener('submit', handleFormSubmit);
+        });
+        
+        window.addEventListener('scroll', animatePackages);
+    </script>
+</body>
+
+</html>

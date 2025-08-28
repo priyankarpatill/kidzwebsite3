@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Kidz - Preschool Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    
+    <style>
+    /* Modern Gallery Section Styles */
+    .gallery-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .gallery-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgwLDAsMCwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+      opacity: 0.3;
+      z-index: 0;
+    }
+    
+    .gallery-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-title h2 {
+      font-size: 3.5rem;
+      color: #222831;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .section-title h2::before,
+    .section-title h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #ffbe33, #ff8a33);
+    }
+    
+    .section-title h2::before {
+      left: 0;
+      width: 30%;
+    }
+    
+    .section-title h2::after {
+      right: 0;
+      width: 30%;
+    }
+    
+    .section-title p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-top: 20px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    
+    .gallery-filter {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    
+    .filter-btn {
+      background: transparent;
+      border: none;
+      padding: 10px 25px;
+      margin: 5px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #555;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      border-radius: 30px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .filter-btn:hover,
+    .filter-btn.active {
+      color: #fff;
+      background: linear-gradient(90deg, #ffbe33, #ff8a33);
+      box-shadow: 0 5px 15px rgba(255, 142, 51, 0.3);
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      aspect-ratio: 1/1;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeInUp 0.6s forwards;
+      cursor: pointer;
+    }
+    
+    @keyframes fadeInUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    
+    .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+    .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+    .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+    .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+    .gallery-item:nth-child(5) { animation-delay: 0.5s; }
+    .gallery-item:nth-child(6) { animation-delay: 0.6s; }
+    .gallery-item:nth-child(7) { animation-delay: 0.7s; }
+    .gallery-item:nth-child(8) { animation-delay: 0.8s; }
+    .gallery-item:nth-child(9) { animation-delay: 0.9s; }
+    .gallery-item:nth-child(10) { animation-delay: 1.0s; }
+    
+    .gallery-item:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      z-index: 2;
+    }
+    
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+    
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.1);
+    }
+    
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      padding: 30px 20px 20px;
+      color: white;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      opacity: 0;
+    }
+    
+    .gallery-item:hover .gallery-overlay {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    .gallery-title {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    
+    .gallery-desc {
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    
+    .view-more-btn {
+      display: block;
+      margin: 50px auto 0;
+      padding: 15px 40px;
+      background: linear-gradient(90deg, #ffbe33, #ff8a33);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 20px rgba(255, 142, 51, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .view-more-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(255, 142, 51, 0.4);
+    }
+    
+    /* Enhanced Lightbox Modal */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .lightbox.show {
+      display: flex;
+      opacity: 1;
+    }
+    
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .lightbox-img-container {
+      position: relative;
+      max-width: 100%;
+      max-height: 80vh;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #000;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: white;
+      font-size: 2.5rem;
+      cursor: pointer;
+      z-index: 10001;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.5);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    
+    .lightbox-close:hover {
+      background: rgba(255,255,255,0.2);
+      transform: scale(1.1);
+    }
+    
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+      transform: translateY(-50%);
+      z-index: 10001;
+    }
+    
+    .lightbox-prev, .lightbox-next {
+      color: white;
+      font-size: 3rem;
+      cursor: pointer;
+      background: rgba(0,0,0,0.5);
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    
+    .lightbox-prev:hover, .lightbox-next:hover {
+      background: rgba(255,255,255,0.2);
+      transform: scale(1.1);
+    }
+    
+    .lightbox-caption {
+      color: white;
+      font-size: 1.2rem;
+      text-align: center;
+      margin-top: 20px;
+      max-width: 80%;
+      padding: 10px 20px;
+      background: rgba(0,0,0,0.7);
+      border-radius: 8px;
+    }
+    
+    .lightbox-counter {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: white;
+      font-size: 1.2rem;
+      background: rgba(0,0,0,0.5);
+      padding: 5px 15px;
+      border-radius: 20px;
+      z-index: 10001;
+    }
+    
+    .lightbox-zoom {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      z-index: 10001;
+      display: flex;
+      gap: 10px;
+    }
+    
+    .lightbox-zoom-btn {
+      width: 40px;
+      height: 40px;
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .lightbox-zoom-btn:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    
+    .lightbox-loader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+      display: none;
+    }
+    
+    @keyframes spin {
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    
+    .lightbox.loading .lightbox-loader {
+      display: block;
+    }
+    
+    @media (max-width: 1200px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .section-title h2 {
+        font-size: 2.5rem;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+      }
+      
+      .filter-btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+      }
+      
+      .lightbox-prev, .lightbox-next {
+        width: 50px;
+        height: 50px;
+        font-size: 2.5rem;
+      }
+      
+      .lightbox-close {
+        top: 10px;
+        right: 10px;
+        font-size: 2rem;
+        width: 40px;
+        height: 40px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+      
+      .gallery-overlay {
+        padding: 15px 10px 10px;
+      }
+      
+      .gallery-title {
+        font-size: 1rem;
+      }
+      
+      .gallery-desc {
+        font-size: 0.8rem;
+      }
+      
+      .lightbox-prev, .lightbox-next {
+        width: 40px;
+        height: 40px;
+        font-size: 2rem;
+      }
+      
+      .lightbox-caption {
+        font-size: 1rem;
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
+            <a href="index.html" class="navbar-brand">
+  <img src="img/imges/Kidzzilla logo[1].png" alt="Kider Logo" style="height:90px;">
+</a>
+
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About Us</a>
+                    <a href="./birthdaypackages.html" class="nav-item nav-link">Birthday Packages</a>
+                   <a href="./packages.html" class="nav-item nav-link">Packages</a> 
+<a href="./daycare.html" class="nav-item nav-link active">Daycare</a>
+                    <a href="gallery.html" class="nav-item nav-link">Gallery</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                </div>
+                <a href="" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Offers<i class="fa fa-arrow-right ms-3"></i></a>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+
+  <!-- Enhanced Gallery Section -->
+  <section class="gallery-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Moments of Joy</h2>
+        <p>Discover the magic of KidZ 'n' KidZZilla through these unforgettable moments captured in our gallery</p>
+      </div>
+      
+      <div class="gallery-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="birthday">Birthdays</button>
+        <button class="filter-btn" data-filter="play">Play Area</button>
+        <button class="filter-btn" data-filter="activities">Activities</button>
+        <button class="filter-btn" data-filter="decoration">Birthday Decorations</button>
+      </div>
+      
+      <div class="gallery-grid">
+        <!-- Image 1 -->
+        <div class="gallery-item" data-category="play">
+          <img src="./img/imges/gaming1.jpg" alt="Children enjoying interactive gaming zone" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Interactive Gaming</h3>
+            <p class="gallery-desc">Kids having fun with our interactive gaming stations, developing coordination skills</p>
+          </div>
+        </div>
+        <!-- Image 2 -->
+        <div class="gallery-item" data-category="play">
+          <img src="./img/imges/gaming2.jpg" alt="Kids playing in colorful ball pit" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Ball Pit Fun</h3>
+            <p class="gallery-desc">Children diving into our colorful ball pit, enjoying sensory play and laughter</p>
+          </div>
+        </div>
+        <!-- Image 3 -->
+        <div class="gallery-item" data-category="activities">
+          <img src="./img/imges/game7.jpg" alt="Children engaged in creative activities" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Creative Play</h3>
+            <p class="gallery-desc">Young minds exploring creative activities that stimulate imagination and learning</p>
+          </div>
+        </div>
+        <!-- Image 4 -->
+        <div class="gallery-item" data-category="activities">
+          <img src="./img/imges/gaming4.jpg" alt="Kids playing with interactive panels" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Interactive Learning</h3>
+            <p class="gallery-desc">Children engaged with educational interactive panels that make learning fun</p>
+          </div>
+        </div>
+        <!-- Image 5 -->
+        <div class="gallery-item" data-category="play">
+          <img src="./img/imges/gaming5.jpg" alt="Colorful play area with slides" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Adventure Zone</h3>
+            <p class="gallery-desc">Our vibrant play area with slides and climbing structures for endless fun</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="play">
+          <img src="./img/imges/gaming6.jpg" alt="Kids playing in soft play area" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Soft Play Area</h3>
+            <p class="gallery-desc">Safe and colorful soft play area designed for younger children to explore freely</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="play">
+          <img src="./img/imges/gaming7.jpg" alt="Children enjoying play structures" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Play Structures</h3>
+            <p class="gallery-desc">Multi-level play structures that challenge and entertain children of all ages</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="play">
+          <img src="./img/imges/gaming8.jpg" alt="Kids playing with educational toys" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Educational Toys</h3>
+            <p class="gallery-desc">Children engaged with educational toys that promote cognitive development</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="play">
+          <img src="./img/imges/gaming9.jpg" alt="Children in imaginative play area" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Imaginative Play</h3>
+            <p class="gallery-desc">Kids enjoying role-playing and imaginative scenarios in our themed play zones</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="play">
+          <img src="./img/imges/gaming10.jpg" alt="Kids playing group games" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Group Games</h3>
+            <p class="gallery-desc">Children participating in fun group activities that promote teamwork and social skills</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="play">
+          <img src="./img/imges/gaming11.jpg" alt="Children enjoying physical activities" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Active Play</h3>
+            <p class="gallery-desc">Kids engaged in physical activities that promote health and motor skill development</p>
+          </div>
+        </div>
+         <div class="gallery-item" data-category="play">
+          <img src="./img/imges/gaming12.jpg" alt="Children enjoying physical activities" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Active Play</h3>
+            <p class="gallery-desc">Kids engaged in physical activities that promote health and motor skill development</p>
+          </div>
+        </div>
+         <div class="gallery-item" data-category="play">
+          <img src="./img/imges/gaming13.jpg" alt="Children enjoying physical activities" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Active Play</h3>
+            <p class="gallery-desc">Kids engaged in physical activities that promote health and motor skill development</p>
+          </div>
+        </div>
+         <div class="gallery-item" data-category="play">
+          <img src="./img/imges/gaming14.jpg" alt="Children enjoying physical activities" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Active Play</h3>
+            <p class="gallery-desc">Kids engaged in physical activities that promote health and motor skill development</p>
+          </div>
+        </div>
+         <div class="gallery-item" data-category="play">
+          <img src="./img/imges/gaming15.jpg" alt="Children enjoying physical activities" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Active Play</h3>
+            <p class="gallery-desc">Kids engaged in physical activities that promote health and motor skill development</p>
+          </div>
+        </div>
+         <div class="gallery-item" data-category="play">
+          <img src="./img/imges/gaming16.jpg" alt="Children enjoying physical activities" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Active Play</h3>
+            <p class="gallery-desc">Kids engaged in physical activities that promote health and motor skill development</p>
+          </div>
+        </div>
+         <div class="gallery-item" data-category="play">
+          <img src="./img/imges/gaming17.jpg" alt="Children enjoying physical activities" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Active Play</h3>
+            <p class="gallery-desc">Kids engaged in physical activities that promote health and motor skill development</p>
+          </div>
+        </div>
+         <div class="gallery-item" data-category="play">
+          <img src="./img/imges/gaming18.jpg" alt="Children enjoying physical activities" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Active Play</h3>
+            <p class="gallery-desc">Kids engaged in physical activities that promote health and motor skill development</p>
+          </div>
+        </div>
+         
+        <!-- Image 6 -->
+        <div class="gallery-item" data-category="birthday">
+          <img src="./img/imges/birthday1.jpg" alt="Beautifully decorated birthday party setup" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Party Setup</h3>
+            <p class="gallery-desc">Our themed birthday decorations create a magical atmosphere for celebrations</p>
+          </div>
+        </div>
+        <!-- Image 7 -->
+        <div class="gallery-item" data-category="birthday">
+          <img src="./img/imges/birthday2.jpg" alt="Kids enjoying birthday party games" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Party Games</h3>
+            <p class="gallery-desc">Exciting group games that keep all children engaged and entertained during parties</p>
+          </div>
+        </div>
+        <!-- Image 8 -->
+        <div class="gallery-item" data-category="birthday">
+          <img src="./img/imges/birthaday3.jpg" alt="Birthday cake celebration with happy children" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Cake Celebration</h3>
+            <p class="gallery-desc">The special moment of cake cutting surrounded by friends and joyful celebrations</p>
+          </div>
+        </div>
+        <!-- Image 9 -->
+        <div class="gallery-item" data-category="birthday">
+          <img src="./img/imges/birthday11.jpg" alt="Colorful birthday party decorations" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Party Decorations</h3>
+            <p class="gallery-desc">Vibrant decorations that transform our space into a festive birthday wonderland</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="birthday">
+          <img src="./img/imges/birthday6.jpg" alt="Children participating in birthday activities" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Birthday Activities</h3>
+            <p class="gallery-desc">Special activities and entertainment designed to make each birthday memorable</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="birthday">
+          <img src="./img/imges/birthday5.jpg" alt="Birthday party with themed characters" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Themed Characters</h3>
+            <p class="gallery-desc">Fun interactions with themed characters that add magic to birthday celebrations</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="birthday">
+          <img src="./img/imges/birthday7.jpg" alt="Kids enjoying party favors and gifts" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Party Favors</h3>
+            <p class="gallery-desc">Happy children receiving special party favors and gifts to remember their celebration</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="birthday">
+          <img src="./img/imges/birthday8.jpg" alt="Birthday child being celebrated" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Special Celebration</h3>
+            <p class="gallery-desc">Making the birthday child feel special with personalized attention and activities</p>
+          </div>
+        </div>
+
+        <!-- <div class="gallery-item" data-category="birthday">
+          <img src="./img/imges/birthday9.jpg" alt="Group photo of birthday party attendees" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Group Memories</h3>
+            <p class="gallery-desc">Capturing precious memories with group photos that families will cherish forever</p>
+          </div>
+        </div> -->
+        
+        <div class="gallery-item" data-category="birthday">
+          <img src="./img/imges/birthday10.jpg" alt="Children enjoying birthday entertainment" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Party Entertainment</h3>
+            <p class="gallery-desc">Professional entertainment that keeps children engaged and delighted throughout the party</p>
+          </div>
+        </div>
+        
+        <!-- Birthday Decoration Images -->
+        <div class="gallery-item" data-category="decoration">
+          <img src="./img/decoration1.jpg" alt="Colorful balloon arch decoration" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Balloon Arch</h3>
+            <p class="gallery-desc">Vibrant balloon arches that create an exciting entrance for birthday celebrations</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="decoration">
+          <img src="./img/decoration2.jpg" alt="Themed table setting for birthday party" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Themed Table Setting</h3>
+            <p class="gallery-desc">Beautifully decorated tables with themed centerpieces and partyware</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="decoration">
+          <img src="./img/decoration3.jpg" alt="Custom birthday backdrop" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Photo Backdrop</h3>
+            <p class="gallery-desc">Custom-designed backdrops perfect for capturing memorable birthday photos</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="decoration">
+          <img src="./img/decoration4.jpg" alt="Detailed party centerpiece" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Centerpiece Display</h3>
+            <p class="gallery-desc">Eye-catching centerpieces that tie the party theme together beautifully</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="decoration">
+          <img src="./img/decoration5.jpg" alt="Theme-based wall decorations" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Wall Decor</h3>
+            <p class="gallery-desc">Creative wall decorations that transform the party space into a themed wonderland</p>
+          </div>
+        </div>
+
+
+           <div class="gallery-item" data-category="decoration">
+          <img src="./img/decoration11.jpg" alt="Theme-based wall decorations" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Wall Decor</h3>
+            <p class="gallery-desc">Creative wall decorations that transform the party space into a themed wonderland</p>
+          </div>
+        </div>
+      
+
+       <div class="gallery-item" data-category="decoration">
+          <img src="./img/decoration12.jpg" alt="Theme-based wall decorations" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Wall Decor</h3>
+            <p class="gallery-desc">Creative wall decorations that transform the party space into a themed wonderland</p>
+          </div>
+        </div>
+      
+
+
+       <div class="gallery-item" data-category="decoration">
+          <img src="./img/decoration13.jpg" alt="Theme-based wall decorations" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Wall Decor</h3>
+            <p class="gallery-desc">Creative wall decorations that transform the party space into a themed wonderland</p>
+          </div>
+        </div>
+     
+       <div class="gallery-item" data-category="decoration">
+          <img src="./img/decoration14.jpg" alt="Theme-based wall decorations" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Wall Decor</h3>
+            <p class="gallery-desc">Creative wall decorations that transform the party space into a themed wonderland</p>
+          </div>
+        </div>
+      
+
+      <div class="gallery-item" data-category="decoration">
+          <img src="./img/decoration18.jpg" alt="Theme-based wall decorations" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Wall Decor</h3>
+            <p class="gallery-desc">Creative wall decorations that transform the party space into a themed wonderland</p>
+          </div>
+        </div>
+      
+
+
+      <div class="gallery-item" data-category="decoration">
+          <img src="./img/decoration19.jpg" alt="Theme-based wall decorations" class="gallery-img">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title" style="color: white;">Wall Decor</h3>
+            <p class="gallery-desc">Creative wall decorations that transform the party space into a themed wonderland</p>
+          </div>
+        </div>
+
+
+
+      </div>
+
+      
+
+
+      <button class="view-more-btn">View More Photos</button>
+    </div>
+  </section>
+
+  <!-- Enhanced Lightbox Modal -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-loader"></div>
+    <span class="lightbox-close">&times;</span>
+    <div class="lightbox-counter" id="lightbox-counter"></div>
+    <div class="lightbox-content">
+      <div class="lightbox-img-container">
+        <img class="lightbox-img" id="lightbox-img" src="" alt="">
+      </div>
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+    <div class="lightbox-nav">
+      <span class="lightbox-prev">&#10094;</span>
+      <span class="lightbox-next">&#10095;</span>
+    </div>
+    <div class="lightbox-zoom">
+      <button class="lightbox-zoom-btn" id="zoom-in">+</button>
+      <button class="lightbox-zoom-btn" id="zoom-out">-</button>
+      <button class="lightbox-zoom-btn" id="zoom-reset">↺</button>
+    </div>
+  </div>
+
+        
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Get In Touch</h3>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i> +91-7026364627</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>kidznkidzzilla@gmail.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Quick Links</h3>
+                        <a class="btn btn-link text-white-50" href="">About Us</a>
+                        <a class="btn btn-link text-white-50" href="">Contact Us</a>
+                        <a class="btn btn-link text-white-50" href="">Our Services</a>
+                        <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
+                        <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Scan Me For Feedback</h3>
+                        <div class="row g-2 pt-2">
+                             <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/imges/scan.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Opening Hours</h3>
+                        <p>Everyday</p>
+                        <p>10.00 Am -10.00 Pm</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved. 
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="">Home</a>
+                                <a href="">Cookies</a>
+                                <a href="">Help</a>
+                                <a href="">FQAs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    
+    <!-- Enhanced JavaScript for Gallery -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          // Filter functionality
+          const filterBtns = document.querySelectorAll('.filter-btn');
+          const galleryItems = document.querySelectorAll('.gallery-item');
+          
+          filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+              filterBtns.forEach(btn => btn.classList.remove('active'));
+              this.classList.add('active');
+              
+              const filterValue = this.getAttribute('data-filter');
+              
+              galleryItems.forEach(item => {
+                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                  item.style.display = 'block';
+                } else {
+                  item.style.display = 'none';
+                }
+              });
+            });
+          });
+          
+          // Enhanced Lightbox functionality
+          const lightbox = document.getElementById('lightbox');
+          const lightboxImg = document.getElementById('lightbox-img');
+          const lightboxCaption = document.getElementById('lightbox-caption');
+          const lightboxCounter = document.getElementById('lightbox-counter');
+          const galleryImages = document.querySelectorAll('.gallery-img');
+                    const closeBtn = document.querySelector('.lightbox-close');
+          const prevBtn = document.querySelector('.lightbox-prev');
+          const nextBtn = document.querySelector('.lightbox-next');
+          const zoomInBtn = document.getElementById('zoom-in');
+          const zoomOutBtn = document.getElementById('zoom-out');
+          const zoomResetBtn = document.getElementById('zoom-reset');
+          const lightboxLoader = document.querySelector('.lightbox-loader');
+          
+          let currentImageIndex = 0;
+          let isZoomed = false;
+          let currentScale = 1;
+          const imagesArray = Array.from(galleryImages);
+          const totalImages = imagesArray.length;
+          
+          // Preload images for better lightbox experience
+          function preloadImages() {
+            imagesArray.forEach(img => {
+              const preloadImg = new Image();
+              preloadImg.src = img.src;
+            });
+          }
+          
+          preloadImages();
+          
+          // Open lightbox with smooth animation
+          function openLightbox(index) {
+            currentImageIndex = index;
+            lightbox.classList.add('loading');
+            lightbox.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            
+            // Load image with timeout to show loading animation
+            setTimeout(() => {
+              updateLightbox();
+              lightbox.classList.remove('loading');
+            }, 300);
+          }
+          
+          // Update lightbox content
+          function updateLightbox() {
+            const currentImg = imagesArray[currentImageIndex];
+            lightboxImg.src = currentImg.src;
+            lightboxCaption.textContent = currentImg.alt;
+            lightboxCounter.textContent = `${currentImageIndex + 1} / ${totalImages}`;
+            
+            // Reset zoom state when changing images
+            resetZoom();
+          }
+          
+          // Close lightbox
+          function closeLightbox() {
+            lightbox.classList.remove('show');
+            document.body.style.overflow = 'auto';
+            resetZoom();
+            
+            // Remove show class after transition completes
+            setTimeout(() => {
+              lightbox.style.display = 'none';
+            }, 300);
+          }
+          
+          // Navigate to previous image
+          function showPrevImage() {
+            currentImageIndex = (currentImageIndex - 1 + totalImages) % totalImages;
+            lightbox.classList.add('loading');
+            
+            setTimeout(() => {
+              updateLightbox();
+              lightbox.classList.remove('loading');
+            }, 300);
+          }
+          
+          // Navigate to next image
+          function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % totalImages;
+            lightbox.classList.add('loading');
+            
+            setTimeout(() => {
+              updateLightbox();
+              lightbox.classList.remove('loading');
+            }, 300);
+          }
+          
+          // Zoom functionality
+          function zoomIn() {
+            if (currentScale < 3) {
+              currentScale += 0.25;
+              lightboxImg.style.transform = `scale(${currentScale})`;
+              isZoomed = true;
+            }
+          }
+          
+          function zoomOut() {
+            if (currentScale > 0.5) {
+              currentScale -= 0.25;
+              lightboxImg.style.transform = `scale(${currentScale})`;
+              isZoomed = currentScale !== 1;
+            }
+          }
+          
+          function resetZoom() {
+            currentScale = 1;
+            lightboxImg.style.transform = 'scale(1)';
+            isZoomed = false;
+          }
+          
+          // Event listeners for gallery images
+          galleryImages.forEach((img, index) => {
+            img.addEventListener('click', function() {
+              openLightbox(index);
+            });
+          });
+          
+          // Event listeners for lightbox controls
+          closeBtn.addEventListener('click', closeLightbox);
+          prevBtn.addEventListener('click', showPrevImage);
+          nextBtn.addEventListener('click', showNextImage);
+          zoomInBtn.addEventListener('click', zoomIn);
+          zoomOutBtn.addEventListener('click', zoomOut);
+          zoomResetBtn.addEventListener('click', resetZoom);
+          
+          // Keyboard navigation
+          document.addEventListener('keydown', function(e) {
+            if (lightbox.classList.contains('show')) {
+              switch(e.key) {
+                case 'Escape':
+                  closeLightbox();
+                  break;
+                case 'ArrowLeft':
+                  showPrevImage();
+                  break;
+                case 'ArrowRight':
+                  showNextImage();
+                  break;
+                case '+':
+                case '=':
+                  zoomIn();
+                  break;
+                case '-':
+                  zoomOut();
+                  break;
+                case '0':
+                  resetZoom();
+                  break;
+              }
+            }
+          });
+          
+          // Swipe support for touch devices
+          let touchStartX = 0;
+          let touchEndX = 0;
+          
+          lightbox.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+          }, false);
+          
+          lightbox.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+          }, false);
+          
+          function handleSwipe() {
+            const minSwipeDistance = 50; // Minimum distance for a swipe to register
+            const difference = touchStartX - touchEndX;
+            
+            if (Math.abs(difference) > minSwipeDistance) {
+              if (difference > 0) {
+                // Swipe left - next image
+                showNextImage();
+              } else {
+                // Swipe right - previous image
+                showPrevImage();
+              }
+            }
+          }
+          
+          // Close lightbox when clicking outside image
+          lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+              closeLightbox();
+            }
+          });
+          
+          // Prevent lightbox content click from closing lightbox
+          document.querySelector('.lightbox-content').addEventListener('click', function(e) {
+            e.stopPropagation();
+          });
+          
+          // View more button functionality
+          const viewMoreBtn = document.querySelector('.view-more-btn');
+          viewMoreBtn.addEventListener('click', function() {
+            alert('This would typically load more gallery items or link to a full gallery page');
+          });
+        });
+    </script>
+</body>
+</html>

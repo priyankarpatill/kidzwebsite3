@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Dascare  | Kidz 'n' Kidzzilla</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="Professional after-school care program for children aged 1.5-9 years. Safe pickup, nutritious snacks, homework help, and fun activities." name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0f428d;
+            --secondary: #2a5ba8;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            
+            /* Service card colors */
+            --safe-pickup: #4CAF50; /* Green */
+            --refreshing-play: #F44336; /* Red */
+            --nutritious-snacks: #FF9800; /* Orange */
+            --tuition-support: #2196F3; /* Blue */
+            --play-zone-fun: #9C27B0; /* Purple */
+            --convenient-timing: #009688; /* Teal */
+        }
+        
+        body {
+            font-family: 'Heebo', sans-serif;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .dascare-hero {
+            background:  url('./img/imges/background3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 120px 0;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+        
+        .floating-shapes div {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            bottom: -150px;
+            animation: float 25s linear infinite;
+            border-radius: 50%;
+        }
+        
+        .floating-shapes div:nth-child(1) { left: 25%; width: 80px; height: 80px; animation-delay: 0s; animation-duration: 20s; }
+        .floating-shapes div:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
+        .floating-shapes div:nth-child(3) { left: 70%; width: 20px; height: 20px; animation-delay: 4s; animation-duration: 18s; }
+        .floating-shapes div:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 22s; }
+        .floating-shapes div:nth-child(5) { left: 65%; width: 20px; height: 20px; animation-delay: 0s; animation-duration: 15s; }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; border-radius: 0; }
+            100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; border-radius: 50%; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card {
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            border: none;
+            background: white;
+            position: relative;
+        }
+        
+        /* Individual colors for each card */
+        .service-card.safe-pickup::before { background: linear-gradient(to right, var(--safe-pickup), #66BB6A); }
+        .service-card.refreshing-play::before { background: linear-gradient(to right, var(--refreshing-play), #EF5350); }
+        .service-card.nutritious-snacks::before { background: linear-gradient(to right, var(--nutritious-snacks), #FFA726); }
+        .service-card.tuition-support::before { background: linear-gradient(to right, var(--tuition-support), #42A5F5); }
+        .service-card.play-zone-fun::before { background: linear-gradient(to right, var(--play-zone-fun), #AB47BC); }
+        .service-card.convenient-timing::before { background: linear-gradient(to right, var(--convenient-timing), #26A69A); }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+        
+        .service-card:hover::before {
+            height: 100%;
+        }
+        
+        .service-card:hover .service-icon {
+            color: white;
+            transform: scale(1.2) rotate(10deg);
+        }
+        
+        .service-card:hover h5, .service-card:hover p {
+            color: white;
+        }
+        
+        .service-icon {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            transition: all 0.5s ease;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: white !important;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        
+        .navbar-brand i {
+            color: var(--primary);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(15, 66, 141, 0.3);
+        }
+        
+        .btn-light {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-light:hover {
+            background: var(--light);
+            transform: translateY(-3px);
+        }
+        
+        .bounce-in {
+            opacity: 0;
+            transform: scale(0.3);
+            animation: bounceIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 1; }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .hover-3d {
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .hover-3d:hover {
+            transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateZ(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .typewriter h1 {
+            overflow: hidden;
+            border-right: .15em solid var(--primary);
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary); }
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .daycare-hero {
+                background-attachment: scroll;
+                padding: 80px 0;
+            }
+            
+            .service-icon {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
+            <a href="index.html" class="navbar-brand">
+                <img src="./img/imges/Kidzzilla logo[1].png" alt="Kider Logo" style="height:90px;">
+            </a>
+
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About Us</a>
+                    <a href="./birthdaypackages.html" class="nav-item nav-link">Birthday Packages</a>
+                     <a href="./daycare.html" class="nav-item nav-link active">Daycare</a>
+                       <a href="./packages.html" class="nav-item nav-link">Packages</a> 
+<!-- <a href="./daycare.html" class="nav-item nav-link active">Daycare</a> -->
+                    <a href="gallery.html" class="nav-item nav-link">Gallery</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                </div>
+                <a href="#" class="btn btn-primary rounded-pill px-3 d-none d-lg-block hover-3d" data-bs-toggle="modal" data-bs-target="#registrationModal">Offers<i class="fa fa-arrow-right ms-3"></i></a>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+
+        <!-- Hero Start -->
+        <div class="dascare-hero">
+            <div class="floating-shapes">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="container hero-content">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h1 class="display-3 text-white mb-4 animate__animated animate__fadeInDown typewriter">Daycare </h1>
+                        <p class="fs-4 text-white mb-4 animate__animated animate__fadeInUp">A safe, fun, and educational environment for your children after school</p>
+                        <div class="d-flex justify-content-center animate__animated animate__fadeInUp">
+                            <div class="bg-primary rounded-pill px-4 py-2 me-3 bounce-in">
+                                <span class="text-white">Age Group: 1.5 - 9 Years</span>
+                            </div>
+                            <a href="#" class="btn btn-light rounded-pill px-4 py-2 bounce-in" data-bs-toggle="modal" data-bs-target="#registrationModal">
+                                <i class="fa fa-user-plus me-2"></i>Register Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero End -->
+
+    <!-- Services Section -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h1 class="mb-3 section-title">Services We Provide</h1>
+                <p>We ensure your children are cared for in the best possible way after school</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-card hover-3d safe-pickup">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-bus"></i>
+                            </div>
+                            <h5 class="mb-3">Safe Pickup</h5>
+                            <p>Kids will be safely picked up from the school bus at Kidz 'n' Kidzzilla by our caring team.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-card hover-3d refreshing-play">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <h5 class="mb-3">Refreshing Play</h5>
+                            <p>Kids will enjoy 30 minutes of refreshing play to unwind and energize after school.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-card hover-3d nutritious-snacks">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h5 class="mb-3">Nutritious Snacks</h5>
+                            <p>Healthy snacks provided for kids, freshly prepared on-site. Weekly menu shared in advance.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-card hover-3d tuition-support">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h5 class="mb-3">Tuition Support</h5>
+                            <p>Experienced teachers help with daily schoolwork and studies in a supportive environment.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-card hover-3d play-zone-fun">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-child"></i>
+                            </div>
+                            <h5 class="mb-3">Play Zone Fun</h5>
+                            <p>After tuition time, kids enjoy 30 minutes of playtime in our exciting Play Zone.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-card hover-3d convenient-timing">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h5 class="mb-3">Convenient Timing</h5>
+                            <p>Parents can pick up their kids from Kidz 'n' Kidzzilla at 6:30 PM, fitting busy schedules.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+        // Spinner
+        var spinner = function () {
+            setTimeout(function () {
+                if ($('#spinner').length > 0) {
+                    $('#spinner').removeClass('show');
+                }
+            }, 1000);
+        };
+        spinner();
+        
+        // Animation on scroll
+        function initAnimate() {
+            $('.wow').each(function() {
+                $(this).addClass('animate__animated animate__fadeInUp');
+            });
+        }
+        initAnimate();
+        
+        // Hover effect for service cards
+        $('.service-card').hover(function() {
+            $(this).addClass('animate__pulse');
+        }, function() {
+            $(this).removeClass('animate__pulse');
+        });
+    </script>
+
+
+
+    <style>
+/*         
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #f0f2f5;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+         */
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .mb-5 {
+            margin-bottom: 3rem;
+        }
+        
+        /* Header Styles */
+        .schedule-header h1 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .schedule-header h1:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .schedule-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+        }
+        
+        /* 3D Timeline Styles */
+        .timeline-3d {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            perspective: 1000px;
+            margin-top: 50px;
+        }
+        
+        .timeline-item-3d {
+            width: 320px;
+            height: 280px;
+            perspective: 1000px;
+        }
+        
+        .timeline-card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        
+        .timeline-item-3d:hover .timeline-card {
+            transform: rotateY(180deg);
+        }
+        
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .card-front {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+        }
+        
+        .card-back {
+            background: white;
+            color: var(--dark);
+            transform: rotateY(180deg);
+            justify-content: flex-start;
+            padding-top: 30px;
+        }
+        
+        .timeline-dot-3d {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: white;
+            color: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-front h4 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .card-back h4 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .card-back p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        /* Animation for cards */
+        @keyframes float {
+            0% { transform: translateY(0px) rotateY(0deg); }
+            50% { transform: translateY(-15px) rotateY(5deg); }
+            100% { transform: translateY(0px) rotateY(0deg); }
+        }
+        
+        .timeline-item-3d:nth-child(odd) .timeline-card {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .timeline-item-3d:nth-child(even) .timeline-card {
+            animation: float 6s ease-in-out infinite 1s;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1100px) {
+            .timeline-3d {
+                gap: 20px;
+            }
+            
+            .timeline-item-3d {
+                width: 280px;
+                height: 250px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-item-3d {
+                width: 100%;
+                max-width: 350px;
+                height: 250px;
+            }
+            
+            .schedule-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        /* Decorative elements */
+        .decoration {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        
+        .decoration-1 {
+            top: 10%;
+            left: 5%;
+            font-size: 100px;
+            color: var(--primary);
+        }
+        
+        .decoration-2 {
+            bottom: 10%;
+            right: 5%;
+            font-size: 80px;
+            color: var(--secondary);
+        }
+        
+        /* Section background */
+        .schedule-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Subtle particle background */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--primary);
+            opacity: 0.2;
+        }
+    </style>
+
+    <section class="schedule-section">
+        <div class="particles" id="particles"></div>
+        
+        <div class="decoration decoration-1">⏱️</div>
+        <div class="decoration decoration-2">🎯</div>
+        
+        <div class="container">
+            <div class="schedule-header text-center mx-auto mb-5">
+                <h1>Daily Schedule</h1>
+                <!-- <p >See how we structure our after-school program for maximum benefit and fun</p> -->
+            </div>
+            
+            <div class="timeline-3d">
+                <div class="timeline-item-3d">
+                    <div class="timeline-card">
+                        <div class="card-face card-front">
+                            <div class="timeline-dot-3d">1</div>
+                            <h4>School Bus Arrival</h4>
+                            <p>Safe pickup from the school bus by our caring team</p>
+                        </div>
+                        <div class="card-face card-back">
+                            <h4>Safe Arrival</h4>
+                            <p>Our staff ensures each child is safely escorted from the bus to our facility, with warm welcomes and check-ins.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item-3d">
+                    <div class="timeline-card">
+                        <div class="card-face card-front">
+                            <div class="timeline-dot-3d">2</div>
+                            <h4>Refresh & Play (30 mins)</h4>
+                            <p>Unwind and energize with fun activities</p>
+                        </div>
+                        <div class="card-face card-back">
+                            <h4>Active Transition</h4>
+                            <p>Children decompress from the school day with guided activities that help them transition to after-school mode.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item-3d">
+                    <div class="timeline-card">
+                        <div class="card-face card-front">
+                            <div class="timeline-dot-3d">3</div>
+                            <h4>Nutritious Snacks</h4>
+                            <p>Freshly prepared healthy snacks served</p>
+                        </div>
+                        <div class="card-face card-back">
+                            <h4>Healthy Fuel</h4>
+                            <p>We provide nutritionist-approved snacks that give children the energy they need for homework and activities.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item-3d">
+                    <div class="timeline-card">
+                        <div class="card-face card-front">
+                            <div class="timeline-dot-3d">4</div>
+                            <h4>Homework Support</h4>
+                            <p>Experienced teachers help with schoolwork</p>
+                        </div>
+                        <div class="card-face card-back">
+                            <h4>Academic Support</h4>
+                            <p>Our certified educators provide individualized help to ensure students understand their assignments and concepts.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item-3d">
+                    <div class="timeline-card">
+                        <div class="card-face card-front">
+                            <div class="timeline-dot-3d">5</div>
+                            <h4>Play Zone (30 mins)</h4>
+                            <p>Fun playtime in our exciting play area</p>
+                        </div>
+                        <div class="card-face card-back">
+                            <h4>Active Play</h4>
+                            <p>Our safe, engaging play area allows children to develop social skills and physical coordination through play.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item-3d">
+                    <div class="timeline-card">
+                        <div class="card-face card-front">
+                            <div class="timeline-dot-3d">6</div>
+                            <h4>Pickup Time (6:30 PM)</h4>
+                            <p>Parents pick up their happy children</p>
+                        </div>
+                        <div class="card-face card-back">
+                            <h4>Safe Departure</h4>
+                            <p>We ensure a smooth transition home with sharing of the day's achievements and a positive send-off.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Create background particles
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties
+                const size = Math.random() * 20 + 5;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = Math.random() * 10 + 10;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+                
+                // Random color from our palette
+                const colors = ['#6C63FF', '#FF6584', '#36D1DC'];
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Add intersection observer for animation on scroll
+            const timelineItems = document.querySelectorAll('.timeline-item-3d');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.visibility = 'visible';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            timelineItems.forEach(item => {
+                item.style.visibility = 'hidden';
+                observer.observe(item);
+            });
+        });
+    </script>
+
+
+        <!-- Stats Section Start -->
+        <div class="container-xxl py-5 parallax" style="background-image: url('https://images.unsplash.com/photo-1519457431-44ccd64a579b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+            <div class="container">
+                <div class="row g-4 text-center">
+                    <div class="col-md-3 col-6">
+                        <div class="p-4 bg-white rounded shadow hover-3d">
+                            <h2 class="counter" data-target="500">0</h2>
+                            <p>Happy Kids</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="p-4 bg-white rounded shadow hover-3d">
+                            <h2 class="counter" data-target="50">0</h2>
+                            <p>Qualified Staff</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="p-4 bg-white rounded shadow hover-3d">
+                            <h2 class="counter" data-target="10">0</h2>
+                            <p>Years Experience</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="p-4 bg-white rounded shadow hover-3d">
+                            <h2 class="counter" data-target="100">0</h2>
+                            <p>Activities</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Stats Section End -->
+
+    <style>
+        .cta-section {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            padding: 80px 0;
+        }
+        .animated-border {
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+        .animated-border::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: 2px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        }
+        .hover-3d {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+        .hover-3d:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .form-step {
+            display: none;
+        }
+        .form-step.active {
+            display: block;
+        }
+        .enquiry-btn {
+            margin-top: 20px;
+        }
+    </style>
+
+<!-- CTA Section Start -->
+<div class="cta-section" id="registration">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="display-4 text-white mb-4">Enroll Now For Our Daycare Program</h2>
+                <p class="fs-4 text-white mb-4">Limited spots available. Don't wait to secure your child's place in our after-school program.</p>
+                
+                <div class="d-flex flex-wrap justify-content-center mb-4">
+                    <span class="bg-light rounded-pill px-4 py-2 me-2 mb-2 animated-border" style="color: black;">SLIDE</span>
+                    <span class="bg-light rounded-pill px-4 py-2 me-2 mb-2 animated-border" style="color: black;">BOUNCE</span>
+                    <span class="bg-light rounded-pill px-4 py-2 me-2 mb-2 animated-border" style="color: black;">SWING</span>
+                    <span class="bg-light rounded-pill px-4 py-2 me-2 mb-2 animated-border" style="color: black;">PARTY</span>
+                    <span class="bg-light rounded-pill px-4 py-2 mb-2 animated-border" style="color: black;">PLAY</span>
+                </div>
+                
+                <div class="mb-4">
+                    <a href="tel:+917026364627" class="btn btn-light btn-lg rounded-pill px-4 py-3 me-3 hover-3d">
+                        <i class="fa fa-phone-alt me-2"></i> Call Now: +91 70263 64627
+                    </a>
+                    <a href="https://wa.me/917026364627" class="btn btn-success btn-lg rounded-pill px-4 py-3 hover-3d">
+                        <i class="fab fa-whatsapp me-2"></i> WhatsApp
+                    </a>
+                    <a href="#" class="btn btn-warning btn-lg rounded-pill px-4 py-3 hover-3d ms-2" data-bs-toggle="modal" data-bs-target="#registrationModal">
+                        <i class="fa fa-edit me-2"></i> Register Now
+                    </a>
+                </div>
+                
+                <!-- Enquiry Now Button -->
+                <div class="enquiry-btn">
+                    <a href="#" class="btn btn-info btn-lg rounded-pill px-4 py-3 hover-3d" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                        <i class="fa fa-question-circle me-2"></i> Enquiry Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- CTA Section End -->
+
+<!-- Registration Modal -->
+<div class="modal fade registration-modal" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registrationModalLabel">Register for Daycare Program</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="progress mb-4">
+                    <div class="progress-bar" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">Step 1 of 3</div>
+                </div>
+                
+                <form id="registrationForm">
+                    <!-- Step 1: Parent Information -->
+                    <div class="form-step active" id="step1">
+                        <h5 class="mb-4">Parent/Guardian Information</h5>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="parentName" class="form-label">Full Name *</label>
+                                <input type="text" class="form-control" id="parentName" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="relationship" class="form-label">Relationship to Child *</label>
+                                <select class="form-control" id="relationship" required>
+                                    <option value="">Select Relationship</option>
+                                    <option value="mother">Mother</option>
+                                    <option value="father">Father</option>
+                                    <option value="guardian">Guardian</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="phone" class="form-label">Phone Number *</label>
+                                <input type="tel" class="form-control" id="phone" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <label for="address" class="form-label">Address *</label>
+                                <textarea class="form-control" id="address" rows="2" required></textarea>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button type="button" class="btn btn-primary" onclick="nextStep(2)">Next <i class="fas fa-arrow-right ms-2"></i></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: Child Information -->
+                    <div class="form-step" id="step2">
+                        <h5 class="mb-4">Child Information</h5>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="childName" class="form-label">Child's Full Name *</label>
+                                <input type="text" class="form-control" id="childName" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="childDob" class="form-label">Date of Birth *</label>
+                                <input type="date" class="form-control" id="childDob" required onchange="calculateAge()">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="childAge" class="form-label">Age (1-10 years) *</label>
+                                <select class="form-control" id="childAge" required>
+                                    <option value="">Select Age</option>
+                                    <option value="1">1 year</option>
+                                    <option value="2">2 years</option>
+                                    <option value="3">3 years</option>
+                                    <option value="4">4 years</option>
+                                    <option value="5">5 years</option>
+                                    <option value="6">6 years</option>
+                                    <option value="7">7 years</option>
+                                    <option value="8">8 years</option>
+                                    <option value="9">9 years</option>
+                                    <option value="10">10 years</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="grade" class="form-label">Grade/Class *</label>
+                                <input type="text" class="form-control" id="grade" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="school" class="form-label">School Name *</label>
+                                <input type="text" class="form-control" id="school" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="allergies" class="form-label">Allergies or Medical Conditions</label>
+                                <input type="text" class="form-control" id="allergies" placeholder="None if applicable">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep(1)"><i class="fas fa-arrow-left me-2"></i> Back</button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep(3)">Next <i class="fas fa-arrow-right ms-2"></i></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Program Details -->
+                    <div class="form-step" id="step3">
+                        <h5 class="mb-4">Program Details</h5>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="startDate" class="form-label">Preferred Start Date *</label>
+                                <input type="date" class="form-control" id="startDate" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="days" class="form-label">Days Required *</label>
+                                <select class="form-control" id="days" multiple required>
+                                    <option value="monday">Monday</option>
+                                    <option value="tuesday">Tuesday</option>
+                                    <option value="wednesday">Wednesday</option>
+                                    <option value="thursday">Thursday</option>
+                                    <option value="friday">Friday</option>
+                                </select>
+                                <small class="form-text text-muted">Hold Ctrl/Cmd to select multiple days</small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <label class="form-label">How did you hear about us?</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="hearAbout" id="hearFriend" value="friend">
+                                    <label class="form-check-label" for="hearFriend">Friend/Relative</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="hearAbout" id="hearSocial" value="social">
+                                    <label class="form-check-label" for="hearSocial">Social Media</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="hearAbout" id="hearSchool" value="school">
+                                    <label class="form-check-label" for="hearSchool">School</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="hearAbout" id="hearOther" value="other">
+                                    <label class="form-check-label" for="hearOther">Other</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="terms" required>
+                                    <label class="form-check-label" for="terms">I agree to the terms and conditions *</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep(2)"><i class="fas fa-arrow-left me-2"></i> Back</button>
+                            <button type="submit" class="btn btn-success">Submit Registration</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Enquiry Modal -->
+<div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="enquiryModalLabel">Quick Enquiry</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="enquiryForm">
+                    <div class="mb-3">
+                        <label for="enquiryName" class="form-label">Name *</label>
+                        <input type="text" class="form-control" id="enquiryName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="enquiryAge" class="form-label">Child's Age *</label>
+                        <select class="form-control" id="enquiryAge" required>
+                            <option value="">Select Age</option>
+                            <option value="1">1 year</option>
+                            <option value="2">2 years</option>
+                            <option value="3">3 years</option>
+                            <option value="4">4 years</option>
+                            <option value="5">5 years</option>
+                            <option value="6">6 years</option>
+                            <option value="7">7 years</option>
+                            <option value="8">8 years</option>
+                            <option value="9">9 years</option>
+                            <option value="10">10 years</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="enquiryContact" class="form-label">Contact Number *</label>
+                        <input type="tel" class="form-control" id="enquiryContact" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Food Option *</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="foodOption" id="withFood" value="withFood" required>
+                            <label class="form-check-label" for="withFood">With Food</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="foodOption" id="withoutFood" value="withoutFood">
+                            <label class="form-check-label" for="withoutFood">Without Food</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Submit Enquiry</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap & jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Form step navigation for registration form
+    function nextStep(step) {
+        document.querySelectorAll('.form-step').forEach(step => {
+            step.classList.remove('active');
+        });
+        document.getElementById('step' + step).classList.add('active');
+        
+        // Update progress bar
+        const progressBar = document.querySelector('.progress-bar');
+        progressBar.style.width = (step * 33.33) + '%';
+        progressBar.setAttribute('aria-valuenow', step * 33.33);
+        progressBar.textContent = 'Step ' + step + ' of 3';
+    }
+    
+    function prevStep(step) {
+        document.querySelectorAll('.form-step').forEach(step => {
+            step.classList.remove('active');
+        });
+        document.getElementById('step' + step).classList.add('active');
+        
+        // Update progress bar
+        const progressBar = document.querySelector('.progress-bar');
+        progressBar.style.width = (step * 33.33) + '%';
+        progressBar.setAttribute('aria-valuenow', step * 33.33);
+        progressBar.textContent = 'Step ' + step + ' of 3';
+    }
+    
+    function calculateAge() {
+        const dob = new Date(document.getElementById('childDob').value);
+        const today = new Date();
+        let age = today.getFullYear() - dob.getFullYear();
+        const m = today.getMonth() - dob.getMonth();
+        
+        if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+            age--;
+        }
+        
+        if (age >= 1 && age <= 10) {
+            document.getElementById('childAge').value = age;
+        }
+    }
+    
+    // Handle form submissions
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Registration form submitted successfully!');
+        $('#registrationModal').modal('hide');
+        this.reset();
+        nextStep(1); // Reset to first step
+    });
+    
+    document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Enquiry submitted successfully! We will contact you soon.');
+        $('#enquiryModal').modal('hide');
+        this.reset();
+    });
+</script>
+
+
+<style>
+    /* Registration Modal Styles */
+    .registration-modal .modal-content {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    
+    .registration-modal .modal-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+    
+    .registration-modal .btn-close-white {
+        filter: invert(1);
+    }
+    
+    .registration-modal .progress-bar {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .registration-modal .form-step {
+        display: none;
+    }
+    
+    .registration-modal .form-step.active {
+        display: block;
+    }
+    
+    .registration-modal .form-label {
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+    }
+    
+    .registration-modal .form-control {
+        border-radius: 8px;
+        padding: 12px;
+        border: 2px solid #eaeaea;
+        transition: all 0.3s;
+    }
+    
+    .registration-modal .form-control:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+    }
+    
+    .registration-modal .btn {
+        border-radius: 50px;
+        padding: 10px 25px;
+        font-weight: 600;
+    }
+    
+    .registration-modal .btn-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+    }
+    
+    .registration-modal .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+    
+    .registration-modal .form-check-input:checked {
+        background-color: #667eea;
+        border-color: #667eea;
+    }
+</style>
+
+<script>
+    // Form navigation functions
+    function nextStep(step) {
+        document.querySelectorAll('.form-step').forEach(el => {
+            el.classList.remove('active');
+        });
+        document.getElementById('step' + step).classList.add('active');
+        
+        // Update progress bar
+        const progressBar = document.querySelector('.progress-bar');
+        progressBar.style.width = (step * 33.33) + '%';
+        progressBar.textContent = 'Step ' + step + ' of 3';
+    }
+    
+    function prevStep(step) {
+        document.querySelectorAll('.form-step').forEach(el => {
+            el.classList.remove('active');
+        });
+        document.getElementById('step' + step).classList.add('active');
+        
+        // Update progress bar
+        const progressBar = document.querySelector('.progress-bar');
+        progressBar.style.width = (step * 33.33) + '%';
+        progressBar.textContent = 'Step ' + step + ' of 3';
+    }
+    
+    // Calculate age from date of birth
+    function calculateAge() {
+        const dob = new Date(document.getElementById('childDob').value);
+        const today = new Date();
+        let age = today.getFullYear() - dob.getFullYear();
+        const monthDiff = today.getMonth() - dob.getMonth();
+        
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+            age--;
+        }
+        
+        // Set the age in the select dropdown if between 1-10
+        if (age >= 1 && age <= 10) {
+            document.getElementById('childAge').value = age;
+        } else {
+            document.getElementById('childAge').value = "";
+        }
+    }
+    
+    // Form submission
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validate age is between 1-10
+        const age = document.getElementById('childAge').value;
+        if (age < 1 || age > 10) {
+            alert('Please select a valid age between 1 and 10 years.');
+            return;
+        }
+        
+        // Show success message
+        alert('Registration submitted successfully! We will contact you soon.');
+        
+        // Close modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('registrationModal'));
+        modal.hide();
+        
+        // Reset form
+        this.reset();
+    });
+</script>
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Get In Touch</h3>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i> +91-7026364627</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>kidznkidzzilla@gmail.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Quick Links</h3>
+                        <a class="btn btn-link text-white-50" href="about.html">About Us</a>
+                        <a class="btn btn-link text-white-50" href="contact.html">Contact Us</a>
+                        <a class="btn btn-link text-white-50" href="daycare.html">Our Services</a>
+                        <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
+                        <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Scan Me For Feedback</h3>
+                        <div class="row g-2 pt-2">
+                             <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/imges/scan.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Opening Hours</h3>
+                        <p>Everyday</p>
+                        <p>10.00 Am -10.00 Pm</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="#">Kidz 'n' Kidzzilla</a>, All Right Reserved. 
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="index.html">Home</a>
+                                <a href="">Cookies</a>
+                                <a href="">Help</a>
+                                <a href="">FQAs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Animation for timeline items on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            const timelineOptions = {
+                threshold: 0.3,
+                rootMargin: "0px 0px -50px 0px"
+            };
+            
+            const timelineObserver = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, timelineOptions);
+            
+            timelineItems.forEach(item => {
+                timelineObserver.observe(item);
+            });
+            
+            // Counter animation
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = Math.ceil(target / speed);
+                
+                if (count < target) {
+                    counter.innerText = count + increment;
+                    setTimeout(updateCounter, 1);
+                } else {
+                    counter.innerText = target;
+                }
+                
+                function updateCounter() {
+                    const current = +counter.innerText;
+                    if (current < target) {
+                        counter.innerText = current + increment;
+                        setTimeout(updateCounter, 1);
+                    } else {
+                        counter.innerText = target;
+                    }
+                }
+            });
+            
+            // Start counter when in viewport
+            const counterSection = document.querySelector('.parallax');
+            const counterOptions = {
+                threshold: 0.5
+            };
+            
+            const counterObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        counters.forEach(counter => {
+                            counter.classList.add('counter-up');
+                        });
+                    }
+                });
+            }, counterOptions);
+            
+            counterObserver.observe(counterSection);
+            
+            // Registration form functionality
+            window.nextStep = function(next) {
+                document.querySelectorAll('.form-step').forEach(step => {
+                    step.classList.remove('active');
+                });
+                document.getElementById('step' + next).classList.add('active');
+                
+                // Update progress bar
+                const progress = (next / 3) * 100;
+                document.querySelector('.progress-bar').style.width = progress + '%';
+                document.querySelector('.progress-bar').textContent = 'Step ' + next + ' of 3';
+            };
+            
+            window.prevStep = function(prev) {
+                document.querySelectorAll('.form-step').forEach(step => {
+                    step.classList.remove('active');
+                });
+                document.getElementById('step' + prev).classList.add('active');
+                
+                // Update progress bar
+                const progress = (prev / 3) * 100;
+                document.querySelector('.progress-bar').style.width = progress + '%';
+                document.querySelector('.progress-bar').textContent = 'Step ' + prev + ' of 3';
+            };
+            
+            // Form submission
+            document.getElementById('registrationForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Here you would typically send the form data to your server
+                alert('Thank you for your registration! We will contact you shortly.');
+                $('#registrationModal').modal('hide');
+                this.reset();
+                nextStep(1); // Reset to first step
+            });
+            
+            // Auto calculate age from date of birth
+            document.getElementById('childDob').addEventListener('change', function() {
+                const dob = new Date(this.value);
+                const today = new Date();
+                let age = today.getFullYear() - dob.getFullYear();
+                const m = today.getMonth() - dob.getMonth();
+                if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+                    age--;
+                }
+                // Calculate months for children under 1 year
+                let preciseAge = age;
+                if (age < 1) {
+                    const months = today.getMonth() - dob.getMonth() + (12 * (today.getFullYear() - dob.getFullYear()));
+                    preciseAge = months / 12;
+                }
+                document.getElementById('childAge').value = preciseAge.toFixed(1);
+            });
+        });
+    </script>
+</body>
+
+</html>

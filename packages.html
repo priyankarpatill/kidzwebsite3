@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Kidz - Play Packages</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    
+    <style>
+        /* Custom Styles for Packages Page */
+        :root {
+            --primary: lightgreen;
+            --secondary: #FEA116;
+            --light: #F0F6F9;
+            --dark: #141E27;
+        }
+        
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/imges/header-bg.jpg') center center no-repeat;
+            background-size: cover;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary) 0%, transparent 50%, var(--secondary) 100%);
+            opacity: 0.3;
+            z-index: 1;
+            animation: gradientShift 10s ease infinite;
+        }
+        
+        .page-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .package-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            margin-bottom: 30px;
+            background: white;
+            position: relative;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-15px) rotateY(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .package-card.popular {
+            position: relative;
+            transform: scale(1.05);
+            z-index: 1;
+            animation: popularGlow 3s ease-in-out infinite;
+        }
+        
+        .package-card.popular:hover {
+            transform: translateY(-15px) scale(1.05) rotateY(5deg);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--secondary);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50px;
+            font-weight: bold;
+            transform: rotate(15deg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+            z-index: 10;
+        }
+        
+        .package-header {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .package-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+            transform: rotate(45deg);
+            animation: shineEffect 3s infinite;
+        }
+        
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 15px 0;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .package-price::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: white;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s ease;
+        }
+        
+        .package-card:hover .package-price::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .package-features {
+            padding: 20px;
+        }
+        
+        .package-features ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .package-features li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+            position: relative;
+            padding-left: 30px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.5s ease;
+        }
+        
+        .package-card.animated li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .package-features li:nth-child(1) { transition-delay: 0.1s; }
+        .package-features li:nth-child(2) { transition-delay: 0.2s; }
+        .package-features li:nth-child(3) { transition-delay: 0.3s; }
+        .package-features li:nth-child(4) { transition-delay: 0.4s; }
+        .package-features li:nth-child(5) { transition-delay: 0.5s; }
+        
+        .package-features li:before {
+            content: "✓";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .btn-package {
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid var(--primary);
+            display: inline-block;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn-package::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: white;
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        
+        .btn-package:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(6, 187, 204, 0.3);
+        }
+        
+        .btn-package:hover::before {
+            left: 0;
+        }
+        
+        .addon-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            height: 100%;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .addon-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .addon-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+            color: var(--primary);
+            transition: all 0.5s ease;
+        }
+        
+        .addon-card:hover .addon-icon {
+            transform: scale(1.2) rotate(10deg);
+            color: var(--secondary);
+        }
+        
+        .btn-addon {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 8px 20px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn-addon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        
+        .btn-addon:hover {
+            transform: scale(1.05);
+        }
+        
+        .btn-addon:hover::before {
+            left: 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+            animation: linePulse 2s infinite;
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: rotate(15deg) scale(1); }
+            50% { transform: rotate(15deg) scale(1.1); }
+            100% { transform: rotate(15deg) scale(1); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes popularGlow {
+            0% { box-shadow: 0 0 20px rgba(254, 161, 22, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(254, 161, 22, 0.8); }
+            100% { box-shadow: 0 0 20px rgba(254, 161, 22, 0.5); }
+        }
+        
+        @keyframes linePulse {
+            0% { width: 80px; }
+            50% { width: 120px; }
+            100% { width: 80px; }
+        }
+        
+        @keyframes shineEffect {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .animated-float {
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        /* 3D Flip Card Effect */
+        .flip-card {
+            perspective: 1000px;
+            margin-bottom: 30px;
+        }
+        
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .flip-card-back {
+            background: var(--primary);
+            color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        /* Parallax Effect */
+        .parallax-section {
+            background: url('img/imges/parallax-bg.jpg') fixed center center;
+            background-size: cover;
+            padding: 100px 0;
+            position: relative;
+            color: white;
+        }
+        
+        .parallax-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        
+        .parallax-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Particle Animation Background */
+        .particles-container {
+            position: relative;
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(6, 187, 204, 0.3);
+            animation: float-particle 15s infinite linear;
+        }
+        
+        @keyframes float-particle {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-500px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Text Animation */
+        .animated-text {
+            display: inline-block;
+            position: relative;
+        }
+        
+        .animated-text::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.5s ease;
+        }
+        
+        .animated-text:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        /* Bounce Animation */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+        
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+        
+        /* Rotate Animation */
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .rotate {
+            animation: rotate 10s linear infinite;
+        }
+        
+        /* Fade In Up Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 40px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        
+        .fadeInUp {
+            animation-name: fadeInUp;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+        
+        /* Special Offers Section */
+        .special-offers-section {
+            background: lightpink;
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .offer-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .offer-card:hover {
+            transform: translateY(-10px) rotateY(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .offer-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--secondary);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50px;
+            font-weight: bold;
+            transform: rotate(15deg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        .offer-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+            color: var(--primary);
+            transition: all 0.5s ease;
+        }
+        
+        .offer-card:hover .offer-icon {
+            transform: scale(1.2) rotate(10deg);
+            color: var(--secondary);
+        }
+        
+        .offer-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .offer-description {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .btn-offer {
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid var(--primary);
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn-offer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: white;
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        
+        .btn-offer:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(6, 187, 204, 0.3);
+        }
+        
+        .btn-offer:hover::before {
+            left: 0;
+        }
+        
+        /* Confetti Animation */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--primary);
+            opacity: 0.7;
+            animation: confettiFall 5s linear infinite;
+        }
+        
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
+            <a href="index.html" class="navbar-brand">
+                <img src="img/imges/Kidzzilla logo[1].png" alt="Kider Logo" style="height:90px;">
+            </a>
+
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <a href="index.html" class="nav-item nav-link animated-text">Home</a>
+                    <a href="about.html" class="nav-item nav-link animated-text">About Us</a>
+                    <a href="./birthdaypackages.html" class="nav-item nav-link animated-text">Birthday Packages</a>
+                    <a href="./daycare.html" class="nav-item nav-link animated-text">Daycare</a>
+                    <a href="./packages.html" class="nav-item nav-link animated-text">Packages</a>
+                    <a href="gallery.html" class="nav-item nav-link animated-text">Gallery</a>
+                    <a href="contact.html" class="nav-item nav-link animated-text">Contact Us</a>
+                </div>
+                <a href="" class="btn btn-primary rounded-pill px-3 d-none d-lg-block bounce">Join Us<i class="fa fa-arrow-right ms-3"></i></a>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+
+        <!-- Page Header Start -->
+        <div class="page-header">
+            <div class="container text-center page-header-content">
+                <h1 class="display-4 text-white animated fadeInDown">Play Packages</h1>
+                <p class="text-white animated fadeInUp">Flexible options for every family's needs</p>
+            </div>
+        </div>
+        <!-- Page Header End -->
+
+        <!-- Packages Section Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3 section-title">Choose Your Perfect Package</h1>
+                    <p>From walk-in sessions to monthly unlimited passes, we have packages designed to fit your schedule and budget while ensuring maximum fun for your little ones.</p>
+                </div>
+                
+                <div class="row g-4 justify-content-center">
+                    <!-- Package 1 -->
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="package-card">
+                            <div class="package-header">
+                                <h3>Weekdays Hourly Fun</h3>
+                                <div class="package-price">₹400.00</div>
+                                <p>per child (1 hour)</p>
+                            </div>
+                            <div class="package-features text-center">
+                                <ul>
+                                    <li>Access to all play areas</li>
+                                    <li>Supervised play environment</li>
+                                    <li>Weekdays only (Mon-Fri)</li>
+                                    <li>No time restrictions</li>
+                                    <li>Parent accompaniment included</li>
+                                </ul>
+                                <a href="#" class="btn btn-package">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Package 2 (Popular) -->
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="package-card popular">
+                            <div class="popular-badge">Most Popular</div>
+                            <div class="package-header">
+                                <h3>Weekend Hourly Fun</h3>
+                                <div class="package-price">₹450.00</div>
+                                <p>per child (1 hour)</p>
+                            </div>
+                            <div class="package-features text-center">
+                                <ul>
+                                    <li>Access to all play areas</li>
+                                    <li>Special weekend activities</li>
+                                    <li>Weekends only (Sat-Sun)</li>
+                                    <li>Extended play hours</li>
+                                    <li>Themed weekend events</li>
+                                </ul>
+                                <a href="#" class="btn btn-package">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Package 3 (Flip Card) -->
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front package-card">
+                                    <div class="package-header">
+                                        <h3>Basic Monthly Pass</h3>
+                                        <div class="package-price">₹2500.00</div>
+                                        <p>per child (10 hours)</p>
+                                    </div>
+                                    <div class="package-features text-center">
+                                        <ul>
+                                            <li>10 hours of play time</li>
+                                            <li>2 month validity</li>
+                                            <li>All regular amenities</li>
+                                            <li>Priority booking</li>
+                                            <li>5% discount on add-ons</li>
+                                        </ul>
+                                        <a href="#" class="btn btn-package">Book Now</a>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3 class="text-white">Special Offer!</h3>
+                                    <p class="text-white">Get a free snack combo when you book this package today!</p>
+                                    <p class="text-white">Use code: PLAY10</p>
+                                    <a href="#" class="btn btn-light mt-3">Claim Offer</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Packages Section End -->
+
+        <!-- Addons Section Start -->
+        <div class="container-xxl py-5 bg-light">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3 section-title">Enhance Your Experience</h1>
+                    <p>Optional add-ons to make your visit even more special</p>
+                </div>
+                
+                <div class="row g-4">
+                    <!-- Addon 1 -->
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="addon-card">
+                            <i class="fas fa-camera addon-icon"></i>
+                            <h4>Photography Package</h4>
+                            <p>Professional photos of your child's play session</p>
+                            <div class="price">₹2,999</div>
+                            <button class="btn btn-addon mt-3">Add to Package</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Addon 2 -->
+                    <!-- <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="addon-card">
+                            <i class="fas fa-apple-alt addon-icon"></i>
+                            <h4>Snack Combo</h4>
+                            <p>Healthy snacks and juice for your little one</p>
+                            <div class="price">₹149</div>
+                            <button class="btn btn-addon mt-3">Add to Package</button>
+                        </div>
+                    </div> -->
+                    
+                    <!-- Addon 3 -->
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="addon-card">
+                            <i class="fas fa-socks addon-icon"></i>
+                            <h4>Socks (Required)</h4>
+                            <p>Non-slip socks for safe play (if forgotten)</p>
+                            <div class="price">₹40</div>
+                            <button class="btn btn-addon mt-3">Add to Package</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Addon 4 -->
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="addon-card">
+                            <i class="fas fa-clock addon-icon"></i>
+                            <h4>Extended Play Time</h4>
+                            <p>Add 1 extra hour to your session</p>
+                            <div class="price">₹149 to 200 </div>
+                            <button class="btn btn-addon mt-3">Add to Package</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Addons Section End -->
+
+        <!-- Special Offers Section Start -->
+        <div class="special-offers-section">
+            <!-- Particle Background -->
+            <div class="particles" id="particles"></div>
+            
+            <div class="container">
+                <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+                    <h1 class="mb-3 section-title text-white">Exclusive Deals</h1>
+                    <p class="text-white">Take advantage of these special offers designed just for you!</p>
+                </div>
+                
+                <div class="row g-4 justify-content-center">
+                    <!-- First Visit Special -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="offer-card">
+                            <div class="offer-badge">New</div>
+                            <i class="fas fa-gift offer-icon"></i>
+                            <h3 class="offer-title">First Visit Booking in online</h3>
+                            <div class="offer-price">10% OFF</div>
+                            <p class="offer-description">Valid for first-time visitors only</p>
+                            <a href="#" class="btn btn-offer">Claim Offer</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Sibling Discount -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front offer-card">
+                                    <i class="fas fa-users offer-icon"></i>
+                                    <h3 class="offer-title">Sibling Discount</h3>
+                                    <div class="offer-price">5% OFF</div>
+                                    <p class="offer-description">When booking for 2+ siblings</p>
+                                    <a href="#" class="btn btn-offer">Learn More</a>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3 class="text-white">Special Deal!</h3>
+                                    <p class="text-white">Bring two or more siblings and get 15% off your total booking!</p>
+                                    <p class="text-white">Use code: SIBLING15</p>
+                                    <a href="#" class="btn btn-light mt-3">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Birthday Month -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="offer-card">
+                            <i class="fas fa-birthday-cake offer-icon"></i>
+                            <h3 class="offer-title">Birthday Month</h3>
+                            <div class="offer-price">FREE Play</div>
+                            <p class="offer-description">Free 30 mins session on your child's birthday</p>
+                            <a href="#" class="btn btn-offer">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Special Offers Section End -->
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Get In Touch</h3>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i> +91-7026364627</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>kidznkidzzilla@gmail.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Quick Links</h3>
+                        <a class="btn btn-link text-white-50" href="">About Us</a>
+                        <a class="btn btn-link text-white-50" href="">Contact Us</a>
+                        <a class="btn btn-link text-white-50" href="">Our Services</a>
+                        <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
+                        <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Scan Me For Feedback</h3>
+                        <div class="row g-2 pt-2">
+                             <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/imges/scan.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Opening Hours</h3>
+                        <p>Everyday</p>
+                        <p>10.00 Am -10.00 Pm</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved. 
+                            Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="">Home</a>
+                                <a href="">Cookies</a>
+                                <a href="">Help</a>
+                                <a href="">FQAs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    
+
+        <script>
+        // Initialize Wow.js for scroll animations
+        new WOW().init();
+        
+        // Create floating particles
+        function createParticles() {
+            const container = document.querySelector('.special-offers-section');
+            if (!container) return;
+            
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size and position
+                const size = Math.random() * 20 + 5;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                
+                // Random animation duration
+                const duration = Math.random() * 15 + 10;
+                particle.style.animationDuration = `${duration}s`;
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // 3D tilt effect for cards
+        function initTiltEffect() {
+            const cards = document.querySelectorAll('.package-card, .addon-card, .offer-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const angleY = (x - centerX) / 20;
+                    const angleX = (centerY - y) / 20;
+                    
+                    this.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-10px)`;
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+                });
+            });
+        }
+        
+        // Animate list items in package cards
+        function animatePackageFeatures() {
+            const packageCards = document.querySelectorAll('.package-card');
+            
+            packageCards.forEach(card => {
+                // Add animated class when card is in viewport
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            card.classList.add('animated');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(card);
+            });
+        }
+        
+        // Create confetti effect
+        function createConfetti() {
+            const offersSection = document.querySelector('.special-offers-section');
+            if (!offersSection) return;
+            
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                
+                // Random properties
+                const size = Math.random() * 10 + 5;
+                const left = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = Math.random() * 3 + 3;
+                const colors = ['#06BBCC', '#FEA116', '#FF6B6B', '#4ECDC4', '#F9C74F'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                confetti.style.left = `${left}%`;
+                confetti.style.animationDelay = `${delay}s`;
+                confetti.style.animationDuration = `${duration}s`;
+                confetti.style.backgroundColor = color;
+                
+                offersSection.appendChild(confetti);
+            }
+        }
+        
+        // Animate buttons on hover
+        function animateButtons() {
+            const buttons = document.querySelectorAll('.btn-package, .btn-addon, .btn-offer');
+            
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                    this.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+        }
+        
+        // Parallax effect for header
+        function initParallax() {
+            const header = document.querySelector('.page-header');
+            if (!header) return;
+            
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.5;
+                header.style.backgroundPosition = `center ${rate}px`;
+            });
+        }
+        
+        // Typewriter effect for headings
+        function typeWriterEffect() {
+            const headings = document.querySelectorAll('.section-title');
+            
+            headings.forEach(heading => {
+                const text = heading.textContent;
+                heading.textContent = '';
+                
+                let i = 0;
+                const timer = setInterval(function() {
+                    if (i < text.length) {
+                        heading.textContent += text.charAt(i);
+                        i++;
+                    } else {
+                        clearInterval(timer);
+                    }
+                }, 100);
+            });
+        }
+        
+        // Counter animation for prices
+        function animateCounters() {
+            const counters = document.querySelectorAll('.package-price');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace('₹', '').replace('.00', ''));
+                let count = 0;
+                const duration = 2000; // ms
+                const increment = target / (duration / 16);
+                
+                const updateCount = () => {
+                    if (count < target) {
+                        count += increment;
+                        counter.textContent = `₹${Math.round(count)}.00`;
+                        setTimeout(updateCount, 16);
+                    } else {
+                        counter.textContent = `₹${target}.00`;
+                    }
+                };
+                
+                // Start counter when element is in viewport
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            updateCount();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(counter);
+            });
+        }
+        
+        // Initialize when document is ready
+        $(document).ready(function() {
+            createParticles();
+            initTiltEffect();
+            animatePackageFeatures();
+            createConfetti();
+            animateButtons();
+            initParallax();
+            // typeWriterEffect(); // Uncomment if you want typewriter effect
+            animateCounters();
+            
+            // Add animation to page header text
+            setTimeout(function() {
+                $('.page-header h1').addClass('bounce');
+                $('.page-header p').addClass('fadeInUp');
+            }, 1000);
+            
+            // Add animation to section titles on scroll
+            $(window).scroll(function() {
+                $('.section-title').each(function() {
+                    const position = $(this).offset().top;
+                    const scrollPosition = $(window).scrollTop() + $(window).height();
+                    
+                    if (position < scrollPosition) {
+                        $(this).addClass('animated-text');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
+<style>
+    /* Updated Special Offers Section */
+    .special-offers-section {
+        background: lightpink;
+        padding: 60px 0;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    /* Enhanced offer card styling */
+    .offer-card {
+        background: white;
+        border-radius: 15px;
+        padding: 25px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.5s ease;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+        cursor: pointer;
+    }
+    
+    .offer-card:hover {
+        transform: translateY(-10px) scale(1.03);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Enhanced badge animation */
+    .offer-badge {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        background: var(--secondary);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 50px;
+        font-weight: bold;
+        transform: rotate(15deg);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        animation: badgePulse 2s infinite;
+        z-index: 10;
+    }
+    
+    @keyframes badgePulse {
+        0% { 
+            transform: rotate(15deg) scale(1); 
+            box-shadow: 0 5px 15px rgba(254, 161, 22, 0.5);
+        }
+        50% { 
+            transform: rotate(15deg) scale(1.1); 
+            box-shadow: 0 8px 20px rgba(254, 161, 22, 0.8);
+        }
+        100% { 
+            transform: rotate(15deg) scale(1); 
+            box-shadow: 0 5px 15px rgba(254, 161, 22, 0.5);
+        }
+    }
+    
+    /* Enhanced icon animation */
+    .offer-icon {
+        font-size: 3rem;
+        margin-bottom: 15px;
+        display: block;
+        color: var(--primary);
+        transition: all 0.5s ease;
+        position: relative;
+    }
+    
+    .offer-card:hover .offer-icon {
+        transform: scale(1.3) rotate(360deg);
+        color: var(--secondary);
+    }
+    
+    /* Price animation */
+    .offer-price {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin: 10px 0;
+        color: var(--primary);
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+    
+    .offer-card:hover .offer-price {
+        color: var(--secondary);
+        transform: scale(1.2);
+    }
+    
+    /* New confetti container for each card */
+    .confetti-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 2;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .offer-card:hover .confetti-container {
+        opacity: 1;
+    }
+    
+    .confetti-piece {
+        position: absolute;
+        width: 8px;
+        height: 16px;
+        background: var(--primary);
+        opacity: 0;
+        animation: confetti-pop 1s ease-in-out forwards;
+    }
+    
+    @keyframes confetti-pop {
+        0% {
+            opacity: 1;
+            transform: translateY(0) rotate(0deg) scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(-100px) rotate(720deg) scale(1.5);
+        }
+    }
+    
+    /* Subtle background pattern animation */
+    .offer-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+            radial-gradient(circle at 20% 80%, rgba(254, 161, 22, 0.1) 0%, transparent 20%),
+            radial-gradient(circle at 80% 20%, rgba(6, 187, 204, 0.1) 0%, transparent 20%);
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+    
+    .offer-card:hover::before {
+        opacity: 1;
+    }
+    
+    /* Content positioning */
+    .offer-content {
+        position: relative;
+        z-index: 3;
+    }
+</style>
+
+<script>
+    // Enhanced function to create confetti effect for exclusive deals
+    function createDealConfetti() {
+        const offerCards = document.querySelectorAll('.offer-card');
+        
+        offerCards.forEach(card => {
+            // Create confetti container for each card
+            const confettiContainer = document.createElement('div');
+            confettiContainer.classList.add('confetti-container');
+            card.appendChild(confettiContainer);
+            
+            // Add confetti pieces on hover
+            card.addEventListener('mouseenter', function() {
+                // Clear previous confetti
+                confettiContainer.innerHTML = '';
+                
+                // Create new confetti pieces
+                for (let i = 0; i < 20; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti-piece');
+                    
+                    // Random properties
+                    const left = Math.random() * 100;
+                    const colors = ['#06BBCC', '#FEA116', '#FF6B6B', '#4ECDC4', '#F9C74F'];
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    const delay = Math.random() * 0.5;
+                    const duration = Math.random() * 0.5 + 0.5;
+                    
+                    confetti.style.left = `${left}%`;
+                    confetti.style.bottom = '0';
+                    confetti.style.backgroundColor = color;
+                    confetti.style.animationDelay = `${delay}s`;
+                    confetti.style.animationDuration = `${duration}s`;
+                    
+                    confettiContainer.appendChild(confetti);
+                }
+            });
+        });
+    }
+    
+    // Initialize when document is ready
+    $(document).ready(function() {
+        createDealConfetti();
+        
+        // Add additional hover effects for offer cards
+        $('.offer-card').hover(
+            function() {
+                // Mouse enter
+                $(this).find('.offer-title').css('color', '#FEA116');
+            },
+            function() {
+                // Mouse leave
+                $(this).find('.offer-title').css('color', '#141E27');
+            }
+        );
+    });
+</script>
+
+
+<style>
+    /* Fix for the flip card in special offers section */
+    .special-offers-section .flip-card {
+        perspective: 1000px;
+        margin-bottom: 30px;
+        height: 100%; /* Added to maintain consistent height */
+    }
+    
+    .special-offers-section .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+    }
+    
+    .special-offers-section .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg) translateY(0); /* Fixed: Added translateY(0) to prevent downward movement */
+    }
+    
+    .special-offers-section .flip-card-front, 
+    .special-offers-section .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        top: 0; /* Added to ensure proper positioning */
+        left: 0; /* Added to ensure proper positioning */
+    }
+    
+    .special-offers-section .flip-card-back {
+        background: var(--primary);
+        color: white;
+        transform: rotateY(180deg);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+    
+    /* Ensure all offer cards have the same height */
+    .special-offers-section .offer-card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+</style>
