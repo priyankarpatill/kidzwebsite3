@@ -674,12 +674,62 @@
         <!-- Navbar End -->
 
         <!-- Page Header Start -->
-        <div class="page-header">
-            <div class="container text-center page-header-content">
-                <h1 class="display-4 text-white animated fadeInDown">Play Packages</h1>
-                <p class="text-white animated fadeInUp">Flexible options for every family's needs</p>
-            </div>
-        </div>
+      <!-- Page Header with Video Background -->
+<div class="page-header position-relative overflow-hidden">
+
+    <!-- 🔹 Background Video -->
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="./img/gettyimages-1184667503-640_adpp2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- 🔹 Optional Dark Overlay -->
+    <div class="video-overlay"></div>
+
+    <!-- 🔹 Header Content -->
+    <div class="container text-center page-header-content position-relative z-index-2">
+        <h1 class="display-4 text-white animated fadeInDown">Play Packages</h1>
+        <p class="text-white animated fadeInUp">Flexible options for every family's needs</p>
+    </div>
+</div>
+<style>
+    .page-header {
+    position: relative;
+    height: 100vh; /* Or adjust as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.6; /* Adjust opacity for readability */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Adjust overlay darkness */
+    z-index: 1;
+}
+
+.page-header-content {
+    z-index: 2;
+    position: relative;
+}
+
+</style>
         <!-- Page Header End -->
 
         <!-- Packages Section Start -->

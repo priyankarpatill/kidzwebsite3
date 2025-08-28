@@ -240,7 +240,7 @@ h6,
 }
 
 .page-header {
-    background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url(../img/imges/background.jpg) center center no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url(https://www.lego.com/cdn/cs/set/assets/blt0b06779932fa4201/01-Hero-Standard-DUPLO-Hygge-season-is-upon-us-Desktop.jpg?fit=crop&format=jpg&quality=80&width=1600&height=500&dpr=1) center center no-repeat;
     background-size: cover;
 }
 
