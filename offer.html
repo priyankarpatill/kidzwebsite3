@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Kidz - Preschool Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
+            <a href="index.html" class="navbar-brand">
+  <img src="img/imges/Kidzzilla logo[1].png" alt="Kider Logo" style="height:90px;">
+</a>
+
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About Us</a>
+                    <a href="./birthdaypackages.html" class="nav-item nav-link">Birthday Packages</a>
+                     <!-- <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
+                            <a href="facility.html" class="dropdown-item">School Facilities</a>
+                            <a href="team.html" class="dropdown-item">Popular Teachers</a>
+                            <a href="call-to-action.html" class="dropdown-item">Become A Teachers</a>
+                            <a href="appointment.html" class="dropdown-item">Make Appointment</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <a href="404.html" class="dropdown-item">404 Error</a>
+                        </div>
+                    </div> -->
+                    <a href="./packages.html" class="nav-item nav-link">Packages</a> 
+<a href="./daycare.html" class="nav-item nav-link active">Daycare</a>
+                    <a href="gallery.html" class="nav-item nav-link">Gallery</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                </div>
+                 <a href="./offer.html" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Offers<i class="fa fa-arrow-right ms-3"></i></a>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+
+
+
+
+
+    
+    <style>
+        /* Custom styles for festival offers section */
+        .offers-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #fff6e6 0%, #ffebcc 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .offers-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.05"><text x="50%" y="50%" font-size="80" text-anchor="middle" dominant-baseline="middle" fill="%23000000">🎁</text></svg>');
+            z-index: 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+            font-family: 'Lobster Two', cursive;
+            color: #d35400;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: #d35400;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .offer-card {
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            height: 100%;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            perspective: 1000px;
+            background: white;
+            transform-style: preserve-3d;
+        }
+        
+        .offer-card:hover {
+            transform: translateY(-15px) rotateY(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .offer-header {
+            padding: 25px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .offer-header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { left: -50%; }
+            100% { left: 150%; }
+        }
+        
+        .offer-body {
+            padding: 25px;
+            position: relative;
+            z-index: 1;
+            background: white;
+        }
+        
+        .festival-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .offer-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #d35400;
+            font-family: 'Lobster Two', cursive;
+        }
+        
+        .offer-description {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        
+        .offer-features {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        
+        .offer-features li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .offer-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .offer-features li i {
+            color: #d35400;
+            margin-right: 10px;
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+        
+        .offer-price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #d35400;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: #95a5a6;
+            font-size: 1.5rem;
+            margin-left: 10px;
+        }
+        
+        .discount-badge {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            transform: rotate(45deg);
+            background: #ff6b6b;
+            color: white;
+            padding: 5px 40px;
+            font-size: 14px;
+            font-weight: 600;
+            z-index: 2;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .ganesha-bg {
+            background: linear-gradient(135deg, #ff9a00 0%, #ff6b00 100%);
+        }
+        
+        .diwali-bg {
+            background: linear-gradient(135deg, #ffc500 0%, #ff6b00 100%);
+        }
+        
+        .christmas-bg {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        }
+        
+        .btn-offer {
+            background: linear-gradient(135deg, #ff9a00 0%, #ff6b00 100%);
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 106, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-offer:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 106, 0, 0.6);
+            color: white;
+        }
+        
+        .btn-offer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .btn-offer:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f39c12;
+            opacity: 0.7;
+            border-radius: 0;
+            z-index: 0;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .countdown-item {
+            margin: 0 10px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            min-width: 80px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform-style: preserve-3d;
+            transform: translateZ(10px);
+        }
+        
+        .countdown-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #d35400;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: #7f8c8d;
+        }
+        
+        /* 3D animation for the entire section */
+        .offers-container {
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateX(5deg);
+            transition: transform 0.5s ease;
+        }
+        
+        .offers-container:hover {
+            transform: perspective(1000px) rotateX(0deg);
+        }
+        
+        /* Floating elements */
+        .floating-elephant {
+            position: absolute;
+            top: 50px;
+            left: 5%;
+            font-size: 5rem;
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 10px 5px rgba(0,0,0,0.2));
+            z-index: 0;
+        }
+        
+        .floating-gift {
+            position: absolute;
+            bottom: 100px;
+            right: 5%;
+            font-size: 4rem;
+            animation: float 7s ease-in-out infinite 1s;
+            filter: drop-shadow(0 10px 5px rgba(0,0,0,0.2));
+            z-index: 0;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .floating-elephant, .floating-gift {
+                display: none;
+            }
+            
+            .offers-container {
+                transform: none;
+            }
+            
+            .offer-card:hover {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+
+
+
+        <!-- Festival Offers Section Start -->
+        <div class="container-xxl offers-section py-5">
+            <!-- Floating decorative elements -->
+            <div class="floating-elephant">🐘</div>
+            <div class="floating-gift">🎁</div>
+            
+            <div class="container py-5">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h1 class="mb-5 section-title">Festival Special Offers</h1>
+                    <p class="mb-5 fs-5">Celebrate the joy of festivals with our special offers! Limited time discounts on enrollment.</p>
+                </div>
+                
+                <!-- Countdown Timer -->
+                <div class="text-center mt-5 wow fadeInUp" data-wow-delay="0.2s">
+                    <h3 class="mb-3 text-warning">Hurry! Festival offers end in:</h3>
+                    <div class="countdown-timer">
+                        <div class="countdown-item">
+                            <div class="countdown-value" id="days">15</div>
+                            <div class="countdown-label">Days</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value" id="hours">23</div>
+                            <div class="countdown-label">Hours</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value" id="minutes">59</div>
+                            <div class="countdown-label">Minutes</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value" id="seconds">59</div>
+                            <div class="countdown-label">Seconds</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row g-4 mt-2 offers-container">
+                    <!-- Ganesha Festival Offer -->
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="offer-card card">
+                            <div class="discount-badge">25% OFF</div>
+                            <div class="offer-header ganesha-bg">
+                                <span class="festival-icon">🐘</span>
+                                <h3 class="text-white">Ganesha Festival</h3>
+                                <p class="text-white">Special Enrollment Offer</p>
+                            </div>
+                            <div class="offer-body">
+                                <div class="text-center mb-4">
+                                    <span class="offer-price">$299</span>
+                                    <span class="original-price">$399</span>
+                                    <p class="offer-description">Celebrate the festival of wisdom with special discounts</p>
+                                </div>
+                                <ul class="offer-features">
+                                    <li><i class="fa fa-check"></i>Free Ganesha idol crafting kit</li>
+                                    <li><i class="fa fa-check"></i>Special cultural activities</li>
+                                    <li><i class="fa fa-check"></i>Traditional sweets & snacks</li>
+                                    <li><i class="fa fa-check"></i>Ganesha story-telling sessions</li>
+                                    <li><i class="fa fa-check"></i>Take-home craft materials</li>
+                                </ul>
+                                <div class="text-center">
+                                    <a class="btn btn-offer rounded-pill py-2 px-4 mt-3" href="#enroll">Avail Offer Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Diwali Offer -->
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="offer-card card">
+                            <div class="discount-badge">30% OFF</div>
+                            <div class="offer-header diwali-bg">
+                                <span class="festival-icon">🪔</span>
+                                <h3 class="text-white">Diwali Festival</h3>
+                                <p class="text-white">Festival of Lights Offer</p>
+                            </div>
+                            <div class="offer-body">
+                                <div class="text-center mb-4">
+                                    <span class="offer-price">$279</span>
+                                    <span class="original-price">$399</span>
+                                    <p class="offer-description">Light up your child's learning journey</p>
+                                </div>
+                                <ul class="offer-features">
+                                    <li><i class="fa fa-check"></i>Diya decorating workshop</li>
+                                    <li><i class="fa fa-check"></i>Rangoli art sessions</li>
+                                    <li><i class="fa fa-check"></i>Special fireless cooking</li>
+                                    <li><i class="fa fa-check"></i>Traditional dress day</li>
+                                    <li><i class="fa fa-check"></i>Take-home Diwali gift hamper</li>
+                                </ul>
+                                <div class="text-center">
+                                    <a class="btn btn-offer rounded-pill py-2 px-4 mt-3" href="#enroll">Avail Offer Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Christmas Offer -->
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="offer-card card">
+                            <div class="discount-badge">20% OFF</div>
+                            <div class="offer-header christmas-bg">
+                                <span class="festival-icon">🎄</span>
+                                <h3 class="text-white">Christmas</h3>
+                                <p class="text-white">Season's Special Offer</p>
+                            </div>
+                            <div class="offer-body">
+                                <div class="text-center mb-4">
+                                    <span class="offer-price">$319</span>
+                                    <span class="original-price">$399</span>
+                                    <p class="offer-description">A gift of education for your little one</p>
+                                </div>
+                                <ul class="offer-features">
+                                    <li><i class="fa fa-check"></i>Christmas tree decoration kit</li>
+                                    <li><i class="fa fa-check"></i>Santa visit & gift distribution</li>
+                                    <li><i class="fa fa-check"></i>Special Christmas carols session</li>
+                                    <li><i class="fa fa-check"></i>Cookie decorating workshop</li>
+                                    <li><i class="fa fa-check"></i>Personalized Christmas gift</li>
+                                </ul>
+                                <div class="text-center">
+                                    <a class="btn btn-offer rounded-pill py-2 px-4 mt-3" href="#enroll">Avail Offer Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional Info -->
+                <div class="text-center mt-5 wow fadeInUp" data-wow-delay="0.8s">
+                    <p class="fs-5"><i class="fa fa-exclamation-circle text-warning me-2"></i>Offers valid for limited period only. Terms and conditions apply.</p>
+                    <a href="#terms" class="text-decoration-underline text-warning">View Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+        <!-- Festival Offers Section End -->
+
+       
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+  
+    
+    <!-- Countdown Timer Script -->
+    <script>
+        // Set the date we're counting down to (15 days from now)
+        const countDownDate = new Date();
+        countDownDate.setDate(countDownDate.getDate() + 15);
+        
+        // Update the count down every 1 second
+        const x = setInterval(function() {
+            // Get today's date and time
+            const now = new Date().getTime();
+            
+            // Find the distance between now and the count down date
+            const distance = countDownDate - now;
+            
+            // Time calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Output the result in elements with id="days", "hours", etc.
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+            
+            // If the count down is over, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("days").innerHTML = "0";
+                document.getElementById("hours").innerHTML = "0";
+                document.getElementById("minutes").innerHTML = "0";
+                document.getElementById("seconds").innerHTML = "0";
+            }
+        }, 1000);
+        
+        // Create confetti effect
+        function createConfetti() {
+            const container = document.querySelector('.offers-section');
+            for (let i = 0; i < 20; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                confetti.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                confetti.style.backgroundColor = ['#f1c40f', '#e74c3c', '#2ecc71', '#3498db', '#9b59b6'][Math.floor(Math.random() * 5)];
+                confetti.style.width = (Math.random() * 10 + 5) + 'px';
+                confetti.style.height = (Math.random() * 10 + 5) + 'px';
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                
+                container.appendChild(confetti);
+            }
+        }
+        
+        // Call confetti function when page loads
+        window.addEventListener('load', createConfetti);
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Get In Touch</h3>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i> +91-7026364627</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>kidznkidzzilla@gmail.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Quick Links</h3>
+                        <a class="btn btn-link text-white-50" href="">About Us</a>
+                        <a class="btn btn-link text-white-50" href="">Contact Us</a>
+                        <a class="btn btn-link text-white-50" href="">Our Services</a>
+                        <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
+                        <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Scan Me For Feedback</h3>
+                        <div class="row g-2 pt-2">
+                             <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/imges/scan.jpg" alt="">
+                            </div>
+                            <!-- <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-2.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-3.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-4.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-5.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-6.jpg" alt="">
+                            </div> -->
+                        </div>
+                    </div>
+                     <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Opening Hours</h3>
+                        <p>Everyday</p>
+                        <p>10.00 Am -10.00 Pm</p>
+                        <!-- <div class="position-relative mx-auto" style="max-width: 400px;">
+                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved. 
+							
+							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+							Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="">Home</a>
+                                <a href="">Cookies</a>
+                                <a href="">Help</a>
+                                <a href="">FQAs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
