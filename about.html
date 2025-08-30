@@ -30,7 +30,44 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
-
+  <style>
+        /* Apply Comic font to all text elements */
+        body, h1, h2, h3, h4, h5, h6, p, a, span, li, .btn, .nav-link, .navbar-brand {
+            font-family: 'Comic Neue', cursive, sans-serif !important;
+        }
+        
+        /* Make sure specific elements have appropriate weights */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700 !important;
+        }
+        
+        .navbar-brand {
+            font-weight: 700 !important;
+        }
+        
+        .btn {
+            font-weight: 600 !important;
+        }
+        
+        /* Adjust font sizes for better readability with Comic font */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
+            h1 {
+                font-size: 2rem !important;
+            }
+            
+            h2 {
+                font-size: 1.75rem !important;
+            }
+            
+            .navbar-brand {
+                font-size: 1.5rem !important;
+            }
+        }
+    </style>
 <body>
     <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
@@ -97,7 +134,7 @@
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="row g-5 align-items-center">
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="col-lg-6 wow fadeInUp justify-text" data-wow-delay="0.1s">
                         <h1 class="mb-4">Learn More About Our Work And Our Cultural Activities</h1>
                         <p>Kidz 'n' KidZZilla was inaugurated in 2023 by Mrs. Malathi Adari, the proud proprietor, with a vision to enhance children's engagement through fun-filled activities and interactive learning experiences.</p>
                         <p class="mb-4">Our mission is to create a joyful environment where kids can explore, learn, and grow through play, creativity, and various educational activities. We aim to foster children's social, cognitive, and motor skills through a wide range of engaging programs and events.</p>
@@ -137,33 +174,27 @@
          <style>.page-header {
   margin-bottom: 0 !important;
 }
+/* Make paragraphs align evenly on both sides */
+.justify-text p {
+  text-align: justify;
+  text-justify: inter-word;   /* better spacing in some browsers */
+  hyphens: auto;              /* optional: smoother breaks */
+}
+
+/* OPTIONAL: also justify headings if you want */
+.justify-text h1, 
+.justify-text h2, 
+.justify-text h3 {
+  text-align: justify;
+}
+
+/* OPTIONAL: if you want the last line justified too (can look stretched) */
+/* .justify-text p { text-align-last: justify; } */
+
 </style>
 
 
-        <!-- Call To Action Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="bg-light rounded">
-                    <div class="row g-0">
-                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s" style="min-height: 400px;">
-                            <div class="position-relative h-100">
-                                <img class="position-absolute w-100 h-100 rounded" src="img/Effective-classroom-management-strategies-for-new-teachers-Feature.jpg" style="object-fit: cover;">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                            <div class="h-100 d-flex flex-column justify-content-center p-5">
-                                <h1 class="mb-4">Become A Teacher</h1>
-                                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.
-                                    Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet
-                                </p>
-                                <a class="btn btn-primary py-3 px-5" href="">Get Started Now<i class="fa fa-arrow-right ms-2"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Call To Action End -->
+      
 
 
   <!-- What We Offer section -->
@@ -329,10 +360,10 @@
                 Our Philosophy
               </h2>
             </div>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <p class="justify-text" style="text-align: center; max-width: 800px; margin: 0 auto;">
               At Kidz n KidzZilla, we believe that every child has the potential to achieve great things. That's why we're committed to providing a safe and supportive environment where kids can explore their interests and develop new skills. We believe in the power of learning through play and that every child deserves access to resources that will help them grow and thrive.
             </p>
-            <p style="text-align: center; max-width: 800px; margin: 20px auto 0;">
+            <p class="justify-text" style="text-align: center; max-width: 800px; margin: 20px auto 0;">
               Our team works tirelessly to create engaging and educational content that will inspire kids to learn and explore. We're constantly updating our website with new activities and resources, so there's always something new to discover. Join us on an adventure of a lifetime and let your imagination soar!
             </p>
           </div>
@@ -600,9 +631,9 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h3 class="text-white mb-4">Quick Links</h3>
-                        <a class="btn btn-link text-white-50" href="">About Us</a>
-                        <a class="btn btn-link text-white-50" href="">Contact Us</a>
-                        <a class="btn btn-link text-white-50" href="">Our Services</a>
+                       <a class="btn btn-link text-white-50" href="./about.html">About Us</a>
+                        <a class="btn btn-link text-white-50" href="./contact.html">Contact Us</a>
+                        <!-- <a class="btn btn-link text-white-50" href="">Our Services</a> -->
                         <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
                         <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
                     </div>

@@ -30,7 +30,51 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
+<style>
+      /* Apply Comic Neue font to all text elements for both mobile and desktop */
+        body, h1, h2, h3, h4, h5, h6, p, a, span, li, .btn, .nav-link, .navbar-brand,
+        .service-card, .timeline-card, .form-control, .modal-title, .counter,
+        .section-title, .schedule-header h1, .card-face h4, .card-face p {
+            font-family: 'Comic Neue', cursive, sans-serif !important;
+        }
+        
+        /* Make sure specific elements have appropriate weights */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700 !important;
+        }
+        
+        .navbar-brand {
+            font-weight: 700 !important;
+        }
+        
+        .btn {
+            font-weight: 600 !important;
+        }
+        
+        /* Adjust font sizes for better readability with Comic font */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
+            h1 {
+                font-size: 2rem !important;
+            }
+            
+            h2 {
+                font-size: 1.75rem !important;
+            }
+            
+            .navbar-brand {
+                font-size: 1.5rem !important;
+            }
+            
+            .service-card p, .card-face p {
+                font-size: 14px;
+            }
+        }
 
+</style>
 <body>
     <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
@@ -119,7 +163,7 @@
                         <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 75px; height: 75px;">
                             <i class="fa fa-phone-alt fa-2x text-primary"></i>
                         </div>
-                        <h6>+012 345 6789</h6>
+                        <h6>7026364627</h6>
                     </div>
                 </div>
                 <div class="bg-light rounded">
@@ -127,37 +171,67 @@
                         <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                             <div class="h-100 d-flex flex-column justify-content-center p-5">
                                 <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                                <form>
-                                    <div class="row g-3">
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="name" placeholder="Your Name">
-                                                <label for="name">Your Name</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="email" class="form-control border-0" id="email" placeholder="Your Email">
-                                                <label for="email">Your Email</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="subject" placeholder="Subject">
-                                                <label for="subject">Subject</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-floating">
-                                                <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
-                                                <label for="message">Message</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
-                                        </div>
-                                    </div>
-                                </form>
+                                <!-- Contact Form -->
+<form id="contactForm">
+    <div class="row g-3">
+        <div class="col-sm-6">
+            <div class="form-floating">
+                <input type="text" class="form-control border-0" id="name" placeholder="Your Name" required>
+                <label for="name">Your Name</label>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-floating">
+                <input type="email" class="form-control border-0" id="email" placeholder="Your Email" required>
+                <label for="email">Your Email</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-floating">
+                <input type="text" class="form-control border-0" id="subject" placeholder="Subject" required>
+                <label for="subject">Subject</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-floating">
+                <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 100px" required></textarea>
+                <label for="message">Message</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    // Handle form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent default form submission
+
+        // Get form data
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var subject = document.getElementById('subject').value;
+        var message = document.getElementById('message').value;
+
+        // WhatsApp phone number (replace with your WhatsApp number)
+        var phoneNumber = '919036020999'; // Example: '11234567890' (without '+' or '00')
+
+        // Create message with form data
+        var whatsappMessage = `*Contact Enquiry:*\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`;
+
+        // Encode the message to make it URL-safe
+        var encodedMessage = encodeURIComponent(whatsappMessage);
+
+        // WhatsApp link
+        var whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+        // Open WhatsApp with the pre-filled message
+        window.open(whatsappLink, '_blank');
+    });
+</script>
+
                             </div>
                         </div>
                         <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
@@ -193,9 +267,9 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h3 class="text-white mb-4">Quick Links</h3>
-                        <a class="btn btn-link text-white-50" href="">About Us</a>
-                        <a class="btn btn-link text-white-50" href="">Contact Us</a>
-                        <a class="btn btn-link text-white-50" href="">Our Services</a>
+                       <a class="btn btn-link text-white-50" href="./about.html">About Us</a>
+                        <a class="btn btn-link text-white-50" href="./contact.html">Contact Us</a>
+                        <!-- <a class="btn btn-link text-white-50" href="">Our Services</a> -->
                         <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
                         <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
                     </div>

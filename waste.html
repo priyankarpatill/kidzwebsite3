@@ -930,111 +930,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 
-    <style></style>
-<!-- Registration Form Section -->
-<section id="registration" class="registration-form">
-  <div class="container-xxl py-5">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div class="form-container wow fadeInUp" data-wow-delay="0.1s">
-            <h2 class="form-title" style="color: black;">Book Your Birthday Party</h2>
-            <p class="text-center mb-4">
-              Fill out the form below and we'll get back to you within 24 hours to confirm your booking
-            </p>
+    <style>
+        
+    </style>
 
-            <!-- Web3Forms integration -->
-            <form action="https://api.web3forms.com/submit" method="POST">
-              <!-- 🔑 Your Web3Forms Access Key -->
-              <input type="hidden" name="access_key" value="8605b1bd-ef7b-482d-99af-68cc08caa680">
 
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input type="text" class="form-control" name="name" placeholder="Your Name" required>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input type="tel" class="form-control" name="phone" placeholder="Your Phone" required>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input type="text" class="form-control" name="child_name" placeholder="Child's Name" required>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input type="number" class="form-control" name="child_age" placeholder="Child's Age" min="1" max="12" required>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input type="number" class="form-control" name="guests" placeholder="Number of Guests" min="5" required>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input type="date" class="form-control" name="date" placeholder="Preferred Date" required>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <select class="form-control" name="package" required>
-                      <option value="">Select a Package</option>
-                      <option value="silver">Silver Package (₹5,999)</option>
-                      <option value="gold">Gold Package (₹9,999)</option>
-                      <option value="platinum">Platinum Package (₹14,999)</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <select class="form-control" name="decoration">
-                  <option value="">Select a Decoration Option (Optional)</option>
-                  <option value="basic">Basic Decoration (₹3,799)</option>
-                  <option value="theme">Theme Decoration (₹6,999)</option>
-                  <option value="premium">Premium Decoration (₹11,999)</option>
-                  <option value="custom">Custom Decoration</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <textarea class="form-control" name="message" rows="4" placeholder="Special Requests or Additional Information"></textarea>
-              </div>
-
-              <div class="form-check mb-4">
-                <input class="form-check-input" type="checkbox" id="termsCheck" required>
-                <label class="form-check-label" for="termsCheck">
-                  I agree to the terms and conditions
-                </label>
-              </div>
-
-              <button type="submit" class="submit-btn">Submit Booking Request</button>
-            </form>
-            <!-- End Web3Forms form -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
                 <!-- Additional Info Section -->
                 <div class="row mt-5">
@@ -2471,88 +2371,89 @@
                 </div>
 
              
-<!-- Customization Form -->
-<div class="customization-form" id="customizationForm">
-  <h3 class="form-title">Customize Your Package</h3>
-  
-  <!-- Web3Forms Integration -->
-  <form action="https://api.web3forms.com/submit" method="POST">
-    
-    <!-- 🔑 Your Web3Forms Access Key -->
-    <input type="hidden" name="access_key" value="8605b1bd-ef7b-482d-99af-68cc08caa680">
 
-    <div class="row">
-      <div class="col-md-6">
-        <div class="form-group">
-          <label class="form-label">Your Name</label>
-          <input type="text" class="form-control" name="name" placeholder="Enter your name" required>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <label class="form-label">Phone Number</label>
-          <input type="tel" class="form-control" name="phone" placeholder="Enter your phone number" required>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="form-label">Select Menu Option</label>
-      <select class="form-control" name="menu_option" required>
-        <option value="">Select an option</option>
-        <option>Option 1 - ₹120/-</option>
-        <option>Option 2 - ₹140/-</option>
-        <option>Option 3 - ₹120/-</option>
-        <option>Option 4 - ₹130/-</option>
-        <option>Option 5 - ₹140/-</option>
-        <option>Option 6 - ₹115/-</option>
-        <option>Option 7 - ₹130/-</option>
-        <option>Option 8 - ₹150/-</option>
-        <option>Option 9 - ₹160/-</option>
-        <option>Option 10 - ₹170/-</option>
-        <option>Option 11 - ₹200/-</option>
-        <option>Option 12 - ₹150/-</option>
-        <option>Option 13 - ₹130/-</option>
-        <option>Option 14 - ₹150/-</option>
-        <option>Option 15 - ₹160/-</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label class="form-label">Add-ons</label>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="addons[]" value="Tetra Pack Juice" id="juiceCheck">
-            <label class="form-check-label" for="juiceCheck">TETRA PACK JUICE</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="addons[]" value="Lays Packet" id="laysCheck">
-            <label class="form-check-label" for="laysCheck">LAYS PACKET</label>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="addons[]" value="Kurkure Packet" id="kurkureCheck">
-            <label class="form-check-label" for="kurkureCheck">KURKURE PACKET</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="addons[]" value="Namkeen Packets" id="namkeenCheck">
-            <label class="form-check-label" for="namkeenCheck">NAMKEEN PACKETS</label>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="form-label">Special Instructions</label>
-      <textarea class="form-control" name="instructions" rows="3" placeholder="Any special requests or dietary restrictions"></textarea>
-    </div>
-
-    <button type="submit" class="submit-form-btn">Submit Order</button>
-  </form>
-</div>
-
+                <!-- Customization Form -->
+                <div class="customization-form" id="customizationForm">
+                    <h3 class="form-title">Customize Your Package</h3>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">Your Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter your name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" placeholder="Enter your phone number">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Select Menu Option</label>
+                            <select class="form-control">
+                                <option>Option 1 - ₹120/-</option>
+                                <option>Option 2 - ₹140/-</option>
+                                <option>Option 3 - ₹120/-</option>
+                                <option>Option 4 - ₹130/-</option>
+                                <option>Option 5 - ₹140/-</option>
+                                <option>Option 6 - ₹115/-</option>
+                                <option>Option 7 - ₹130/-</option>
+                                <option>Option 8 - ₹150/-</option>
+                                <option>Option 9 - ₹160/-</option>
+                                <option>Option 10 - ₹170/-</option>
+                                <option>Option 11- ₹200/-</option>
+                                <option>Option 12 - ₹150/-</option>
+                                <option>Option 13 - ₹130/-</option>
+                                <option>Option 14 - ₹150/-</option>
+                                <option>Option 15 - ₹160/-</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Add-ons</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="juiceCheck">
+                                        <label class="form-check-label" for="juiceCheck">
+                                            TETRA PACK JUICE
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="laysCheck">
+                                        <label class="form-check-label" for="laysCheck">
+                                            LAYS PACKET
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="kurkureCheck">
+                                        <label class="form-check-label" for="kurkureCheck">
+                                            KURKURE PACKET
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="namkeenCheck">
+                                        <label class="form-check-label" for="namkeenCheck">
+                                            NAMKEEN PACKETS
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Special Instructions</label>
+                            <textarea class="form-control" rows="3" placeholder="Any special requests or dietary restrictions"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-form-btn">Submit Order</button>
+                    </form>
+                </div>
 
                 <div class="text-center mt-4">
                     <button class="custom-btn" id="showFormBtn">
@@ -3582,5 +3483,3 @@
 </body>
 
 </html>
-
-

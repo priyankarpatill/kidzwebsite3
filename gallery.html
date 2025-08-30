@@ -31,6 +31,49 @@
     <link href="css/style.css" rel="stylesheet">
     
     <style>
+        /* Apply Comic Neue font to all text elements for both mobile and desktop */
+        body, h1, h2, h3, h4, h5, h6, p, a, span, li, .btn, .nav-link, .navbar-brand,
+        .service-card, .timeline-card, .form-control, .modal-title, .counter,
+        .section-title, .schedule-header h1, .card-face h4, .card-face p {
+            font-family: 'Comic Neue', cursive, sans-serif !important;
+        }
+        
+        /* Make sure specific elements have appropriate weights */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700 !important;
+        }
+        
+        .navbar-brand {
+            font-weight: 700 !important;
+        }
+        
+        .btn {
+            font-weight: 600 !important;
+        }
+        
+        /* Adjust font sizes for better readability with Comic font */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
+            h1 {
+                font-size: 2rem !important;
+            }
+            
+            h2 {
+                font-size: 1.75rem !important;
+            }
+            
+            .navbar-brand {
+                font-size: 1.5rem !important;
+            }
+            
+            .service-card p, .card-face p {
+                font-size: 14px;
+            }
+        }
+
     /* Modern Gallery Section Styles */
     .gallery-section {
       padding: 80px 0;
@@ -905,9 +948,9 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h3 class="text-white mb-4">Quick Links</h3>
-                        <a class="btn btn-link text-white-50" href="">About Us</a>
-                        <a class="btn btn-link text-white-50" href="">Contact Us</a>
-                        <a class="btn btn-link text-white-50" href="">Our Services</a>
+                       <a class="btn btn-link text-white-50" href="./about.html">About Us</a>
+                        <a class="btn btn-link text-white-50" href="./contact.html">Contact Us</a>
+                        <!-- <a class="btn btn-link text-white-50" href="">Our Services</a> -->
                         <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
                         <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
                     </div>

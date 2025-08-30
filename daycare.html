@@ -30,7 +30,53 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     
+
+
     <style>
+
+          /* Apply Comic Neue font to all text elements for both mobile and desktop */
+        body, h1, h2, h3, h4, h5, h6, p, a, span, li, .btn, .nav-link, .navbar-brand,
+        .service-card, .timeline-card, .form-control, .modal-title, .counter,
+        .section-title, .schedule-header h1, .card-face h4, .card-face p {
+            font-family: 'Comic Neue', cursive, sans-serif !important;
+        }
+        
+        /* Make sure specific elements have appropriate weights */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700 !important;
+        }
+        
+        .navbar-brand {
+            font-weight: 700 !important;
+        }
+        
+        .btn {
+            font-weight: 600 !important;
+        }
+        
+        /* Adjust font sizes for better readability with Comic font */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
+            h1 {
+                font-size: 2rem !important;
+            }
+            
+            h2 {
+                font-size: 1.75rem !important;
+            }
+            
+            .navbar-brand {
+                font-size: 1.5rem !important;
+            }
+            
+            .service-card p, .card-face p {
+                font-size: 14px;
+            }
+        }
+
         :root {
             --primary: #0f428d;
             --secondary: #2a5ba8;
@@ -985,169 +1031,178 @@
 
 <!-- Registration Modal -->
 <div class="modal fade registration-modal" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="registrationModalLabel">Register for Daycare Program</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="progress mb-4">
-                    <div class="progress-bar" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">Step 1 of 3</div>
-                </div>
-                
-                <form id="registrationForm">
-                    <!-- Step 1: Parent Information -->
-                    <div class="form-step active" id="step1">
-                        <h5 class="mb-4">Parent/Guardian Information</h5>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="parentName" class="form-label">Full Name *</label>
-                                <input type="text" class="form-control" id="parentName" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="relationship" class="form-label">Relationship to Child *</label>
-                                <select class="form-control" id="relationship" required>
-                                    <option value="">Select Relationship</option>
-                                    <option value="mother">Mother</option>
-                                    <option value="father">Father</option>
-                                    <option value="guardian">Guardian</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="email" class="form-label">Email Address *</label>
-                                <input type="email" class="form-control" id="email" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="phone" class="form-label">Phone Number *</label>
-                                <input type="tel" class="form-control" id="phone" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 mb-3">
-                                <label for="address" class="form-label">Address *</label>
-                                <textarea class="form-control" id="address" rows="2" required></textarea>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-end">
-                            <button type="button" class="btn btn-primary" onclick="nextStep(2)">Next <i class="fas fa-arrow-right ms-2"></i></button>
-                        </div>
-                    </div>
-                    
-                    <!-- Step 2: Child Information -->
-                    <div class="form-step" id="step2">
-                        <h5 class="mb-4">Child Information</h5>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="childName" class="form-label">Child's Full Name *</label>
-                                <input type="text" class="form-control" id="childName" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="childDob" class="form-label">Date of Birth *</label>
-                                <input type="date" class="form-control" id="childDob" required onchange="calculateAge()">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="childAge" class="form-label">Age (1-10 years) *</label>
-                                <select class="form-control" id="childAge" required>
-                                    <option value="">Select Age</option>
-                                    <option value="1">1 year</option>
-                                    <option value="2">2 years</option>
-                                    <option value="3">3 years</option>
-                                    <option value="4">4 years</option>
-                                    <option value="5">5 years</option>
-                                    <option value="6">6 years</option>
-                                    <option value="7">7 years</option>
-                                    <option value="8">8 years</option>
-                                    <option value="9">9 years</option>
-                                    <option value="10">10 years</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="grade" class="form-label">Grade/Class *</label>
-                                <input type="text" class="form-control" id="grade" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="school" class="form-label">School Name *</label>
-                                <input type="text" class="form-control" id="school" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="allergies" class="form-label">Allergies or Medical Conditions</label>
-                                <input type="text" class="form-control" id="allergies" placeholder="None if applicable">
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <button type="button" class="btn btn-secondary" onclick="prevStep(1)"><i class="fas fa-arrow-left me-2"></i> Back</button>
-                            <button type="button" class="btn btn-primary" onclick="nextStep(3)">Next <i class="fas fa-arrow-right ms-2"></i></button>
-                        </div>
-                    </div>
-                    
-                    <!-- Step 3: Program Details -->
-                    <div class="form-step" id="step3">
-                        <h5 class="mb-4">Program Details</h5>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="startDate" class="form-label">Preferred Start Date *</label>
-                                <input type="date" class="form-control" id="startDate" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="days" class="form-label">Days Required *</label>
-                                <select class="form-control" id="days" multiple required>
-                                    <option value="monday">Monday</option>
-                                    <option value="tuesday">Tuesday</option>
-                                    <option value="wednesday">Wednesday</option>
-                                    <option value="thursday">Thursday</option>
-                                    <option value="friday">Friday</option>
-                                </select>
-                                <small class="form-text text-muted">Hold Ctrl/Cmd to select multiple days</small>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 mb-3">
-                                <label class="form-label">How did you hear about us?</label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="hearAbout" id="hearFriend" value="friend">
-                                    <label class="form-check-label" for="hearFriend">Friend/Relative</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="hearAbout" id="hearSocial" value="social">
-                                    <label class="form-check-label" for="hearSocial">Social Media</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="hearAbout" id="hearSchool" value="school">
-                                    <label class="form-check-label" for="hearSchool">School</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="hearAbout" id="hearOther" value="other">
-                                    <label class="form-check-label" for="hearOther">Other</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 mb-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="terms" required>
-                                    <label class="form-check-label" for="terms">I agree to the terms and conditions *</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <button type="button" class="btn btn-secondary" onclick="prevStep(2)"><i class="fas fa-arrow-left me-2"></i> Back</button>
-                            <button type="submit" class="btn btn-success">Submit Registration</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registrationModalLabel">Register for Daycare Program</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="progress mb-4">
+          <div class="progress-bar" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">
+            Step 1 of 3
+          </div>
         </div>
+
+        <!-- ✅ Web3Forms Integration -->
+        <form action="https://api.web3forms.com/submit" method="POST" id="registrationForm">
+          <!-- 🔑 Your Web3Forms Access Key -->
+          <input type="hidden" name="access_key" value="8605b1bd-ef7b-482d-99af-68cc08caa680
+">
+
+          <!-- Step 1: Parent Information -->
+          <div class="form-step active" id="step1">
+            <h5 class="mb-4">Parent/Guardian Information</h5>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Full Name *</label>
+                <input type="text" class="form-control" name="parent_name" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Relationship to Child *</label>
+                <select class="form-control" name="relationship" required>
+                  <option value="">Select Relationship</option>
+                  <option value="mother">Mother</option>
+                  <option value="father">Father</option>
+                  <option value="guardian">Guardian</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Email Address *</label>
+                <input type="email" class="form-control" name="email" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Phone Number *</label>
+                <input type="tel" class="form-control" name="phone" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 mb-3">
+                <label class="form-label">Address *</label>
+                <textarea class="form-control" name="address" rows="2" required></textarea>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end">
+              <button type="button" class="btn btn-primary" onclick="nextStep(2)">Next <i class="fas fa-arrow-right ms-2"></i></button>
+            </div>
+          </div>
+
+          <!-- Step 2: Child Information -->
+          <div class="form-step" id="step2">
+            <h5 class="mb-4">Child Information</h5>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Child's Full Name *</label>
+                <input type="text" class="form-control" name="child_name" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Date of Birth *</label>
+                <input type="date" class="form-control" name="child_dob" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Age (1-10 years) *</label>
+                <select class="form-control" name="child_age" required>
+                  <option value="">Select Age</option>
+                  <option value="1">1 year</option>
+                  <option value="2">2 years</option>
+                  <option value="3">3 years</option>
+                  <option value="4">4 years</option>
+                  <option value="5">5 years</option>
+                  <option value="6">6 years</option>
+                  <option value="7">7 years</option>
+                  <option value="8">8 years</option>
+                  <option value="9">9 years</option>
+                  <option value="10">10 years</option>
+                </select>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Grade/Class *</label>
+                <input type="text" class="form-control" name="grade" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">School Name *</label>
+                <input type="text" class="form-control" name="school" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Allergies or Medical Conditions</label>
+                <input type="text" class="form-control" name="allergies" placeholder="None if applicable">
+              </div>
+            </div>
+            <div class="d-flex justify-content-between">
+              <button type="button" class="btn btn-secondary" onclick="prevStep(1)"><i class="fas fa-arrow-left me-2"></i> Back</button>
+              <button type="button" class="btn btn-primary" onclick="nextStep(3)">Next <i class="fas fa-arrow-right ms-2"></i></button>
+            </div>
+          </div>
+
+          <!-- Step 3: Program Details -->
+          <div class="form-step" id="step3">
+            <h5 class="mb-4">Program Details</h5>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Preferred Start Date *</label>
+                <input type="date" class="form-control" name="start_date" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Days Required *</label>
+                <select class="form-control" name="days[]" multiple required>
+                  <option value="monday">Monday</option>
+                  <option value="tuesday">Tuesday</option>
+                  <option value="wednesday">Wednesday</option>
+                  <option value="thursday">Thursday</option>
+                  <option value="friday">Friday</option>
+                </select>
+                <small class="form-text text-muted">Hold Ctrl/Cmd to select multiple days</small>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 mb-3">
+                <label class="form-label">How did you hear about us?</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="hear_about" value="friend">
+                  <label class="form-check-label">Friend/Relative</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="hear_about" value="social">
+                  <label class="form-check-label">Social Media</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="hear_about" value="school">
+                  <label class="form-check-label">School</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="hear_about" value="other">
+                  <label class="form-check-label">Other</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 mb-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="terms" required>
+                  <label class="form-check-label">I agree to the terms and conditions *</label>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between">
+              <button type="button" class="btn btn-secondary" onclick="prevStep(2)"><i class="fas fa-arrow-left me-2"></i> Back</button>
+              <button type="submit" class="btn btn-success">Submit Registration</button>
+            </div>
+          </div>
+        </form>
+        <!-- ✅ End Web3Forms Integration -->
+      </div>
     </div>
+  </div>
 </div>
 
+<!-- Enquiry Modal -->
 <!-- Enquiry Modal -->
 <div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -1199,6 +1254,33 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent form submission
+
+        // Get form data
+        var name = document.getElementById('enquiryName').value;
+        var age = document.getElementById('enquiryAge').value;
+        var contact = document.getElementById('enquiryContact').value;
+        var foodOption = document.querySelector('input[name="foodOption"]:checked').value;
+
+        // WhatsApp phone number (replace with your WhatsApp number)
+        var phoneNumber = '919036020999'; // Example: '11234567890' (without '+' or '00')
+
+        // Create message with form data
+        var message = `*Enquiry Details:*\nName: ${name}\nChild's Age: ${age}\nContact Number: ${contact}\nFood Option: ${foodOption}`;
+
+        // Encode the message to be URL-safe
+        var encodedMessage = encodeURIComponent(message);
+
+        // WhatsApp link
+        var whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+        // Redirect to WhatsApp
+        window.open(whatsappLink, '_blank');
+    });
+</script>
 
 <!-- Bootstrap & jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

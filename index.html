@@ -30,6 +30,73 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
+ <style>
+        /* Apply Comic Sans MS to all elements for both desktop and mobile */
+        body, h1, h2, h3, h4, h5, h6, p, span, a, .btn, 
+        .facility-text, .testimonial-item, .safety-card,
+        .navbar-nav, .footer-menu {
+            font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif !important;
+        }
+        
+        /* Keep the original decorative font for special elements if needed */
+        .navbar-brand, .display-2, .display-1, .lobster-font {
+            font-family: 'Lobster Two', cursive !important;
+        }
+        
+        /* Adjust font sizes for better readability */
+        h1 {
+            font-size: 2.5rem !important;
+        }
+        h2 {
+            font-size: 2rem !important;
+        }
+        h3 {
+            font-size: 1.75rem !important;
+        }
+        p {
+            font-size: 1.1rem !important;
+            line-height: 1.6;
+        }
+        
+        /* Enhance the playful look with colors */
+        .btn-primary {
+            background-color: #FF6B8B;
+            border-color: #FF6B8B;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #FF4D73;
+            border-color: #FF4D73;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(255, 107, 139, 0.3);
+        }
+        
+        /* Custom styling for headings */
+        h1, h2, h3 {
+            color: #4A6FCB;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Add some playful elements */
+        .comic-underline {
+            display: inline-block;
+            position: relative;
+        }
+        
+        .comic-underline::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, #FF6B8B, #4A6FCB, #FF6B8B);
+            border-radius: 4px;
+            z-index: -1;
+            transform: rotate(-1deg);
+        }
+    </style>
 
 <body>
     <div class="container-xxl bg-white p-0">
@@ -85,7 +152,8 @@
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-10 col-lg-8">
-                                    <h1 class="display-2 text-white animated slideInDown mb-4">Welcome to KidZ 'n' KidZZilla Wonderland Adventures!</h1>
+                                    <h1 class="display-2 text-white animated slideInDown mb-4" style="font-size: 50px;">Welcome to KidZ 'n' KidZZilla 
+                                        <br>Wonderland Adventures!</h1>
                                     <p class="fs-5 fw-medium text-white mb-4 pb-2">At KidZ 'n' KidZZilla, we bring fun and learning together through exciting and educational content designed to spark your child's imagination, creativity, and curiosity.</p>
                                     <!-- <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn More</a> -->
                                     <!-- <a href="" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Our Classes</a> -->
@@ -112,14 +180,30 @@
             </div>
         </div>
         <!-- Carousel End -->
+         <style>
+            /* Reusable class for justified text */
+.justify-text p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;   /* helps break long words naturally */
+}
+
+/* Optional: also justify headings if needed */
+.justify-text h1,
+.justify-text h2,
+.justify-text h3 {
+  text-align: justify;
+}
+
+         </style>
  <!-- About Start -->
         <div class="container-xxl py-5 animated-bg">
             <div id="particles-js"></div>
             <div class="container particle-content">
                 <div class="row g-5 align-items-center">
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <h1 class="mb-4 text-3d">About Us Kidz 'n' KidZZilla</h1>
-                        <p>Kidz 'n' KidZZilla was inaugurated in 2023 by Mrs. Malathi Adari, the proud proprietor, with a vision to enhance children's engagement through fun-filled activities and interactive learning experiences. Our mission is to create a joyful environment where kids can explore, learn, and grow through play, creativity, and various educational activities. We aim to foster children's social, cognitive, and motor skills through a wide range of engaging programs and events.</p>
+                    <div class="col-lg-6 wow fadeInUp justify-text" data-wow-delay="0.1s">
+                        <h1 class="mb-4 text-3d ">About Us Kidz 'n' KidZZilla</h1>
+                        <p >Kidz 'n' KidZZilla was inaugurated in 2023 by Mrs. Malathi Adari, the proud proprietor, with a vision to enhance children's engagement through fun-filled activities and interactive learning experiences. Our mission is to create a joyful environment where kids can explore, learn, and grow through play, creativity, and various educational activities. We aim to foster children's social, cognitive, and motor skills through a wide range of engaging programs and events.</p>
                         <p class="mb-4">Join us at KidZ 'n' KidZZilla, where every moment is a celebration of fun and learning​.</p>
                         <div class="row g-4 align-items-center">
                             <div class="col-sm-6">
@@ -1381,7 +1465,7 @@
 
 
  <div class="testimonial-item bg-light rounded p-5">
-                        <p class="fs-5">"One of the best place to celebrate kids birthday 🎂 my kid and his friends enjoyed it a lot... kids friendly and suitable for birthday celebration wonderful decoration and organized everything on time and the place was neat and clean..."</p>
+                        <p class="fs-5">"One of the best place to celebrate kids birthday 🎂 my kid and his friends enjoyed it a lot... kids friendly and suitable for birthday celebration"</p>
                         <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
                             <img class="img-fluid flex-shrink-0 rounded-circle" src="img/imges/Screenshot 2023-12-28 at 1.00.54 PM.png" style="width: 90px; height: 90px;">
                             <div class="ps-3">
@@ -1408,7 +1492,7 @@ gajalakshmi goshetty</h3>
 
 
                      <div class="testimonial-item bg-light rounded p-5">
-                        <p class="fs-5">"My daughter is 4 years old and she enjoyed the place too much. The Birthday party arrangement is superb and literally they had taken care of everything. Food is also nice but one small suggestion to keep the food warm, it should be in a hot case container."</p>
+                        <p class="fs-5">"My daughter is 4 years old and she enjoyed the place too much. The Birthday party arrangement is superb and they had taken care of everything"</p>
                         <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
                             <img class="img-fluid flex-shrink-0 rounded-circle" src="img/imges/Screenshot 2023-12-28 at 1.00.54 PM.png" style="width: 90px; height: 90px;">
                             <div class="ps-3">
@@ -1421,7 +1505,7 @@ Chandan Panda</h3>
                     </div>
 
                      <div class="testimonial-item bg-light rounded p-5">
-                        <p class="fs-5">"Best play area near Manipal County for kids. Safe place for kids to play and spent time with toys. Kushma is very helpful on taking care of children with care and being comfortable. They have good day care plans as well."</p>
+                        <p class="fs-5">"Best play area near Manipal County for kids. Safe place for kids to play and spent time with toys.They have good day care plans as well."</p>
                         <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
                             <img class="img-fluid flex-shrink-0 rounded-circle" src="img/imges/Screenshot 2023-12-28 at 1.00.54 PM.png" style="width: 90px; height: 90px;">
                             <div class="ps-3">
@@ -1447,7 +1531,7 @@ Debanjoli Ghosh</h3>
                     </div>
 
                      <div class="testimonial-item bg-light rounded p-5">
-                        <p class="fs-5">"It's a great place for kids to play and learn things . They have kids learning toys , slides, trampolines, video games, climbers , party areas etc . The people are so friendly and always welcoming . Sushma is so helpful. "</p>
+                        <p class="fs-5">"It's a great place for kids to play and learn things"</p>
                         <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
                             <img class="img-fluid flex-shrink-0 rounded-circle" src="img/imges/Screenshot 2023-12-28 at 1.00.54 PM.png" style="width: 90px; height: 90px;">
                             <div class="ps-3">
@@ -1475,7 +1559,7 @@ Vivek Singh Sengar</h3>
                      <div class="testimonial-item bg-light rounded p-5">
                         <p class="fs-5">"Booked this place for my daughter's birthday party. Excellent place to recommend.
 
-All sorts of customisation options were provided. with inhouse decoration, photography, catering the whole process is getting simplified."</p>
+All sorts of customisation options were provided"</p>
                         <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
                             <img class="img-fluid flex-shrink-0 rounded-circle" src="img/imges/Screenshot 2023-12-28 at 1.00.54 PM.png" style="width: 90px; height: 90px;">
                             <div class="ps-3">
@@ -1488,7 +1572,7 @@ Pradeep Murali</h3>
                     </div>
 
                      <div class="testimonial-item bg-light rounded p-5">
-                        <p class="fs-5">"We have a 2 year old and he looks fwd to visit this everytime. I have been here twice so far and found Sunday evening really lively with many kids around and children music playing. The slider area is the main attraction for me where my son just loves to roll around ☺️"</p>
+                        <p class="fs-5">"We have a 2 year old and he looks fwd to visit this everytime.I have been here twice so far and found Sunday evening really lively with many kids"</p>
                         <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
                             <img class="img-fluid flex-shrink-0 rounded-circle" src="img/imges/Screenshot 2023-12-28 at 1.00.54 PM.png" style="width: 90px; height: 90px;">
                             <div class="ps-3">
@@ -1502,7 +1586,7 @@ Ashhar Akhlaque
                     </div>
 
                      <div class="testimonial-item bg-light rounded p-5">
-                        <p class="fs-5">"Excellent play zone for kids. They can easily enjoy it for two hours. The staff's behavior is also very good.we got Christmas offer taken for membership."</p>
+                        <p class="fs-5">"Excellent play zone for kids. They can easily enjoy it for two hours. The staff's behavior is also very good"</p>
                         <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
                             <img class="img-fluid flex-shrink-0 rounded-circle" src="img/imges/Screenshot 2023-12-28 at 1.00.54 PM.png" style="width: 90px; height: 90px;">
                             <div class="ps-3">
@@ -1546,9 +1630,9 @@ Molu Rinu</h3>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h3 class="text-white mb-4">Quick Links</h3>
-                        <a class="btn btn-link text-white-50" href="">About Us</a>
-                        <a class="btn btn-link text-white-50" href="">Contact Us</a>
-                        <a class="btn btn-link text-white-50" href="">Our Services</a>
+                       <a class="btn btn-link text-white-50" href="./about.html">About Us</a>
+                        <a class="btn btn-link text-white-50" href="./contact.html">Contact Us</a>
+                        <!-- <a class="btn btn-link text-white-50" href="">Our Services</a> -->
                         <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
                         <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
                     </div>
