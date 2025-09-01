@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Kidz - Preschool Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+  <style>
+        /* Apply Comic font to all text elements */
+        body, h1, h2, h3, h4, h5, h6, p, a, span, li, .btn, .nav-link, .navbar-brand {
+            font-family: 'Comic Neue', cursive, sans-serif !important;
+        }
+        
+        /* Make sure specific elements have appropriate weights */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700 !important;
+        }
+        
+        .navbar-brand {
+            font-weight: 700 !important;
+        }
+        
+        .btn {
+            font-weight: 600 !important;
+        }
+        
+        /* Adjust font sizes for better readability with Comic font */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
+            h1 {
+                font-size: 2rem !important;
+            }
+            
+            h2 {
+                font-size: 1.75rem !important;
+            }
+            
+            .navbar-brand {
+                font-size: 1.5rem !important;
+            }
+        }
+    </style>
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
+            <a href="index.html" class="navbar-brand">
+  <img src="img/imges/Kidzzilla logo[1].png" alt="Kider Logo" style="height:90px;">
+</a>
+
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About Us</a>
+                    <a href="./birthdaypackages.html" class="nav-item nav-link">Birthday Packages</a>
+                     <!-- <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
+                            <a href="facility.html" class="dropdown-item">School Facilities</a>
+                            <a href="team.html" class="dropdown-item">Popular Teachers</a>
+                            <a href="call-to-action.html" class="dropdown-item">Become A Teachers</a>
+                            <a href="appointment.html" class="dropdown-item">Make Appointment</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <a href="404.html" class="dropdown-item">404 Error</a>
+                        </div>
+                    </div> -->
+                    <a href="./packages.html" class="nav-item nav-link">Packages</a> 
+<a href="./daycare.html" class="nav-item nav-link active">Daycare</a>
+                    <a href="gallery.html" class="nav-item nav-link">Gallery</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                </div>
+                 <a href="./offer.html" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Offers<i class="fa fa-arrow-right ms-3"></i></a>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+    <style>
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --accent: #ff6b6b;
+            --light: #f9f9ff;
+            --dark: #1a1a2e;
+        }
+        
+        body {
+            font-family: 'Comic Neue', cursive, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Compact Header */
+        .compact-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 40px 0 20px;
+            color: white;
+            position: relative;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        .compact-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .compact-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 10px auto 0;
+            opacity: 0.9;
+        }
+        
+        /* Compact Policy Container */
+        .policy-container {
+            max-width: 1000px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+        }
+        
+        /* Policy Section with 3D effect */
+        .policy-section {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .policy-section:hover {
+            transform: translateY(-5px) rotateX(2deg);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        
+        .policy-number {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            line-height: 36px;
+            border-radius: 50%;
+            margin-right: 12px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .policy-content {
+            margin-top: 15px;
+        }
+        
+        /* 3D Card for Media Consent */
+        .media-consent-card {
+            perspective: 1000px;
+            margin: 20px 0;
+            height: 160px;
+        }
+        
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+        
+        .media-consent-card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .card-front {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            color: white;
+        }
+        
+        .card-back {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            color: white;
+            transform: rotateY(180deg);
+        }
+        
+        /* Compact List */
+        .policy-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        
+        .policy-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 5px;
+        }
+        
+        .policy-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            padding: 25px;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .contact-btn {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        /* Floating elements */
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Decorative elements */
+        .decoration {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.15;
+        }
+        
+        .decoration-1 {
+            top: 10%;
+            left: 5%;
+            font-size: 60px;
+            color: var(--primary);
+        }
+        
+        .decoration-2 {
+            top: 25%;
+            right: 5%;
+            font-size: 50px;
+            color: var(--secondary);
+        }
+        
+        .decoration-3 {
+            bottom: 20%;
+            left: 8%;
+            font-size: 70px;
+            color: var(--accent);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .compact-header {
+                padding: 30px 0 15px;
+            }
+            
+            .compact-header h1 {
+                font-size: 2rem;
+            }
+            
+            .policy-section {
+                padding: 15px;
+            }
+            
+            .media-consent-card {
+                height: 200px;
+            }
+            
+            .decoration {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Decorative elements -->
+    <div class="decoration decoration-1 floating">👶</div>
+    <div class="decoration decoration-2 floating" style="animation-delay: 1s;">🎈</div>
+    <div class="decoration decoration-3 floating" style="animation-delay: 2s;">🎨</div>
+
+    <!-- Compact Header -->
+    <div class="compact-header">
+        <h1 data-aos="fade-down">Privacy Policy</h1>
+        <p data-aos="fade-up" data-aos-delay="200">Your child's safety, enjoyment, and privacy are our top priorities at KidZ 'n' KidZZilla Play Zone</p>
+    </div>
+
+    <!-- Policy Content -->
+    <div class="policy-container">
+        <!-- Section 1 -->
+        <div class="policy-section" data-aos="fade-right">
+            <h2><span class="policy-number">1</span> Information We Collect</h2>
+            <div class="policy-content">
+                <p>At KidZ 'n' KidZZilla, we collect necessary information to provide safe and enjoyable experiences for your children:</p>
+                <ul class="policy-list">
+                    <li><strong>Personal Details:</strong> Parent/guardian name, contact number, email, and address for registrations and bookings.</li>
+                    <li><strong>Child's Information:</strong> Name and age, required to provide age-appropriate play and daycare services.</li>
+                    <li><strong>Payment Details:</strong> Collected securely when purchasing entry passes, packages, or booking events.</li>
+                    <li><strong>Media (Optional):</strong> Photos or videos taken during parties/events (only with parental consent).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="policy-section" data-aos="fade-left">
+            <h2><span class="policy-number">2</span> How We Use Your Information</h2>
+            <div class="policy-content">
+                <p>We use your information responsibly to enhance your experience with us:</p>
+                <ul class="policy-list">
+                    <li>To confirm bookings, registrations, and payments.</li>
+                    <li>To ensure the safety, security, and supervision of children at the Play Zone.</li>
+                    <li>To provide updates on events, offers, and new services.</li>
+                    <li>To improve our facilities and customer experience.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="policy-section" data-aos="fade-right">
+            <h2><span class="policy-number">3</span> Sharing of Information</h2>
+            <div class="policy-content">
+                <p>We value your privacy and handle your information with care:</p>
+                <ul class="policy-list">
+                    <li>We do not sell or share your information with unrelated third parties.</li>
+                    <li>Limited information may be shared with service providers (e.g., payment gateways, communication providers).</li>
+                    <li>Information may be disclosed to legal authorities if required by law.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="policy-section" data-aos="fade-left">
+            <h2><span class="policy-number">4</span> Safety & Security</h2>
+            <div class="policy-content">
+                <p>We prioritize the safety and security of all our visitors:</p>
+                <ul class="policy-list">
+                    <li>CCTV surveillance is maintained in the Play Zone for the safety of children and families.</li>
+                    <li>Access to personal data is restricted to authorized staff only.</li>
+                    <li>Online transactions are protected through secure, encrypted systems.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="policy-section" data-aos="fade-right">
+            <h2><span class="policy-number">5</span> Parent & Guardian Responsibility</h2>
+            <div class="policy-content">
+                <p>We work together with parents to ensure children's safety:</p>
+                <ul class="policy-list">
+                    <li>Children must be accompanied by a parent/guardian unless they are enrolled in daycare or supervised activities.</li>
+                    <li>Accurate information must be provided during registration for safety and communication purposes.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 6 with 3D Card -->
+        <div class="policy-section" data-aos="fade-left">
+            <h2><span class="policy-number">6</span> Media Consent</h2>
+            <div class="policy-content">
+                <p>We respect your preferences regarding media capture and usage:</p>
+                
+                <div class="media-consent-card">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            <h4>We Value Your Privacy</h4>
+                            <p>Click or hover to see our media policy</p>
+                        </div>
+                        <div class="card-face card-back">
+                            <p>Event photographs/videos may be used for promotional purposes only with prior written consent from parents/guardians.</p>
+                            <p>Parents may opt out anytime by informing our management.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 7 -->
+        <div class="policy-section" data-aos="fade-right">
+            <h2><span class="policy-number">7</span> Policy Updates</h2>
+            <div class="policy-content">
+                <p>We keep our policies current and transparent:</p>
+                <ul class="policy-list">
+                    <li>This Privacy Policy may be updated periodically.</li>
+                    <li>Any changes will be displayed at our reception and on our official communication channels.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 8 -->
+        <div class="policy-section" data-aos="fade-left">
+            <h2><span class="policy-number">8</span> Contact Us</h2>
+            <div class="policy-content">
+                <p>We're here to address any concerns or questions you may have:</p>
+                
+                <div class="contact-section">
+                    <h3>Have Questions About Our Privacy Policy?</h3>
+                    <p>Reach out to us for clarification or concerns about how your information is handled.</p>
+                   <button class="btn contact-btn" onclick="window.location.href='contact.html';">Contact Us Today</button>
+
+                </div>
+                
+                <div class="mt-3">
+                    <p><strong>Email:</strong> kidznkidzzilla@gmail.com</p>
+                    <p><strong>Phone:</strong> +91-7026364627</p>
+                    <p><strong>Address:</strong> 12th Main, Begur Road, Bengaluru</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Library for Scroll Animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-in-out'
+        });
+        
+        // Additional interactive effects
+        $(document).ready(function() {
+            // Add click functionality to the 3D card
+            $('.media-consent-card').click(function() {
+                $(this).find('.card-inner').toggleClass('flipped');
+            });
+            
+            // Animate list items on scroll
+            $('.policy-list li').each(function(i) {
+                $(this).attr('data-aos', 'fade-up');
+                $(this).attr('data-aos-delay', i * 100);
+            });
+            
+            // Reinitialize AOS after dynamic content changes
+            AOS.refresh();
+        });
+    </script>
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Get In Touch</h3>
+                         <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>12th Main, Begur Road,Bengaluru</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i> +91-7026364627</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>kidznkidzzilla@gmail.com</p>
+                        <div class="d-flex pt-2">
+                            <!-- <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a> -->
+                            <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/profile.php?id=61562707866859"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/kidznkidzzilla/"><i class="fab fa-instagram"></i></a>
+                            <!-- <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a> -->
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Quick Links</h3>
+                       <a class="btn btn-link text-white-50" href="./about.html">About Us</a>
+                        <a class="btn btn-link text-white-50" href="./contact.html">Contact Us</a>
+                        <!-- <a class="btn btn-link text-white-50" href="">Our Services</a> -->
+                                            <a class="btn btn-link text-white-50" href="./privacy.html">Privacy Policy</a>
+                        <a class="btn btn-link text-white-50" href="./rules.html">Rules & Regulations</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Scan Me For Feedback</h3>
+                        <div class="row g-2 pt-2">
+                             <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/imges/scan.jpg" alt="">
+                            </div>
+                            <!-- <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-2.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-3.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-4.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-5.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-6.jpg" alt="">
+                            </div> -->
+                        </div>
+                    </div>
+                     <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Opening Hours</h3>
+                        <p>Everyday</p>
+                        <p>10.30 Am -8.00 Pm</p>
+                        <!-- <div class="position-relative mx-auto" style="max-width: 400px;">
+                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved. 
+							
+							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+							Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                        </div>
+                          <!-- <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="">Home</a>
+                                <a href="">Cookies</a>
+                                <a href="">Help</a>
+                                <a href="">FQAs</a>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
