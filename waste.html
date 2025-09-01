@@ -31,49 +31,6 @@
     <link href="css/style.css" rel="stylesheet">
     
     <style>
-            /* Apply Comic Neue font to all text elements */
-        body, h1, h2, h3, h4, h5, h6, p, a, span, li, .btn, .nav-link, .navbar-brand,
-        .package-card, .menu-card, .rules-card, .step-card, .countdown, .form-control,
-        .form-label, .form-check-label, .submit-btn, .book-now-btn, .menu-btn {
-            font-family: 'Comic Neue', cursive, sans-serif !important;
-        }
-        
-        /* Make sure specific elements have appropriate weights */
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 700 !important;
-        }
-        
-        .navbar-brand {
-            font-weight: 700 !important;
-        }
-        
-        .btn, .book-now-btn, .menu-btn, .submit-btn {
-            font-weight: 600 !important;
-        }
-        
-        /* Adjust font sizes for better readability with Comic font */
-        @media (max-width: 768px) {
-            body {
-                font-size: 16px;
-            }
-            
-            h1 {
-                font-size: 2rem !important;
-            }
-            
-            h2 {
-                font-size: 1.75rem !important;
-            }
-            
-            .navbar-brand {
-                font-size: 1.5rem !important;
-            }
-            
-            .package-features li, .menu-items li {
-                font-size: 14px;
-            }
-        }
-        
         /* Birthday Packages Custom Styles */
         .package-card {
             border-radius: 15px;
@@ -446,61 +403,6 @@
             margin: 0 auto;
         }
     </style>
-<style>
-    /* Reduced spacing for all sections */
-    .decoration-section,
-    .registration-form,
-    .rules-section,
-    .how-it-works,
-    .catering-section {
-        padding: 5px 0 !important;
-        margin: 5px 0 !important;
-    }
-
-    /* Reduce container padding */
-    .container-xxl.py-5 {
-        padding-top: 2rem !important;
-        padding-bottom: 2rem !important;
-    }
-
-    /* Reduce heading margins */
-    .heading_container.heading_center.mb-5 {
-        margin-bottom: 2rem !important;
-    }
-
-    /* Reduce card spacing */
-    .package-card,
-    .decoration-card,
-    .catering-card {
-        margin-bottom: 1.5rem;
-    }
-
-    /* Reduce form container padding */
-    .form-container {
-        padding: 5px !important;
-    }
-
-    /* Reduce additional info section padding */
-    .bg-light.rounded.p-5 {
-        padding: 2rem !important;
-    }
-
-    /* Reduce countdown margin */
-    .countdown {
-        margin-bottom: 1.5rem !important;
-    }
-
-    /* Reduce step card padding */
-    .step-card {
-        padding: 10px 5px !important;
-    }
-
-    /* Reduce catering content padding */
-    .catering-content {
-        padding: 5px !important;
-    }
-</style>
-    
 </head>
 
 <body>
@@ -517,7 +419,7 @@
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
             <a href="index.html" class="navbar-brand">
-                <img src="img/imges/Kidzzilla logo[1].png" alt="Kider Logo" style="height:90px;">
+                <img src="img/imges/LOGO_A (1)_edited.avif" alt="Kidz Logo" style="height:90px;">
             </a>
 
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -544,54 +446,25 @@
                     <a href="gallery.html" class="nav-item nav-link">Gallery</a>
                     <a href="contact.html" class="nav-item nav-link">Contact Us</a>
                 </div>
-                 <a href="./offer.html" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Offers<i class="fa fa-arrow-right ms-3"></i></a>
+                <a href="" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Join Us<i class="fa fa-arrow-right ms-3"></i></a>
             </div>
         </nav>
         <!-- Navbar End -->
 
-       <!-- Birthday Packages Header with Video Background -->
-<div class="container-xxl py-5 page-header position-relative mb-5">
-    <!-- Video Background -->
-    <video autoplay muted loop playsinline class="bg-video">
-        <source src="./img/istockphoto-1364556490-640_adpp_is.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
-    <!-- Overlay Content -->
-    <div class="container py-5 position-relative z-index-1 text-center text-white">
-        <h1 class="display-2 animated slideInDown mb-4">Birthday Packages</h1>
-        <nav aria-label="breadcrumb animated slideInDown">
-            <ol class="breadcrumb justify-content-center">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                <li class="breadcrumb-item text-white active" aria-current="page">Birthday Packages</li>
-            </ol>
-        </nav>
-    </div>
-</div>
-<style>
-    .page-header {
-  position: relative;
-  overflow: hidden;
-}
-
-.bg-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  opacity: 0.6; /* optional – makes the text more readable */
-}
-
-.page-header .container {
-  position: relative;
-  z-index: 1;
-}
-
-</style>
+        <!-- Page Header End -->
+        <div class="container-xxl py-5 page-header position-relative mb-5">
+            <div class="container py-5">
+                <h1 class="display-2 text-white animated slideInDown mb-4">Birthday Packages</h1>
+                <nav aria-label="breadcrumb animated slideInDown">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Birthday Packages</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!-- Page Header End -->
 
         <!-- Birthday Packages Start -->
         <div class="container-xxl py-5">
@@ -628,9 +501,224 @@
                     </div>
                 </div>
                 
-          
+                <!-- Packages Section -->
+                <div class="row equal-height">
+                    <!-- Silver Package -->
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="package-card silver h-100">
+                            <div class="package-header">
+                                <div class="package-icon">
+                                    <i class="fas fa-crown"></i>
+                                </div>
+                                <h3 class="text-white mb-3">Silver Package</h3>
+                                <div class="package-price">₹5,999/-</div>
+                                <p class="text-white">Perfect for intimate celebrations</p>
+                            </div>
+                            <div class="package-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Party Hall</li>
+                                    <li><i class="fas fa-check"></i> 5 Session's free voucher access for Birthday Baby</li>
+                                    <li><i class="fas fa-check"></i> Softcopy of photos will be provided</li>
+                                    <li><i class="fas fa-check"></i> 10 Chairs & 1 Table can be provided</li>
+                                    <li><i class="fas fa-check"></i> Tablet Set up for Cakes</li>
+                                    <li><i class="fas fa-check"></i> Cleaning</li>
+                                </ul>
+                                <h5>Package Excludes</h5>
+                                <ul>
+                                    <li><i class="fas fa-times"></i> Entry of the kids in play zone is chargeable</li>
+                                    <li><i class="fas fa-times"></i> Tent house supplier item are chargeable</li>
+                                    <li><i class="fas fa-times"></i> Snacks, Lunch & Dinner is Chargeable based on the requirement</li>
+                                    <li><i class="fas fa-times"></i> Decoration can be discussed with the vendor directly</li>
+                                    <li><i class="fas fa-times"></i> Full block of the venue will be charged accordingly</li>
+                                </ul>
+                            </div>
+                            <div class="text-center">
+                                <a href="#registration" class="book-now-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Gold Package -->
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="package-card gold h-100">
+                            <div class="package-header">
+                                <span class="package-highlight">Popular</span>
+                                <div class="package-icon">
+                                    <i class="fas fa-gem"></i>
+                                </div>
+                                <h3 class="text-white mb-3">Gold Package</h3>
+                                <div class="package-price">₹9,999/-</div>
+                                <p class="text-white">Great value for medium celebrations</p>
+                            </div>
+                            <div class="package-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Party Hall</li>
+                                    <li><i class="fas fa-check"></i> Photographer 1 Hr</li>
+                                    <li><i class="fas fa-check"></i> 10 Session free Voucher access for Play Birthday Baby</li>
+                                    <li><i class="fas fa-check"></i> 10 Kids for free access in Play Zone for 3 Hrs.</li>
+                                    <li><i class="fas fa-check"></i> Mic & Speaker</li>
+                                    <li><i class="fas fa-check"></i> Softcopy of photos will be provided</li>
+                                    <li><i class="fas fa-check"></i> 20 Chairs & 1 Table can be provided</li>
+                                    <li><i class="fas fa-check"></i> Tablet Set up for Cakes</li>
+                                    <li><i class="fas fa-check"></i> Cleaning</li>
+                                </ul>
+                                <h5>Package Excludes</h5>
+                                <ul>
+                                    <li><i class="fas fa-times"></i> Extra Kids will be charged beyond 5 kids</li>
+                                    <li><i class="fas fa-times"></i> Snacks, Lunch and Dinner is chargeable based on the requirement</li>
+                                    <li><i class="fas fa-times"></i> Decoration can be discussed with the vendor directly</li>
+                                    <li><i class="fas fa-times"></i> Full block of the venue will be charged accordingly</li>
+                                </ul>
+                            </div>
+                            <div class="text-center">
+                                <a href="#registration" class="book-now-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Platinum Package -->
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="package-card platinum h-100">
+                            <div class="package-header">
+                                <span class="package-highlight">Best Value</span>
+                                <div class="package-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h3 class="text-white mb-3">Platinum Package</h3>
+                                <div class="package-price">₹14,999/-</div>
+                                <p class="text-white">Premium package for unforgettable celebrations</p>
+                            </div>
+                            <div class="package-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Party Hall</li>
+                                    <li><i class="fas fa-check"></i> Photographer 1 Hr</li>
+                                    <li><i class="fas fa-check"></i> 1 Month free Voucher access for Play zone for Birthday Baby</li>
+                                    <li><i class="fas fa-check"></i> 15 Kids for free access in Play Zone for 3hrs.</li>
+                                    <li><i class="fas fa-check"></i> 30 Chairs & 3 Tables can be provided</li>
+                                    <li><i class="fas fa-check"></i> Mic & Speaker</li>
+                                    <li><i class="fas fa-check"></i> Softcopy of photos will be provided</li>
+                                    <li><i class="fas fa-check"></i> Snacks for 15 Members</li>
+                                    <li><i class="fas fa-check"></i> Tablet Set up for Cakes</li>
+                                    <li><i class="fas fa-check"></i> Basic Decoration</li>
+                                    <li><i class="fas fa-check"></i> Cleaning</li>
+                                </ul>
+                                <h5>Package Excludes</h5>
+                                <ul>
+                                    <li><i class="fas fa-times"></i> Extra Kids will be charged beyond 15 kids</li>
+                                    <li><i class="fas fa-times"></i> Lunch and Dinner is chargeable based on the requirement</li>
+                                    <li><i class="fas fa-times"></i> Extra Snacks will be charged.</li>
+                                    <li><i class="fas fa-times"></i> Customised Decoration will be charged extra.</li>
+                                    <li><i class="fas fa-times"></i> Full block of the venue will be charged accordingly</li>
+                                </ul>
+                            </div>
+                            <div class="text-center">
+                                <a href="#registration" class="book-now-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
 
-    <style>
+ <!-- Registration Form Section -->
+        <section id="registration" class="registration-form">
+            <div class="container-xxl py-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="form-container wow fadeInUp" data-wow-delay="0.1s">
+                                <h2 class="form-title" style="color: black;">Book Your Birthday Party</h2>
+                                <p class="text-center mb-4">Fill out the form below and we'll get back to you within 24 hours to confirm your booking</p>
+                                
+                                <form id="birthdayBookingForm">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Your Name" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" placeholder="Your Email" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="tel" class="form-control" placeholder="Your Phone" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Child's Name" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="number" class="form-control" placeholder="Child's Age" min="1" max="12" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="number" class="form-control" placeholder="Number of Guests" min="5" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="date" class="form-control" placeholder="Preferred Date" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <select class="form-control" required>
+                                                    <option value="">Select a Package</option>
+                                                    <option value="silver">Silver Package (₹5,999)</option>
+                                                    <option value="gold">Gold Package (₹9,999)</option>
+                                                    <option value="platinum">Platinum Package (₹14,999)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <select class="form-control">
+                                            <option value="">Select a Decoration Option (Optional)</option>
+                                            <option value="basic">Basic Decoration (₹2,999)</option>
+                                            <option value="theme">Theme Decoration (₹6,999)</option>
+                                            <option value="premium">Premium Decoration (₹11,999)</option>
+                                            <option value="none">No Additional Decoration</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <textarea class="form-control" rows="4" placeholder="Special Requests or Additional Information"></textarea>
+                                    </div>
+                                    
+                                    <div class="form-check mb-4">
+                                        <input class="form-check-input" type="checkbox" id="termsCheck" required>
+                                        <label class="form-check-label" for="termsCheck">
+                                            I agree to the terms and conditions
+                                        </label>
+                                    </div>
+                                    
+                                    <button type="submit" class="submit-btn">Submit Booking Request</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+              
+        <!-- Birthday Packages End -->
+           <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f8f9fa;
@@ -805,138 +893,7 @@
         }
     </style>
 
-    <div class="packages-container">
-        <div class="section-title">
-            <h2>Make Your Child's Birthday Special</h2>
-            <p>All our birthday packages include set-up, clean-up, and dedicated party hosts to ensure your child has an amazing celebration while you relax and enjoy the special moments.</p>
-        </div>
-        
-        <div class="row equal-height">
-            <!-- Silver Package -->
-            <div class="col-md-4">
-                <div class="package-card silver h-100">
-                    <div class="package-header">
-                        <div class="package-icon">
-                            <i class="fas fa-crown"></i>
-                        </div>
-                        <h3 class="text-white mb-3">Silver Package</h3>
-                        <div class="package-price">₹5,999/-</div>
-                        <p class="text-white">Perfect for intimate celebrations</p>
-                    </div>
-                    <div class="package-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> Party Hall</li>
-                            <li><i class="fas fa-check"></i> 5 Session's free voucher access for Birthday Baby</li>
-                            <li><i class="fas fa-check"></i> 10 Chairs & 1 Table can be provided</li>
-                            <li><i class="fas fa-check"></i> Tablet Set up for Cakes</li>
-                            <li><i class="fas fa-check"></i> Cleaning</li>
-                        </ul>
-                        <h5>Package Excludes</h5>
-                        <ul>
-                            <li><i class="fas fa-times"></i> Entry of the kids in play zone is chargeable</li>
-                            <li><i class="fas fa-times"></i> Tent house supplier item are chargeable</li>
-                            <li><i class="fas fa-times"></i> Snacks, Lunch & Dinner is Chargeable based on the requirement</li>
-                            <li><i class="fas fa-times"></i> Decoration can be discussed with the vendor directly</li>
-                            <li><i class="fas fa-times"></i> Full block of the venue will be charged accordingly</li>
-                        </ul>
-                    </div>
-                    <div class="package-button-container text-center">
-                        <a href="#registration" class="book-now-btn">Book Now</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Gold Package -->
-            <div class="col-md-4">
-                <div class="package-card gold h-100">
-                    <div class="package-header">
-                        <span class="package-highlight">Popular</span>
-                        <div class="package-icon">
-                            <i class="fas fa-gem"></i>
-                        </div>
-                        <h3 class="text-white mb-3">Gold Package</h3>
-                        <div class="package-price">₹9,999/-</div>
-                        <p class="text-white">Great value for medium celebrations</p>
-                    </div>
-                    <div class="package-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> Party Hall</li>
-                            <li><i class="fas fa-check"></i> Photographer 1 Hr</li>
-                            <li><i class="fas fa-check"></i> 10 Session free Voucher access for Play Birthday Baby</li>
-                            <li><i class="fas fa-check"></i> 10 Kids for free access in Play Zone for 3 Hrs.</li>
-                            <li><i class="fas fa-check"></i> Mic & Speaker</li>
-                            <li><i class="fas fa-check"></i> Softcopy of photos will be provided</li>
-                            <li><i class="fas fa-check"></i> 20 Chairs & 1 Table can be provided</li>
-                            <li><i class="fas fa-check"></i> Tablet Set up for Cakes</li>
-                            <li><i class="fas fa-check"></i> Cleaning</li>
-                        </ul>
-                        <h5>Package Excludes</h5>
-                        <ul>
-                            <li><i class="fas fa-times"></i> Extra Kids will be charged beyond 5 kids</li>
-                            <li><i class="fas fa-times"></i> Snacks, Lunch and Dinner is chargeable based on the requirement</li>
-                            <li><i class="fas fa-times"></i> Decoration can be discussed with the vendor directly</li>
-                            <li><i class="fas fa-times"></i> Full block of the venue will be charged accordingly</li>
-                        </ul>
-                    </div>
-                    <div class="package-button-container text-center">
-                        <a href="#registration" class="book-now-btn">Book Now</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Platinum Package -->
-            <div class="col-md-4">
-                <div class="package-card platinum h-100">
-                    <div class="package-header">
-                        <span class="package-highlight">Best Value</span>
-                        <div class="package-icon">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h3 class="text-white mb-3">Platinum Package</h3>
-                        <div class="package-price">₹14,999/-</div>
-                        <p class="text-white">Premium package for unforgettable celebrations</p>
-                    </div>
-                    <div class="package-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> Party Hall</li>
-                            <li><i class="fas fa-check"></i> Photographer 1 Hr</li>
-                            <li><i class="fas fa-check"></i> 1 Month free Voucher access for Play zone for Birthday Baby</li>
-                            <li><i class="fas fa-check"></i> 15 Kids for free access in Play Zone for 3hrs.</li>
-                            <li><i class="fas fa-check"></i> 30 Chairs & 3 Tables can be provided</li>
-                            <li><i class="fas fa-check"></i> Mic & Speaker</li>
-                            <li><i class="fas fa-check"></i> Softcopy of photos will be provided</li>
-                            <li><i class="fas fa-check"></i> Snacks for 15 Members</li>
-                            <li><i class="fas fa-check"></i> Tablet Set up for Cakes</li>
-                            <li><i class="fas fa-check"></i> Basic Decoration</li>
-                            <li><i class="fas fa-check"></i> Cleaning</li>
-                        </ul>
-                        <h5>Package Excludes</h5>
-                        <ul>
-                            <li><i class="fas fa-times"></i> Extra Kids will be charged beyond 15 kids</li>
-                            <li><i class="fas fa-times"></i> Lunch and Dinner is chargeable based on the requirement</li>
-                            <li><i class="fas fa-times"></i> Extra Snacks will be charged.</li>
-                            <li><i class="fas fa-times"></i> Customised Decoration will be charged extra.</li>
-                            <li><i class="fas fa-times"></i> Full block of the venue will be charged accordingly</li>
-                        </ul>
-                    </div>
-                    <div class="package-button-container text-center">
-                        <a href="#registration" class="book-now-btn">Book Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-
-    <style>
-        
-    </style>
-
-
-
-                <!-- Additional Info Section -->
+      <!-- Additional Info Section -->
                 <div class="row mt-5">
                     <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.7s">
                         <div class="bg-light rounded p-5">
@@ -981,14 +938,13 @@
                 </div>
             </div>
         </div>
-        <!-- Birthday Packages End -->
 
         <!-- Decoration Options Section -->
         <section class="decoration-section py-5">
             <div class="container">
                 <div class="heading_container heading_center mb-5">
                     <h2 style="color: black;">🎉 Decoration Options</h2>
-                    <p style="color: black;">Choose from our beautiful decoration themes to make your event truly magical!</p>
+                    <p>Choose from our beautiful decoration themes to make your event truly magical!</p>
                 </div>
 
                 <div class="row">
@@ -1002,7 +958,7 @@
                                     <li>✨ Backdrop Stand</li>
                                     <li>🌸 Simple Table Setup</li>
                                 </ul>
-                                <p class="price-tag">₹3,799/-</p>
+                                <p class="price-tag">₹2,999/-</p>
                             </div>
                         </div>
                     </div>
@@ -1052,7 +1008,7 @@
         <div class="container">
             <div class="heading_container heading_center mb-5 wow fadeInUp" data-wow-delay="0.1s">
                 <h2 style="color: black;">📋 Rules & Regulations</h2>
-                <p style="color: black;">Please review our policies to ensure a smooth and enjoyable celebration for everyone</p>
+                <p>Please review our policies to ensure a smooth and enjoyable celebration for everyone</p>
             </div>
 
             <div class="row justify-content-center">
@@ -1533,7 +1489,6 @@
         position: relative;
     }
 </style>
-
 
     <style>
         :root {
@@ -2371,89 +2326,88 @@
                 </div>
 
              
+<!-- Customization Form -->
+<div class="customization-form" id="customizationForm">
+  <h3 class="form-title">Customize Your Package</h3>
+  
+  <!-- Web3Forms Integration -->
+  <form action="https://api.web3forms.com/submit" method="POST">
+    
+    <!-- 🔑 Your Web3Forms Access Key -->
+    <input type="hidden" name="access_key" value="8605b1bd-ef7b-482d-99af-68cc08caa680">
 
-                <!-- Customization Form -->
-                <div class="customization-form" id="customizationForm">
-                    <h3 class="form-title">Customize Your Package</h3>
-                    <form>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label">Your Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter your name">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label">Phone Number</label>
-                                    <input type="tel" class="form-control" placeholder="Enter your phone number">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">Select Menu Option</label>
-                            <select class="form-control">
-                                <option>Option 1 - ₹120/-</option>
-                                <option>Option 2 - ₹140/-</option>
-                                <option>Option 3 - ₹120/-</option>
-                                <option>Option 4 - ₹130/-</option>
-                                <option>Option 5 - ₹140/-</option>
-                                <option>Option 6 - ₹115/-</option>
-                                <option>Option 7 - ₹130/-</option>
-                                <option>Option 8 - ₹150/-</option>
-                                <option>Option 9 - ₹160/-</option>
-                                <option>Option 10 - ₹170/-</option>
-                                <option>Option 11- ₹200/-</option>
-                                <option>Option 12 - ₹150/-</option>
-                                <option>Option 13 - ₹130/-</option>
-                                <option>Option 14 - ₹150/-</option>
-                                <option>Option 15 - ₹160/-</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">Add-ons</label>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="juiceCheck">
-                                        <label class="form-check-label" for="juiceCheck">
-                                            TETRA PACK JUICE
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="laysCheck">
-                                        <label class="form-check-label" for="laysCheck">
-                                            LAYS PACKET
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="kurkureCheck">
-                                        <label class="form-check-label" for="kurkureCheck">
-                                            KURKURE PACKET
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="namkeenCheck">
-                                        <label class="form-check-label" for="namkeenCheck">
-                                            NAMKEEN PACKETS
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">Special Instructions</label>
-                            <textarea class="form-control" rows="3" placeholder="Any special requests or dietary restrictions"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="submit-form-btn">Submit Order</button>
-                    </form>
-                </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input type="text" class="form-control" name="name" placeholder="Enter your name" required>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input type="tel" class="form-control" name="phone" placeholder="Enter your phone number" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Select Menu Option</label>
+      <select class="form-control" name="menu_option" required>
+        <option value="">Select an option</option>
+        <option>Option 1 - ₹120/-</option>
+        <option>Option 2 - ₹140/-</option>
+        <option>Option 3 - ₹120/-</option>
+        <option>Option 4 - ₹130/-</option>
+        <option>Option 5 - ₹140/-</option>
+        <option>Option 6 - ₹115/-</option>
+        <option>Option 7 - ₹130/-</option>
+        <option>Option 8 - ₹150/-</option>
+        <option>Option 9 - ₹160/-</option>
+        <option>Option 10 - ₹170/-</option>
+        <option>Option 11 - ₹200/-</option>
+        <option>Option 12 - ₹150/-</option>
+        <option>Option 13 - ₹130/-</option>
+        <option>Option 14 - ₹150/-</option>
+        <option>Option 15 - ₹160/-</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Add-ons</label>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="addons[]" value="Tetra Pack Juice" id="juiceCheck">
+            <label class="form-check-label" for="juiceCheck">TETRA PACK JUICE</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="addons[]" value="Lays Packet" id="laysCheck">
+            <label class="form-check-label" for="laysCheck">LAYS PACKET</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="addons[]" value="Kurkure Packet" id="kurkureCheck">
+            <label class="form-check-label" for="kurkureCheck">KURKURE PACKET</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="addons[]" value="Namkeen Packets" id="namkeenCheck">
+            <label class="form-check-label" for="namkeenCheck">NAMKEEN PACKETS</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Special Instructions</label>
+      <textarea class="form-control" name="instructions" rows="3" placeholder="Any special requests or dietary restrictions"></textarea>
+    </div>
+
+    <button type="submit" class="submit-form-btn">Submit Order</button>
+  </form>
+</div>
+
 
                 <div class="text-center mt-4">
                     <button class="custom-btn" id="showFormBtn">
@@ -2463,8 +2417,7 @@
             </div>
         </div>
     </section>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Animation for menu cards
         document.addEventListener('DOMContentLoaded', function() {
@@ -2577,8 +2530,56 @@
         });
     </script>
 
+<script>
+    // Additional animation for catering cards
+    document.addEventListener('DOMContentLoaded', function() {
+        const cateringCards = document.querySelectorAll('.catering-card');
+        
+        cateringCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px)';
+                this.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.2)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                if (!this.classList.contains('featured')) {
+                    this.style.transform = 'translateY(0)';
+                } else {
+                    this.style.transform = 'scale(1.05)';
+                }
+                this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.1)';
+            });
+        });
+        
+        // Add animation to option items on scroll
+        const optionItems = document.querySelectorAll('.option-item');
+        
+        function animateOptions() {
+            optionItems.forEach(item => {
+                const position = item.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if(position < screenPosition) {
+                    item.style.opacity = 1;
+                    item.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Set initial state
+        optionItems.forEach(item => {
+            item.style.opacity = 0;
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'all 0.5s ease';
+        });
+        
+        window.addEventListener('scroll', animateOptions);
+        // Initial check
+        animateOptions();
+    });
+</script>
 
-            <!-- Additional Catering Options -->
+  <!-- Additional Catering Options -->
             <div class="row mt-5">
                 <div class="col-12">
                     <div class="additional-options wow fadeInUp" data-wow-delay="0.8s">
@@ -2895,7 +2896,6 @@
         animation: foodFloat 4s ease-in-out infinite;
     }
 </style>
-
 <script>
     // Additional animation for catering cards
     document.addEventListener('DOMContentLoaded', function() {
@@ -2944,11 +2944,9 @@
         animateOptions();
     });
 </script>
-
-
-    <style>
+ <style>
        
-        .menu-card {
+        .menu-cards {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 30px;
@@ -3080,7 +3078,7 @@
             margin-bottom: 8px;
             font-weight: bold;
         }
-
+/* 
         input {
             width: 100%;
             padding: 12px;
@@ -3090,7 +3088,7 @@
             text-align: center;
             max-width: 200px;
             transition: border-color 0.3s;
-        }
+        } */
 
         input:focus {
             border-color: #ff6b6b;
@@ -3117,7 +3115,7 @@
             text-align: center;
         }
 
-        .animation-container {
+        .animation-container1 {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -3147,10 +3145,10 @@
         }
     </style>
 
-    <div class="animation-container" id="animation-container"></div>
+    <div class="animation-container1" id="animation-container1"></div>
     
     <div class="container">
-        <div class="menu-card">
+        <div class="menu-cards">
             <header>
                 <h1>Delicious Snacks Menu</h1>
                 <p class="subtitle">Choose from our variety of vegetarian and non-vegetarian options</p>
@@ -3269,6 +3267,8 @@
     </script>
 
 
+
+
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
@@ -3287,9 +3287,9 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h3 class="text-white mb-4">Quick Links</h3>
-                       <a class="btn btn-link text-white-50" href="./about.html">About Us</a>
-                        <a class="btn btn-link text-white-50" href="./contact.html">Contact Us</a>
-                        <!-- <a class="btn btn-link text-white-50" href="">Our Services</a> -->
+                        <a class="btn btn-link text-white-50" href="">About Us</a>
+                        <a class="btn btn-link text-white-50" href="">Contact Us</a>
+                        <a class="btn btn-link text-white-50" href="">Our Services</a>
                         <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
                         <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
                     </div>
